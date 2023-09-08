@@ -19,6 +19,10 @@ import qt_states.qt_drague as qt_drague
 import qt_states.qt_oz as qt_oz
 import qt_states.qt_imitation as qt_imitation
 import spectacle.scene_1 as scene_1
+import spectacle.scene_2 as scene_2
+import spectacle.scene_5_6 as scene_5_6
+import spectacle.scene_10 as scene_10
+import spectacle.scene_11_12 as scene_11_12
 
 roslib.load_manifest('theatre')
 
@@ -46,9 +50,12 @@ def get_key(key_timeout):
 class QTPlay:
     def __init__(self):
         self.rate = rospy.Rate(10) # 10hz
+
         self.keyboard_publisher = rospy.Publisher('/keyboard', String, queue_size=10)
         self.state_publisher = rospy.Publisher('/robot_state', String, queue_size=10)
+
         self.gesture_subscriber = rospy.Subscriber('/gesture', String, self.gesture_callback)
+        self.human_position = rospy.Subscriber('/human_position', String, self.human_position_callback)
 
         print(sys.version)
 
@@ -67,7 +74,10 @@ class QTPlay:
         #   ]
         # )
         self.states = {}
-        self.add_states(qt_simple.states)
+        # self.add_states(scene_1.qt_states)
+        # self.add_states(scene_2.states)
+        # self.add_states(scene_5_6.qt_states)
+        self.add_states(scene_11_12.states)
         self.state = 'begin'
 
         self.head_publisher = rospy.Publisher(
@@ -124,6 +134,17 @@ class QTPlay:
         for trigger in triggers:
             if trigger[TRIGGER_KEY] == 'gesture':
                 if trigger[TRIGGER_VALUE] == gesture.data:
+                    self.state = trigger[TRIGGER_NEXT_STATE]
+                    print('next_state: ' + self.state)
+                    self.next_state()
+                    break
+
+    def human_position_callback(self, human_position):
+        print('human_position callback: ' + human_position.data)
+        triggers = self.states[self.state][STATE_TRIGGERS]
+        for trigger in triggers:
+            if trigger[TRIGGER_KEY] == 'gesture':
+                if trigger[TRIGGER_VALUE] == human_position.data:
                     self.state = trigger[TRIGGER_NEXT_STATE]
                     print('next_state: ' + self.state)
                     self.next_state()
