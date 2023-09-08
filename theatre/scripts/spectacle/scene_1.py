@@ -1,22 +1,20 @@
 ######################################################## SCENE 1 #######################################################
 
-# QT -> DIALOGUE, HEAD, ARMS
-# NAO -> DIALOGUE, ?
-
 # SCÈNE 1 : Arrivée de NAO et QTRobot : Ils expliquent leurs habiletés et leurs caractéristiques
 # [scène écrite par chatGPT]
 
-# QTRobot : Salut Nao comment vas-tu ?
-# NAO : Salut QT, je vais bien. Et toi ?
-# QTRobot: Je suis opérationnel. Sais-tu ce que je peux faire ?
-# NAO: Non, dis-moi.
-# QTRobot: Je suis souvent utilisé dans des études sur l'autisme. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles.
-# NAO: C'est intéressant ! Moi, je suis polyvalent. Je peux marcher, parler et même danser. Je suis souvent utilisé dans l'éducation et la recherche.
-# QTRobot: C'est cool ! As-tu des capteurs ?
-# NAO: Oui, j'ai des capteurs tactiles, sonores et une caméra. Et toi ?
-# QTRobot: J'ai une tablette intégrée et une caméra. Je suis conçu pour être facilement programmable.
-# NAO: Cela semble très utile. On fait une belle équipe, non ?
-# QTRobot: Absolument, nous pouvons accomplir beaucoup ensemble !
+# QTrobot: Salut NAO, comment vas-tu ?
+# NAO: Salut QTrobot, je vais bien. Et toi ?
+# QTrobot: Je suis en partie opérationnel. Parfois, je bloque si je bouge trop et je dois être redémarré. Sais-tu ce que je peux faire ?
+# NAO: Non, dis-moi. 
+# QTrobot: Je suis souvent utilisé dans des études sur l'autisme. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement programmable, mais comme je t'ai dit, je peux être un peu instable. Et toi ?
+# NAO: C'est intéressant ! Moi, je suis plutôt polyvalent. Je peux marcher, parler et même danser. Je suis souvent utilisé dans l'éducation et la recherche. J'ai été à l'origine conçu pour jouer au football.
+# QTrobot: Ah, c'est pour ça que tu es si polyvalent ! As-tu des capteurs ?
+# NAO: Oui, j'ai un contrôle inertiel avec accéléromètre et gyromètre, deux sonars, un capteur infrarouge, des capteurs de force sous les pieds, des interrupteurs, des touches capacitives, des capteurs embarqués dans la batterie, deux caméras et quatre microphones. Et toi ?
+# QTrobot: C'est impressionnant ! Je dispose d'une tablette intégrée, d'une caméra et d'un microphone. Je suis également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d'ordinateurs as-tu ?
+# NAO: Cela semble très utile. J'ai un processeur ARM à bord qui gère toutes mes fonctions. On a chacun nos forces et nos faiblesses. On fait une belle équipe, non ?
+# QTrobot: Absolument, nous pouvons accomplir beaucoup ensemble, malgré nos petits défauts !
+
 
 ####################################################### AUTOMATIC (OLD) ################################################
 
@@ -26,70 +24,70 @@
 # qt_times = [3, 6, 11, 4, 9, 5]
 # nao_times = [4, 3, 10, 5, 5]
 
-########################################################## NOTES #######################################################
+########################################################## NOTE #######################################################
 
 # Used to be automatic but is now WOZ
-# Update dialogue with ChatGPT
-# Add emotions / movement
+# QT -> DIALOGUE, HEAD, ARMS
+# NAO -> DIALOGUE, ?
 
 qt_states = {
-    'qt_1': ( # 3s
+    'qt_1_salut': ( # 3s
         {
-            's': 'Salut Nao comment vas-tu ?'
+            's': 'Salut Nao comment vas-tu ?',
+            'e': 'QT/happy'
         },
         [
-            #('time', qt_times[0] + nao_times[0], 'qt_2')
-            ('time', 1, 'choice')
+            ('time', 0.1, 'choice')
         ]
     ),
 
-    'qt_2': ( # 6s
+    'qt_2_operationnel': (
         {
-            's': 'Je suis opérationnel. Sais-tu ce que je peux faire ?' # il a des bug, le bras
+            's': 'Je suis en partie opérationnel. Parfois, je bloque si je bouge trop et je dois être redémarré. Sais-tu ce que je peux faire ?',
+            'e': 'QT/talking'
         },
         [
-            #('time', qt_times[1] + nao_times[1], 'qt_3')
-            ('time', 1, 'choice')
+            ('time', 0.1, 'choice')
         ]
     ),
 
-    'qt_3': ( # 11s
+    'qt_3_autisme': (
         {
-            's': 'Je suis souvent utilisé dans des études sur l\'autisme. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles.?'
+            's': 'Je suis souvent utilisé dans des études sur l\'autisme. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement programmable, mais comme je t\'ai dit, je peux être un peu instable. Et toi ?',
+            'e': 'QT/talking'
         },
         [
-            #('time', qt_times[2] + nao_times[2], 'qt_4')
-            ('time', 1, 'choice')
+            ('time', 0.1, 'choice')
         ]
     ),
 
-    'qt_4': ( # 4s
+    'qt_4_polyvalent': (
         {
-            's': 'C\'est cool ! As-tu des capteurs ?'
+            's': 'Ah, c\'est pour ça que tu es si polyvalent ! As-tu des capteurs ?',
+            'e': 'QT/happy'
         },
         [
-            #('time', qt_times[3] + nao_times[3], 'qt_5')
-            ('time', 1, 'choice')
+            ('time', 0.1, 'choice')
         ]
     ),
 
-    'qt_5': ( # 9s
+    'qt_5_impressionnant': (
         {
-            's': 'J\'ai une tablette intégrée et une caméra. Je suis conçu pour être facilement programmable.'
+            's': 'C\'est impressionnant ! Je dispose d\'une tablette intégrée, d\'une caméra et d\'un microphone. Je suis également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d\'ordinateurs as-tu ?',
+            'e': 'QT/talking'
         },
         [
-            #('time', qt_times[4] + nao_times[4], 'qt_6')
-            ('time', 1, 'choice')
+            ('time', 0.1, 'choice')
         ]
     ),
 
-    'qt_6': ( #5s
+    'qt_6_absolument': (
         {
-            's': 'Absolument, nous pouvons accomplir beaucoup ensemble !'
+            's': 'Absolument, nous pouvons accomplir beaucoup ensemble, malgré nos petits défauts !',
+            'e': 'QT/happy'
         },
         [
-            #('time', qt_times[5], 'choice')
-            ('time', 1, 'choice')
+            ('time', 0.1, 'choice')
         ]
     ),
 
@@ -99,16 +97,43 @@ qt_states = {
     'choice': (
         {'g': '', 's': '' },
         [
-            ('key', '&', 'qt_1'),
-            ('key', 'é', 'qt_2'),
-            ('key', '"', 'qt_3'),
-            ('key', "'", 'qt_4'),
-            ('key', '(', 'qt_5'),
-            ('key', '-', 'qt_6'),
-            ('key', 'e', 'end'),
+            # Dialogue
+            ('key', '&', 'qt_1_salut'),
+            ('key', 'é', 'qt_2_operationnel'),
+            ('key', '"', 'qt_3_autisme'),
+            ('key', "'", 'qt_4_polyvalent'),
+            ('key', '(', 'qt_5_impressionnant'),
+            ('key', '-', 'qt_6_absolument'),
+
+            # Head
+            ('key', 'z', 'look_up'),
+            ('key', 's', 'look_center'),
+            ('key', 'x', 'look_down'),
+            ('key', 'e', 'look_up_right'),
+            ('key', 'q', 'look_left'),
+            ('key', 'd', 'look_right'),
+            ('key', 'a', 'look_up_left'),
+            ('key', 'w', 'look_down_left'),
+            ('key', 'c', 'look_down_right'),
+
+            ('key', '*', 'end'),
+
+            # QT emotions
+            ('key', 'r', 'cry'),
+            ('key', 't', 'talking'),
+            ('key', 'y', 'angry'),
+            ('key', 'o', 'yawn'),
+            ('key', 'p', 'surprise'),
+            ('key', 'f', 'afraid'),
+            ('key', 'g', 'disgusted'),
+            ('key', 'h', 'happy'),
+            ('key', 'j', 'shy'),
+            ('key', 'k', 'kiss'),
+            ('key', 'b', 'blowing_raspberry'),
         ]
     ),
 
+    # QT Look
     'look_up': ( {'s': '', 'h': [0.0,-20.0]}, [('time', 0.1, 'choice')]),
     'look_center': ( {'s': '', 'h': [0.0,0.0]}, [('time', 0.1, 'choice')]),
     'look_down': ( {'s': '', 'h': [0.0,+10.0]}, [('time', 0.1, 'choice')]),
@@ -118,10 +143,24 @@ qt_states = {
     'look_up_left': ( {'s': '', 'h': [+20.0,-20.0]}, [('time', 0.1, 'choice')]),
     'look_down_right': ( {'s': '', 'h': [-10.0,+10.0]}, [('time', 0.1, 'choice')]),
     'look_down_left': ( {'s': '', 'h': [+10.0,+10.0]}, [('time', 0.1, 'choice')]),
+
+    # QT emotions
+    'happy' : ( {'e':'QT/happy','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'kiss' : ( {'e':'QT/kiss','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'cry' : ( {'e':'QT/cry','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'afraid' : ( {'e':'QT/afraid','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'talking' : ( {'e':'QT/talking','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'angry' : ( {'e':'QT/angry','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'blowing_raspberry' : ( {'e':'QT/blowing_raspberry','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'one_eye_wink' : ( {'e':'QT/one_eye_wink','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'shy' : ( {'e':'QT/shy','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'surprise' : ( {'e':'QT/surprise','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'disgusted' : ( {'e':'QT/disgusted','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'yawn' : ( {'e':'QT/yawn','g': '', 's': ''}, [('time', 1, 'choice')]),
 }
 
 nao_states = {
-    'nao_1': ( # 4s
+    'nao_1_salut': ( # 4s
         {
             's': 'Salut QT, je vais bien. Et toi ?'
         },
@@ -130,7 +169,7 @@ nao_states = {
         ]
     ),
 
-    'nao_2': ( # 3s
+    'nao_2_non': ( # 3s
         {
             's': 'Non, dis-moi.'
         },
@@ -139,27 +178,27 @@ nao_states = {
         ]
     ),
     
-    'nao_3': ( # 10s
+    'nao_3_polyvalent': (
         {
-            's': 'C\'est intéressant ! Moi, je suis polyvalent. Je peux marcher, parler et même danser. Je suis souvent utilisé dans l\'éducation et la recherche.' # cree pour football
+            's': 'C\'est intéressant ! Moi, je suis plutôt polyvalent. Je peux marcher, parler et même danser. Je suis souvent utilisé dans l\'éducation et la recherche. J\'ai été à l\'origine conçu pour jouer au football.'
         },
         [
             ('time', 1, 'choice')
         ]
     ),
 
-    'nao_4': ( # 5s
+    'nao_4_capteurs': (
         {
-            's': 'Oui, j\'ai des capteurs tactiles, sonores et une caméra. Et toi ?' # tactiles ?
+            's': 'Oui, j\'ai un contrôle inertiel avec accéléromètre et gyromètre, deux sonars, un capteur infrarouge, des capteurs de force sous les pieds, des interrupteurs, des touches capacitives, des capteurs embarqués dans la batterie, deux caméras et quatre microphones. Et toi ?'
         },
         [
             ('time', 1, 'choice')
         ]
     ),
 
-    'nao_5': ( # 5s
+    'nao_5_equipe': ( # 5s
         {
-            's': 'Cela semble très utile. On fait une belle équipe, non ?'
+            's': 'Cela semble très utile. J\'ai un processeur ARM à bord qui gère toutes mes fonctions. On a chacun nos forces et nos faiblesses. On fait une belle équipe, non ?'
         },
         [
             ('time', 1, 'choice')
@@ -173,11 +212,11 @@ nao_states = {
         {'g': '', 's': '' },
         [
             # Dialogue
-            ('key', '&', 'nao_1'),
-            ('key', 'é', 'nao_2'),
-            ('key', '"', 'nao_3'),
-            ('key', "'", 'nao_4'),
-            ('key', '(', 'nao_5'),
+            ('key', '&', 'nao_1_salut'),
+            ('key', 'é', 'nao_2_non'),
+            ('key', '"', 'nao_3_polyvalent'),
+            ('key', "'", 'nao_4_capteurs'),
+            ('key', '(', 'nao_5_equipe'),
 
             # Robot control
             ('key', 'z', 'look_up'),
@@ -197,6 +236,8 @@ nao_states = {
             ('key', '6', 'strife_right'),
             ('key', '7', 'rotate_left'),
             ('key', '9', 'rotate_right'),
+
+            # TODO other motions ? arms ?
 
             # Control
             ('key', '*', 'end'),
