@@ -73,16 +73,6 @@ states = {
             ('time', 1, 'choice')
         ]
     ),
-    'r_batterie_2': (
-        {
-            'g': '',
-            's': '' # TODO : plus vite
-        },
-        [
-            ('time', 1, 'choice')
-        ]
-    ),
-
     
     # AGENT :  Oh non, tu ne vas pas recommencer avec ça, nous l’avons changée
     # la semaine dernière… 
@@ -422,24 +412,24 @@ states = {
             ('key', 'r', 'r_je_2'),
             ('key', 't', 'r_oublie'),
             ('key', 'y', 'r_retour'),
-            ('key', 'f', 'r_metteuse'),
-            ('key', 'g', 'r_harcelement'),
-            ('key', 'h', 'r_harcelement_2'),
-            ('key', 'u', 'r_harcelement_3'),
-            ('key', 'i', 'r_harcelement_4'),
-            ('key', 'o', 'r_harcelement_5'),
-            ('key', 'p', 'pointer'),
+            ('key', 'u', 'r_metteuse'),
+            ('key', 'i', 'r_harcelement'),
+            ('key', 'o', 'r_harcelement_2'),
+            ('key', 'p', 'r_harcelement_3'),
+            ('key', 'f', 'r_harcelement_4'),
+            ('key', 'g', 'r_harcelement_5'),
+            ('key', 'P', 'pointer'),
 
             ('key', ';', 'progressiveD'),
             ('key', ',', 'progressiveG'),
             ('key', '!', 'degressiveD'),
             ('key', ':', 'degressiveG'),
 
-            # ('key', '&', 'sad'),
-            # ('key', 'é', 'fear'),
-            # ('key', '\"', 'confused'),
+            ('key', 'S', 'sad'),
+            ('key', 'F', 'fear'),
+            ('key', 'C', 'confused'),
 
-            ('key', 'm', 'neutral'),
+            ('key', 'N', 'neutral'),
             
         ]
     ),
