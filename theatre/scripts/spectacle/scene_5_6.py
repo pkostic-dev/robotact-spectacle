@@ -22,10 +22,10 @@
 
 ######################################################### NOTES ########################################################
 
-# TODO : add scene 6 behavior and triggers
+# TODO : add scene 6 behavior and triggers, ask Anis if has PC with Ubuntu and ROS
 
 qt_states = {
-    'qt_1': ( # 3s
+    'qt_1_reste': ( # 3s
         {
             's': 'Où vas-tu ? Reste. J’ai envie que nous jouions ensemble. Mais je sens bien qu’il y a un problème de communication. Nao, Nao, viens !'
         },
@@ -34,9 +34,18 @@ qt_states = {
         ]
     ),
 
-    'qt_2': ( # 6s
+    'qt_2_comediens': ( # 6s
         {
             's': 'Est-ce que tu as réussi à t’entendre avec les comédiens ?'
+        },
+        [
+            ('time', 1, 'choice')
+        ]
+    ),
+
+    'qt_3_grands': (
+        {
+            's': 'Oui, c’est vrai. Par contre,  ils sont si grands par rapport à nous ! '
         },
         [
             ('time', 1, 'choice')
@@ -49,9 +58,10 @@ qt_states = {
     'choice': (
         {'g': '', 's': '' },
         [
-            # Dialogue
-            ('key', '&', 'qt_1'),
-            ('key', 'é', 'qt_2'),
+            # Dialogue fin de scene
+            ('key', '&', 'qt_1_reste'),
+            ('key', 'é', 'qt_2_comediens'),
+            ('key', '"', 'qt_3_grands'),
 
             # Head
             ('key', 'z', 'look_up'),
@@ -66,9 +76,25 @@ qt_states = {
             
             # Control
             ('key', '*', 'end'),
+
+            # Emotions
+            # TODO Test
+            ('key', 'r', 'cry'),
+            ('key', 'f', 'afraid'),
+            ('key', 'y', 'happy'),
+            ('key', 'k', 'kiss'),
+            ('key', 'g', 'disgusted'),
+
+            # Arms
+            # TODO Test
+            ('key', 'i', 'hi'),
+            ('key', 'h', 'hands-up'),
+            ('key', 'H', 'hands-on-head'),
+            ('key', 'n', 'neutral'),
         ]
     ),
 
+    # Head
     'look_up': ( {'s': '', 'h': [0.0,-20.0]}, [('time', 0.1, 'choice')]),
     'look_center': ( {'s': '', 'h': [0.0,0.0]}, [('time', 0.1, 'choice')]),
     'look_down': ( {'s': '', 'h': [0.0,+10.0]}, [('time', 0.1, 'choice')]),
@@ -78,10 +104,23 @@ qt_states = {
     'look_up_left': ( {'s': '', 'h': [+20.0,-20.0]}, [('time', 0.1, 'choice')]),
     'look_down_right': ( {'s': '', 'h': [-10.0,+10.0]}, [('time', 0.1, 'choice')]),
     'look_down_left': ( {'s': '', 'h': [+10.0,+10.0]}, [('time', 0.1, 'choice')]),
+
+    # Emotions
+    'happy' : ( {'e':'QT/happy','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'kiss' : ( {'e':'QT/kiss','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'cry' : ( {'e':'QT/cry','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'afraid' : ( {'e':'QT/afraid','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'disgusted' : ( {'e':'QT/disgusted','g': '', 's': ''}, [('time', 1, 'choice')]),
+
+    # Gestures
+    'hi' : ( {'e':'','g': 'QT/hi', 's': ''}, [('time', 1, 'choice')]),
+    'hands-up' : ( {'e':'','g': 'QT/imitation/hands-up', 's': ''}, [('time', 1, 'choice')]),
+    'hands-on-head' : ( {'e':'','g': 'QT/imitation/hands-on-head', 's': ''}, [('time', 1, 'choice')]),
+    'neutral' : ( {'e':'','g': 'QT/neutral', 's': ''}, [('time', 1, 'choice')]),
 }
 
 nao_states = {
-    'nao_1': ( # 4s
+    'nao_1_oui': ( # 4s
         {
             's': ' Oui QT, je suis là !'
         },
@@ -90,9 +129,18 @@ nao_states = {
         ]
     ),
 
-    'nao_2': ( # 3s
+    'nao_2_masques': (
         {
-            's': 'Mmmmhhh, je ne suis pas sûr, mais je sens que je suis sur la bonne voie. On y travaille...'
+            's': 'Mmmmhhh, je ne suis pas sûr, mais je sens que nous sommes sur la bonne voie. Quand les acteurs portent des masques, ils deviennent aussi un peu artificiels. Ils nous ressemblent.'
+        },
+        [
+            ('time', 1, 'choice')
+        ]
+    ),
+
+    'nao_3_rapides': (
+        {
+            's': 'Et si rapides, imprévisibles, ce n’est pas simple de les suivre. Nous sommes justement en train de travailler sur cette question maintenant…'
         },
         [
             ('time', 1, 'choice')
@@ -105,10 +153,10 @@ nao_states = {
     'choice': (
         {'g': '', 's': '' },
         [
-            # Dialogue
-            ('key', '&', 'nao_1'),
-            ('key', 'é', 'nao_2'),
-
+            # Dialogue fin de scene
+            ('key', '&', 'nao_1_oui'),
+            ('key', 'é', 'nao_2_masques'),
+            ('key', '"', 'nao_3_rapides'),
 
             # Robot control
             ('key', 'z', 'look_up'),
