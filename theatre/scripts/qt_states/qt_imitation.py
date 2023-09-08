@@ -31,7 +31,7 @@ rostopic pub /qt_robot/left_arm_position/command std_msgs/Float64MultiArray "lay
   data_offset: 0
 data: [LeftShoulderPitch, LeftShoulderRoll, LeftElbowRoll]"
 
-ShoulderPitch : 
+ShoulderPitch : (left)
 negative - internal rotation
 positive - external rotation
 
