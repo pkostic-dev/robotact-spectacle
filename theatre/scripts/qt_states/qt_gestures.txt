@@ -1,0 +1,35 @@
+gestures/luxai_en/
+bored.xml  drink.xml  monkey.xml  neutral.xml  one-arm-up.xml  personal-distance.xml
+
+gestures/luxai_en/QT
+clapping.xml  peekaboo-back.xml  peekaboo.xml  Show-face.xml  touch-head-back.xml  touch-head.xml  train.xml
+
+gestures/QT
+adieu.xml               drink.xml         monkey.xml              sad.xml          swipe_left.xml
+angry.xml               ecrit.xml         neutral.xml             send_kiss.xml    swipe_right.xml
+begin.xml               emotions          no.xml                  Show-face.xml    test.xml
+bored_long.xml          fera_mieux.xml    ohno.xml                show_left.xml    thanks.xml
+bored.xml               grandpa.xml       one-arm-up.xml          show_QT.xml      touch-head-back.xml
+breathing_exercise.xml  handclap.xml      peekaboo-back.xml       show_right.xml   touch-head.xml
+bye-bye.xml             happy.xml         peekaboo.xml            show_tablet.xml  train.xml
+bye.xml                 head_scratch.xml  personal-distance.xml   sneezing.xml     up_left.xml
+challenge.xml           hips.xml          point_front.xml         soleil1.xml      up_right.xml
+clapping.xml            hi.xml            premiere_recontre.xml   so_what.xml      yawn.xml
+come.xml                hug.xml           premiere_rencontre.xml  so.xml           yes.xml
+cry.xml                 imitation         Pretend-play            stretch.xml
+curious.xml             kiss.xml          protect.xml             strong.xml
+Dance                   laugh.xml         rappel.xml              surprise.xml
+
+gestures/univ-paris8-2/
+Bla.xml Test.xml  Tired.xml  very_sad_old.xml  very_sad.xml
+
+gestures/univ-paris8-2/Emotion/
+Angry.xml         Gifle.xml     Headright.xml     Movinghead.xml       Risingheag.xml    Tournetete90.xml
+Dancing.arms.xml  Happy.xml     Killingknife.xml  Returnfaceleft.xml   Tetehaute.xml
+Draw.xml          Headleft.xml  Kill.xml          Returnfaceright.xml  Tournepoigne.xml
+
+gestures/univ-paris8-2/Hackathon/
+Ciao.xml  FullCiao.xml  LeftRigh.xml
+
+gestures/univ-paris8-2/QT/
+soleil1.xml  Soleil.xml

@@ -14,6 +14,9 @@ states = {
             ('key', 'j', 'shy'),
             ('key', 'k', 'kiss'),
             ('key', 'b', 'blowing_raspberry'),
+
+            # Control
+            ('key', '*', 'end'),
         ]
     ),
 
@@ -30,4 +33,8 @@ states = {
     'surprise' : ( {'e':'QT/surprise','g': '', 's': ''}, [('time', 1, 'choice')]),
     'disgusted' : ( {'e':'QT/disgusted','g': '', 's': ''}, [('time', 1, 'choice')]),
     'yawn' : ( {'e':'QT/yawn','g': '', 's': ''}, [('time', 1, 'choice')]),
+
+    # Control
+    'begin': ({}, [('time', 1, 'choice')]),
+    'end': ((), [('time', 0.1, 'end')]),
 }

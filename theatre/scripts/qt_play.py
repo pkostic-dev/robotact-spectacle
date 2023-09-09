@@ -18,6 +18,7 @@ import qt_states.qt_simple as qt_simple
 import qt_states.qt_drague as qt_drague
 import qt_states.qt_oz as qt_oz
 import qt_states.qt_imitation as qt_imitation
+import qt_states.qt_emotions as qt_emotions
 import spectacle.scene_1 as scene_1
 import spectacle.scene_2 as scene_2
 import spectacle.scene_5_6 as scene_5_6
@@ -77,7 +78,8 @@ class QTPlay:
         # self.add_states(scene_1.qt_states)
         # self.add_states(scene_2.states)
         # self.add_states(scene_5_6.qt_states)
-        self.add_states(scene_11_12.states)
+        self.add_states(scene_1.qt_states)
+        # self.add_states(qt_emotions.states)
         self.state = 'begin'
 
         self.head_publisher = rospy.Publisher(

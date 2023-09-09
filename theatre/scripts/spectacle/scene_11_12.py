@@ -9,8 +9,14 @@
 # TODO Update
 # TODO Add spider, pacman
 
+arm_up_left = [-97, -54, -46]
+arm_up_right = [97, -54, -46]
+
+arm_table_left = [0,0,0]
+arm_table_right = [0,0,0]
+
 states = {
-    # ! [P]
+    # ! pacman [P] durée = 14sec
     'pacman': (
         {'s': '', 'e': 'QT/pacman'},[('time', 0.1, 'choice')]
     ),
@@ -47,30 +53,33 @@ states = {
     # ! coupe sa mere
     'w_oui_oui': (
         {'s': 'Oui, oui'},
-        [('time', 2, 'c_cest_juste')]
+        [('time', 2, 's_cest_juste')]
     ),
 
     's_cest_juste': (
         {
             's': 'C\'est juste que',
-            'e': 'QT/puffing_the_chredo_eeks'
-        },[('time', 3, 'c_je_ne_vois')]
+            'e': 'QT/talking'
+        },[('time', 4, 's_je_ne_vois')]
     ),
 
     's_je_ne_vois': (
-        {'s': 'Je ne  vois aucune raison pour aller à l’école'},[('time', 0.1, 'choice')]
+        {
+            's': 'Je ne  vois aucune raison pour aller à l’école',
+            'e': 'QT/disgusted'
+        },[('time', 0.1, 'choice')]
     ),
     
     'w_je_suis': (
         {
             's': 'Je suis connecté à une bibliothèque universelle de données mise  à jour jusqu\'en 2021.',
-            'e': 'QT/talking'
+            'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
 
     'w_qu_est_ce': (
         {
-            's': '#MMM01# Qu’est-ce que tu entends, maman', # TODO test MMM
+            's': '#MMM01# \\pau=500\\Qu’est-ce que tu entends, maman', # TODO test MMM
             'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
@@ -78,11 +87,17 @@ states = {
     # ! bouge la tete avec impatience [a] [e]
 
     'w_on_va_manger': (
-        {'s': 'On va manger ou pas?'},[('time', 0.1, 'choice')]
+        {
+            's': 'On va manger ou pas?',
+            'e': 'QT/talking'
+         },[('time', 0.1, 'choice')]
     ),
     
     'w_quoi': (
-        {'s': 'Quoi!'},[('time', 0.1, 'choice')]
+        {
+            's': 'Quoi!',
+            'e': 'QT/confused'
+        },[('time', 0.1, 'choice')]
     ),
     
     'w_mais_non': (
@@ -95,7 +110,7 @@ states = {
 
     'w_ah_bon': (
         {
-            's': 'Ah bon ?',
+            's': '\\pau=500\\Ah bon ?',
             'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
@@ -111,14 +126,14 @@ states = {
     # ! regarde en haut [z]
 
     'w_ouais_alors': (
-        {'s': 'Ouais alors?'},[('time', 2, 'c_tiens')]
+        {'s': 'Ouais alors?'},[('time', 2, 's_tiens')]
     ),
 
     's_tiens': (
         {
             's': 'Tiens!',
             'ra': [97, -54, -46] # TODO test
-        },[('time', 2, 'c_il_y_a')]
+        },[('time', 2, 's_il_y_a')]
     ),
 
     's_il_y_a': (
@@ -128,35 +143,40 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
     
-    # ! talking [T]
+    # ! regarder le public [s]
     'w_cest_dingue': (
         {
-            's': '\\pau=1000\\C’est dingue ces bêtes-là ! C’est fascinant de regarder les araignées, ils sont si intéressantes',
-            'h': [0.0, 0.0]
+            's': 'C’est dingue ces bêtes-là ! C’est fascinant de regarder les araignées, ils sont si intéressantes',
+            'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
 
     'w_moi_le_rebel': (
         {
-            's': 'Moi ? Le rebel ? Qu’est ce que tu racontes ?'
-        },[('time', 4, 'c_pas_du_tout')]
+            's': 'Moi ? Le rebel ? Qu’est ce que tu racontes ?',
+            'e': 'QT/talking'
+        },[('time', 4, 's_pas_du_tout')]
     ),
 
     's_pas_du_tout': (
         {
             's': 'Pas du tout !',
             'e': 'QT/angry'
-        },[('time', 3, 'c_cest_juste_que')]
+        },[('time', 3, 's_cest_juste_que')]
     ),
 
-    's_pas_du_tout': (
-        {'s': 'C’est juste que j’ai marre de  parler de l’école, les araignées sont beaucoup plus kiffants '},
+    's_cest_juste_que': (
+        {
+            's': 'C’est juste que j’ai marre de  parler de l’école, les araignées sont beaucoup plus kiffants ',
+            'e': 'QT/talkinglong'
+        },
         [('time', 0.1, 'choice')]
     ),
     
     'w_ouais_il': (
         {
-            's': 'Ouais il fait semblant'
+            's': 'Ouais il fait semblant',
+            'e': 'QT/talking'
         },[('time', 0.1, 'choice')]
     ),
 
@@ -168,7 +188,8 @@ states = {
     
     'w_ah_une_autre': (
         {
-            's': 'Ah! Une autre araignée ! Il y en deux'
+            's': 'Ah! Une autre araignée ! Il y en deux',
+            'e': 'QT/talking'
         },[('time', 4, 's_araignee')]
     ),
 
@@ -189,7 +210,10 @@ states = {
     # ! leve la tete [z]
 
     'w_trois_araignees': (
-        {'s': 'Trois araignées ! Une famille comme nous'},[('time', 0.1, 'choice')]
+        {
+            's': 'Trois araignées ! Une famille comme nous',
+            'e': 'QT/talking'
+        },[('time', 0.1, 'choice')]
     ),
 
     # ! regarde les parents
@@ -201,13 +225,14 @@ states = {
     'w_comment_ca': (
         {
             's': 'Comment ça s\'est fait que je ne l\'ai pas en mémoire.. J\'ai toujours été votre seul enfant !',
-            'e': 'QT/talking'
+            'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
 
     'w_attends_jai': (
         {
-            's': 'Attends j\'ai un frère alors?!'
+            's': 'Attends j\'ai un frère alors?!',
+            'e': 'QT/surprise'
         },[('time', 0.1, 'choice')]
     ),
 
@@ -238,13 +263,15 @@ states = {
     
     'w_pourtant_jai': (
         {
-            's': 'Pourtant j’ai le même prénom.'
+            's': 'Pourtant j’ai le même prénom.',
+            'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
 
     'w_maintenant_peut_etre': (
         {
-            's': 'Maintenant peut-être, mais s’il était toujours là? Je serais à la table?'
+            's': 'Maintenant peut-être, mais s’il était toujours là? Je serais à la table?',
+            'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
 
@@ -268,6 +295,7 @@ states = {
     ),
 
     # TODO longue video de pluie
+    # ! pluie [L]
     'pluie': (
         {
             's' : '',
@@ -280,10 +308,10 @@ states = {
 
     # ! eteindre QT
 
-    # TODO check
-    'arm_up': ({'ra': [97, -54, -46],},[('time', 0.1, 'choice')]),
     # TODO test
-    'arm_down': ({'ra': [97, -54, -46],},[('time', 0.1, 'choice')]),
+    'arm_up_right': ({'ra': arm_up_right,},[('time', 0.1, 'choice')]),
+    'arm_table_right': ({'ra': arm_table_right,},[('time', 0.1, 'choice')]),
+    'arms_table' : ({'ra': arm_table_right,'la': arm_table_left},[('time', 0.1, 'choice')]),
 
     'surprise': ({'e': 'QT/surprise',},[('time', 0.1, 'choice')]),
     'disgust': ({'e': 'QT/disgust',},[('time', 0.1, 'choice')]),
@@ -330,6 +358,7 @@ states = {
             ('key', 't', 'w_pourtant_jai'),
             ('key', 'y', 'w_maintenant_peut_etre'),
             ('key', 'u', 'w_laisse_moi'),
+            ('key', 'i', 'w_laisse_moi'),
 
             # Emotions + Videos + Actions
             ('key', 'H', 'happy'),
@@ -338,13 +367,15 @@ states = {
             ('key', 'R', 'angry'),
             ('key', 'T', 'talking'),
             ('key', 'O', 'confused'),
+            # TODO add other emotions for final scene
 
             ('key', 'P', 'pacman'),
             ('key', 'L', 'pluie'),
             
-            ('key', 'b', 'arm_up'),
-            ('key', 'B', 'arm_down'),
-            #('key', 'n', 'neutral'),
+            ('key', 'b', 'arm_up_right'),
+            ('key', 'B', 'arm_down_right'),
+            ('key', 'N', 'arms_table'),
+            ('key', 'n', 'neutral'),
 
             # Head
             ('key', 'z', 'look_up'),
@@ -357,6 +388,8 @@ states = {
             ('key', 'w', 'look_down_left'),
             ('key', 'c', 'look_down_right'),
 
+            ('key', 'Z', 'look_up_short'),
+            ('key', 'X', 'look_down_short'),
             ('key', 'Q', 'look_left_short'),
             ('key', 'D', 'look_right_short'),
 
@@ -380,6 +413,8 @@ states = {
     'look_down_right': ( {'s': '', 'h': [-10.0,+10.0]}, [('time', 0.1, 'choice')]),
     'look_down_left': ( {'s': '', 'h': [+10.0,+10.0]}, [('time', 0.1, 'choice')]),
 
+    'look_up_short': ( {'s': '', 'h': [0.0,-10.0]}, [('time', 0.1, 'choice')]),
+    'look_down_short': ( {'s': '', 'h': [0.0,+5.0]}, [('time', 0.1, 'choice')]),
     'look_right_short': ( {'s': '', 'h': [-10.0,0.0]}, [('time', 0.1, 'choice')]),
     'look_left_short': ( {'s': '', 'h': [+10.0,0.0]}, [('time', 0.1, 'choice')]),
 

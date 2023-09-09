@@ -1,0 +1,20 @@
+SSH
+ssh qtrobot@192.168.100.1
+qtrobot
+
+Volume Control
+low volume
+rosservice call /qt_robot/setting/setVolume "volume: 70"
+
+Emotion durations
+talking : 3s
+talkinglong : 7s
+
+Arms
+no tension
+rosservice call /qt_robot/motors/setControlMode "['right_arm', 'left_arm']" 0
+tension
+rosservice call /qt_robot/motors/setControlMode "['right_arm', 'left_arm']" 1
+
+Web Interface
+192.168.100.1:8080/

@@ -116,6 +116,11 @@ qt_states = {
             ('key', 'w', 'look_down_left'),
             ('key', 'c', 'look_down_right'),
 
+            ('key', 'Z', 'look_up_short'),
+            ('key', 'X', 'look_down_short'),
+            ('key', 'Q', 'look_left_short'),
+            ('key', 'D', 'look_right_short'),
+
             ('key', '*', 'end'),
 
             # QT emotions
@@ -143,6 +148,11 @@ qt_states = {
     'look_up_left': ( {'s': '', 'h': [+20.0,-20.0]}, [('time', 0.1, 'choice')]),
     'look_down_right': ( {'s': '', 'h': [-10.0,+10.0]}, [('time', 0.1, 'choice')]),
     'look_down_left': ( {'s': '', 'h': [+10.0,+10.0]}, [('time', 0.1, 'choice')]),
+
+    'look_up_short': ( {'s': '', 'h': [0.0,-10.0]}, [('time', 0.1, 'choice')]),
+    'look_down_short': ( {'s': '', 'h': [0.0,+5.0]}, [('time', 0.1, 'choice')]),
+    'look_right_short': ( {'s': '', 'h': [-10.0,0.0]}, [('time', 0.1, 'choice')]),
+    'look_left_short': ( {'s': '', 'h': [+10.0,0.0]}, [('time', 0.1, 'choice')]),
 
     # QT emotions
     'happy' : ( {'e':'QT/happy','g': '', 's': ''}, [('time', 1, 'choice')]),
