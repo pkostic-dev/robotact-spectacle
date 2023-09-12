@@ -1,4 +1,4 @@
-##################################################### SCENE 20 ####################################################
+##################################################### SCENE 20 ######################################################
 
 # → SCÈNE 11 : séquence de l’adoption, avec QT Simona et Konstantinos. Le robot joue désormais un rôle, il est devenu un personnage de fiction.  [scène déjà existante, à répéter 1er semaine] + → SCÈNE 12 : séquence de l'araigné,  QT se rebelle et il nous montre son monde intérieur  [scène déjà existante, à répéter 1er semaine]
 
