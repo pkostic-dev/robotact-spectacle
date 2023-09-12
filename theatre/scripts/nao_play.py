@@ -18,7 +18,7 @@ import nao_states.nao_oz as nao_oz
 import nao_states.nao_default as nao_default
 import nao_states.nao_all as nao_all
 import nao_states.nao_choices as nao_choices
-import theatre.scripts.spectacle.scene_5 as scene_5
+import spectacle.scene_14 as scene_14
 
 #nao
 from naoqi_bridge_msgs.msg import JointAnglesWithSpeed
@@ -66,7 +66,9 @@ class NaoPlay:
         #   ]
         # )
         self.states = nao_all.states
-        self.add_states(scene_5.nao_states)
+
+        # Scene 14 Audition
+        self.add_states(scene_14.states)
 
         self.state = 'begin'
 

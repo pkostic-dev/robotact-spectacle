@@ -5,17 +5,12 @@
 → SCÈNE 14 : séquence de l’audition de Nao avec Andrea. A la sortie de Nao, moment plus choral et documentaire sur les difficultés des acteurs à  travailler avec les  robots. Andrea commencent puis les autres acteurs entrent [1er partie scène déjà existante, 2ème partie à travailler en impro. A répéter 1er semaine]
 '''
 
-# Groupe NAO / magicien d’Oz
-
-# Avec : Simona - Malika - Andrea - Simon
-
 # L’audition
 
 # Personnages
 # NAO : robot
 # AGENT (humain·e): acteur/actrice humain.e
 
- 
 # Indication au magicien d’oz : les paroles de l’agent entre parenthèses sont 
 # seulement des ressources pour l’improvisation, il ne faut pas l'atteindre
 # pour déclencher l’action suivante.
@@ -25,16 +20,17 @@
 # TODO add new dialogue for actor
 
 states = {
-    # Nao entre sur scène et marche quelques mètres depuis cour vers jardin.
+    #? Nao entre sur scène et marche quelques mètres depuis cour vers jardin.
     # L’agent arrive et lui court après.
 
     # AGENT : Nao ! Nao ! Nao !
 
-    # Nao s’arrête et se tourne derrière lui vers l’agent.
+    #? Nao s’arrête et se tourne derrière lui vers l’agent.
 
     # AGENT : Je te cherchais ! Tu sais que c’est le grand jour aujourd’hui ! 
 
     # NAO : Yessssss !
+    #? [&](1)
     'r_yes': (
         {
             'g': 'oui',
@@ -48,6 +44,8 @@ states = {
 
     # AGENT : C’est l’occasion de ta vie ! Tout va se jouer aujourd’hui !
 
+    #? [z] leve la tete
+    #? [é](2)
     # NAO  : Tu m’as trouvé une faaaaamme ? J’en étais sûr !
     # (Excitation/il lève la tête/ il fait des mouvements de bras comme lever
     # les bras (YEAH))
@@ -64,6 +62,7 @@ states = {
 
     # AGENT : Mais non…(Mais non Nao, nous en avons déjà parlé, tu es un robot…)
  
+    #? ["](3)
     # NAO: Je sais ! Tu m’as acheté une nouvelle batterie !
     # (Excitation/ mouvement vibration/pliement du corps)
     # (Très vite il répète :)
@@ -71,7 +70,7 @@ states = {
     'r_batterie': (
         {
             'g': 'excited',
-            's': 'Je sais ! Tu m’as acheté une nouvelle batterie !\
+            's': 'Alors je sais ! Tu m’as acheté une nouvelle batterie ! \
                 Une nouvelle batterie ! Une nouvelle batterie!\
                 Une nouvelle batterie !'
         },
@@ -83,6 +82,7 @@ states = {
     # AGENT :  Oh non, tu ne vas pas recommencer avec ça, nous l’avons changée
     # la semaine dernière… 
     
+    #? ['](4)
     # NAO : Alors quoi ?
     'r_alors': (
         {
@@ -93,10 +93,11 @@ states = {
             ('time', 1, 'choice')
         ]
     ),
-
     
     # AGENT  :  C’est ton jour d’audition !
     
+    #? [(](5)
+    #? [c] tete à droite
     # NAO : … (Nao tourne la tête à sa droite, déçu) Ooooo… Non… Tu veux encore
     # me faire faire du théâtre ?
     'r_theatre': (
@@ -113,6 +114,8 @@ states = {
     # AGENT : (L’agent se déplace à gauche autour de Nao) Pour décrocher le rôle
     # de ta vie! (Pendant ce temps, Nao lève la tête)
     
+    #? [-](6)
+    #? [P] pointer
     # NAO : (Nao lève un bras pour désigner l’agent) Tu veux vraiment te faire
     # de l’argent sur mon dos ! Tu n’as pas honte ? (Nao baisse le bras)
     'r_argent': (
@@ -129,6 +132,8 @@ states = {
     
     # AGENT : Mais toi aussi tu seras riche, Nao !
 
+    #? [è](7)
+    #? [N] neutral
     # NAO : Que veux-tu que je fasse de cet argent, je suis un robot, je n’ai
     # pas le droit de dépenser d’argent…
     'r_argent_2': (
@@ -142,9 +147,9 @@ states = {
         ]
     ),
 
-
+    #? [_](8)
     # NAO  : (Nao regarde le public, il pleure - bruit de pleur) -> (Augmenterle
-    #  son et faire durer plus longtemps les pleurs)
+    #        son et faire durer plus longtemps les pleurs)
     'r_cry': (
         {
             'g': 'sad',
@@ -155,23 +160,14 @@ states = {
         ]
     ),
 
-    'r_cry_2': (
-        {
-            'g': '',
-            's': '#CRY02##CRY02#' # NOTE Nao pleure
-        },
-        [
-            ('time', 1, 'choice')
-        ]
-    ),
-
-
     # AGENT : Arrête de faire ta scène !
     
+
     # (Nao lève le bras avec coude plié et reste immobile).
     
+    #? [ç](9)
     # NAO  : (Surprise :) Oh ! Regarde ! Je ne peux pas… (Triste : )
-    # J’ai une vis qui s’est bloquée…  
+    #        J’ai une vis qui s’est bloquée…  
     'r_bloquee': (
         {
             'g': '',
@@ -195,6 +191,7 @@ states = {
     # AGENT  : Arrête de faire semblant. Je te connais… J’ai changé ton huile la
     # semaine dernière.
     
+    #? [à](0)
     # NAO  : Je ! Je ? Je, je, je, (code ralentir) jejeje je ! Jèèèè
     'r_je': (
         {
@@ -209,6 +206,7 @@ states = {
 
     # AGENT : Je, j’ai quoi?? 
 
+    #? [)](°)
     # NAO : J’ai faim !
     'r_faim': (
         {
@@ -223,6 +221,7 @@ states = {
 
     # AGENT:  Tu as mangé 20 minutes d’électricité il y a une heure !
 
+    #? [=](+)
     # NAO : Je suis fatigué !
     'r_fatigue': (
         {
@@ -238,6 +237,7 @@ states = {
     # AGENT:  Tu es resté déconnecté pendant 3 jours ! Exprès pour être en forme
     # aujourd’hui !
 
+    #? [r]
     # NAO  : Je ! Je ? Jèèèè…
     'r_je_2': (
         {
@@ -252,6 +252,7 @@ states = {
 
     # AGENT: J’ai quoi encore !? 
 
+    #? [t]
     # NAO: J’ai oublié le texte !!! (Effrayé)
     'r_oublie': (
         {
@@ -266,6 +267,7 @@ states = {
 
     # AGENT:  Je l’ai sur USB ! (il lui met une clé usb dans le dos)
 
+    #? [y]
     # NAO : OK. Retour au choix initial… Avec qui veux-tu me faire travailler ?
     'r_retour': (
         {
@@ -282,14 +284,15 @@ states = {
     # AGENT: Le grand metteur en scène international que nous connaissons tous
     # (le grand, l’unique, l’exceptionnel…)
     
+    #? [u]
     # NAO: (Nao part de l’autre côté) Je te l’ai déjà dit ! Je ne veux pas
     # travailler avec ce metteur en scène, je veux une metteuse en scène !
     # (Répéter plusieurs fois tandis que Nao s’en va)
     'r_metteuse': (
         {
             'g': '',
-            's': 'Je te l’ai déjà dit ! Je ne veux pas travailler avec ce \
-                metteur en scène, je veux une metteuse en scène !'
+            's': 'Ah, non, Je te l’ai déjà dit ! Je ne veux pas travailler avec un \
+                metteur en scène, je veux uuuuuuuune metteuse en scène !'
         },
         [
             ('time', 1, 'choice')
@@ -300,16 +303,12 @@ states = {
     # AGENT: Arrête de faire ton cirque, c’est moi qui décide…Tu vas faire cette
     #  audition avec ce grand metteur en scène, point barre.
 
+    #? [i]
+    
     # NAO: Tu m'harcèles!!!! Ça c’est de la violence robotique!
-    # (Nao avec un bras pointe l’agent) Tu n’es pas mon maître!!!!
-    # (Nao plie son coude)
-    # Je te rappelle la Déclaration des droits robotiques universels.
-    # Art. 1 Les robots sont fabriqués libres et demeurent libres et égaux en
-    # droit avec les humains
-    # (L’Agent se fige; Nano se tourne pour sortir de scène, en marchant,
-    # il répète: )
-    # Les robots sont fabriqués libres et demeurent libres et égaux en droit
-    # avec les humains.
+    
+    
+   
     # (En vitesse, a capela) Les robots sont fabriqués libres et demeurent
     # libres et égaux en droit avec les humains….avec les humains….
     'r_harcelement': (
@@ -321,26 +320,40 @@ states = {
             ('time', 1, 'choice')
         ]
     ),
+    #? [P] pointer
+    #? [o] 
+    # (Nao avec un bras pointe l’agent) Tu n’es pas mon maître!!!!
     'r_harcelement_2': (
         {
             'g': '',
-            's': 'Tu n’es pas mon maître!!!!'
+            's': 'Ça c’est de la violence robotique ! Tu n’es pas mon maître !!!'
         },
         [
             ('time', 1, 'choice')
         ]
     ),
+    #? [p]
+    # (Nao plie son coude)
+    # Je te rappelle la Déclaration des droits robotiques universels.
+    # Art. 1 Les robots sont fabriqués libres et demeurent libres et égaux en
+    # droit avec les humains
     'r_harcelement_3': (
         {
             'g': '',
             's': 'Je te rappelle la Déclaration des droits robotiques\
-                  universels. Art. 1 Les robots sont fabriqués libres et\
+                  universels. Article un : Les robots sont fabriqués libres et\
                       demeurent libres et égaux en droit avec les humains'
         },
         [
             ('time', 1, 'choice')
         ]
     ),
+    #? [7] or [9] to rotate
+    #? [f]
+     # (L’Agent se fige; Nano se tourne pour sortir de scène, en marchant,
+    # il répète: )
+    # Les robots sont fabriqués libres et demeurent libres et égaux en droit
+    # avec les humains.
     'r_harcelement_4': (
         {
             'g': '',
@@ -351,6 +364,7 @@ states = {
             ('time', 1, 'choice')
         ]
     ),
+    #? [g]
     'r_harcelement_5': (
         {
             'g': '',
@@ -361,6 +375,7 @@ states = {
             ('time', 1, 'choice')
         ]
     ),
+    #? Nao s'éteint
 
     'pointer': (
         {
@@ -371,9 +386,6 @@ states = {
             ('time', 1, 'choice')
         ]
     ),
-
-    
-    # (Nao s’en va, quitte la scène.)
 
     # Comportements de base
 

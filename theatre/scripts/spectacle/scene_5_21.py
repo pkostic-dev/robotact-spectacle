@@ -2,52 +2,83 @@
 
 # SCÈNE 5 : Scène de ChatGPT
 
+#! [&](1)
 # QTrobot: Salut NAO, comment vas-tu ?
+
+#? [&](1)
 # NAO: Salut QTrobot, je vais bien. Et toi ?
-# QTrobot: Je suis en partie opérationnel. Parfois, je bloque si je bouge trop et je dois être redémarré. Sais-tu ce que je peux faire ?
+
+#! [é](2)
+# QTrobot: Je suis en partie opérationnel. Parfois, je bloque si je bouge trop et je dois être redémarré. Sais-tu ce 
+#          que je peux faire ?
+
+#? [é](2)
 # NAO: Non, dis-moi. 
-# QTrobot: Je suis souvent utilisé dans des études sur l'autisme. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement programmable, mais comme je t'ai dit, je peux être un peu instable. Et toi ?
-# NAO: C'est intéressant ! Moi, je suis plutôt polyvalent. Je peux marcher, parler et même danser. Je suis souvent utilisé dans l'éducation et la recherche. J'ai été à l'origine conçu pour jouer au football.
+
+#! ["](3)
+# QTrobot: Je suis souvent utilisé dans des études sur les déficits du neuro-développement. Je peux interagir de 
+#          manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement 
+#          programmable, mais comme je t'ai dit, je peux être un peu instable. Et toi ?
+
+#? ["](3)
+#! QT [o] yawn
+# NAO: C'est intéressant ! Moi, je suis plutôt polyvalent. Je peux marcher, parler et même danser. Je suis souvent 
+#      utilisé dans l'éducation et la recherche. J'ai été à l'origine conçu pour jouer au football.
+
+#! ['](4)
 # QTrobot: Ah, c'est pour ça que tu es si polyvalent ! As-tu des capteurs ?
-# NAO: Oui, j'ai un contrôle inertiel avec accéléromètre et gyromètre, deux sonars, un capteur infrarouge, des capteurs de force sous les pieds, des interrupteurs, des touches capacitives, des capteurs embarqués dans la batterie, deux caméras et quatre microphones. Et toi ?
-# QTrobot: C'est impressionnant ! Je dispose d'une tablette intégrée, d'une caméra et d'un microphone. Je suis également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d'ordinateurs as-tu ?
-# NAO: Cela semble très utile. J'ai un processeur ARM à bord qui gère toutes mes fonctions. On a chacun nos forces et nos faiblesses. On fait une belle équipe, non ?
+
+#? ['](4)
+#! QT [o] yawn
+# NAO: Oui, j'ai un contrôle inertiel avec accéléromètre et gyromètre, deux sonars, un capteur infrarouge, des capteurs 
+#      de force sous les pieds, des interrupteurs, des touches capacitives, des capteurs embarqués dans la batterie, 
+#      deux caméras et quatre microphones. Et toi ? (les premieres têtes d’acteurs sort des rideaux noir, une file de 
+#      trois têtes va venir se creer puis Andrea aura sa tête toute seule)
+
+#! [(](5)
+# QTrobot: C'est impressionnant ! Je dispose d'une tablette intégrée, d'une caméra et d'un microphone. Je suis 
+#          également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d'ordinateurs as-tu ?
+
+#? [(](5)
+#! QT [p] surprised
+# NAO: Cela semble très utile. Moi, j'ai seulement un processeur ARM qui gère toutes mes fonctions.. On a chacun nos 
+#      forces et nos faiblesses. On fait une belle équipe, non ?
+
+#! [-](6)
 # QTrobot: Absolument, nous pouvons accomplir beaucoup ensemble, malgré nos petits défauts !
 
 
-####################################################### AUTOMATIC (OLD) ################################################
+######################################################## SCENE 21 ######################################################
 
-# Example : qt_1 to qt_2, qt_1 time + nao_1 time
-
-# Times in seconds (float)
-# qt_times = [3, 6, 11, 4, 9, 5]
-# nao_times = [4, 3, 10, 5, 5]
+# Aussi utilisé dans la Scene Photos de famille
+# Ordre des emotions :
+#   Photo 1 #! [k] Kiss
+#   Photo 2 #! [h] Happy
+#   Photo 3 #! [o] Yawn
+#   Photo 4 #!
+#   Photo 5 #!
+#   Photo 6 #!
+#   Photo 7 #!
+#   Photo 8 #! [g] Disgusted
+#   Photo 9 #! Sur scene
+#   Photo 10 #!
+#   Photo 11 #!
 
 ########################################################## NOTE #######################################################
 
 # Used to be automatic but is now WOZ
 # QT -> DIALOGUE, HEAD, ARMS
 # NAO -> DIALOGUE, HEAD, MOVEMENT, ?
-# Aussi utilisé dans la Scene Photos de famille
-# Ordre des emotions :
-#   Photo 1 [k] Kiss
-#   Photo 2 [h] Happy
-#   Photo 3 [o] Yawn
-#   Photo 4 ?
-#   Photo 5
-#   Photo 6
-#   Photo 7
-#   Photo 8 [g] Disgusted
-#   Photo 9 # ! Sur scene
-#   Photo 10 
-#   Photo 11
 
+
+head_to_public = [+20.0,0.0]
 
 qt_states = {
     'qt_1_salut': ( # 3s
         {
             's': 'Salut Nao comment vas-tu ?',
-            'e': 'QT/happy'
+            'e': 'QT/happy',
+            'h': head_to_public
         },
         [
             ('time', 0.1, 'choice')
@@ -57,7 +88,8 @@ qt_states = {
     'qt_2_operationnel': (
         {
             's': 'Je suis en partie opérationnel. Parfois, je bloque si je bouge trop et je dois être redémarré. Sais-tu ce que je peux faire ?',
-            'e': 'QT/talking'
+            'e': 'QT/talkinglong',
+            'h': head_to_public
         },
         [
             ('time', 0.1, 'choice')
@@ -67,7 +99,8 @@ qt_states = {
     'qt_3_autisme': (
         {
             's': 'Je suis souvent utilisé dans des études sur les déficits du neuro-développement. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement programmable, mais comme je t\'ai dit, je peux être un peu instable. Et toi ?',
-            'e': 'QT/talking'
+            'e': 'QT/talkinglong',
+            'h': head_to_public
         },
         [
             ('time', 0.1, 'choice')
@@ -77,7 +110,8 @@ qt_states = {
     'qt_4_polyvalent': (
         {
             's': 'Ah, c\'est pour ça que tu es si polyvalent ! As-tu des capteurs ?',
-            'e': 'QT/happy'
+            'e': 'QT/talkinglong',
+            'h': head_to_public
         },
         [
             ('time', 0.1, 'choice')
@@ -87,7 +121,8 @@ qt_states = {
     'qt_5_impressionnant': (
         {
             's': 'C\'est impressionnant ! Je dispose d\'une tablette intégrée, d\'une caméra et d\'un microphone. Je suis également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d\'ordinateurs as-tu ?',
-            'e': 'QT/talking'
+            'e': 'QT/talkinglong',
+            'h': head_to_public
         },
         [
             ('time', 0.1, 'choice')
@@ -97,7 +132,8 @@ qt_states = {
     'qt_6_absolument': (
         {
             's': 'Absolument, nous pouvons accomplir beaucoup ensemble, malgré nos petits défauts !',
-            'e': 'QT/happy'
+            'e': 'QT/talkinglong',
+            'h': head_to_public
         },
         [
             ('time', 0.1, 'choice')
@@ -107,6 +143,8 @@ qt_states = {
     'qt_retry': (
         {
             's': 'Comme je le disais',
+            'e': 'QT/talking',
+            'h': head_to_public
         },
         [
             ('time', 0.1, 'choice')
@@ -116,6 +154,8 @@ qt_states = {
     'qt_retry_2': (
         {
             's': 'Hé, ne m\'interromps pas s\'il te plaît',
+            'e': 'QT/talkinglong',
+            'h': head_to_public
         },
         [
             ('time', 0.1, 'choice')
@@ -158,6 +198,8 @@ qt_states = {
             ('key', '*', 'end'),
 
             # QT emotions
+            ('key', 'n', 'talking'),
+            ('key', 'N', 'talkinglong'),
             ('key', 'r', 'cry'),
             ('key', 't', 'talking'),
             ('key', 'y', 'angry'),
@@ -169,6 +211,7 @@ qt_states = {
             ('key', 'j', 'shy'),
             ('key', 'k', 'kiss'),
             ('key', 'b', 'blowing_raspberry'),
+
         ]
     ),
 
@@ -201,6 +244,8 @@ qt_states = {
     'surprise' : ( {'e':'QT/surprise','g': '', 's': ''}, [('time', 1, 'choice')]),
     'disgusted' : ( {'e':'QT/disgusted','g': '', 's': ''}, [('time', 1, 'choice')]),
     'yawn' : ( {'e':'QT/yawn','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'talking' : ( {'e':'QT/talking','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'talkinglong' : ( {'e':'QT/talkinglong','g': '', 's': ''}, [('time', 1, 'choice')]),
 }
 
 nao_states = {

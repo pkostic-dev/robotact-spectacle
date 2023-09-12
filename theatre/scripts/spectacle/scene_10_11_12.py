@@ -5,12 +5,27 @@
 
 # SCÈNE 10 : “QT et son ami blanc”  (Léandre + QT)
 
+#! [&](1)
 # QT : Où vas-tu ? Reste. J’ai envie que nous jouions ensemble. Mais je sens bien qu’il y a un problème de 
-#      communication. Nao, Nao, viens ! 
+#      communication. Nao, Nao, viens !
+
+#? [&](1)
 # NAO : Oui QT, je suis là !
-# QT : Est-ce que tu as réussi à t’entendre avec les comédiens ? 
-# NAO : Mmmmhhh, je ne suis pas sûr, mais je sens que je suis sur la bonne voie. On y travaille…
-# NAO rejoint sa position en diagonale cour. Le chœur masqué entre à jardin. 
+
+#! [é](2)
+# QT : Est-ce que tu as réussi à t’entendre avec les comédiens ?
+
+#? [é](2)
+# NAO : Mmmmhhh, je ne suis pas sûr, mais je sens que nous sommes sur la bonne voie. Quand les acteurs portent des 
+#       masques, ils deviennent aussi un peu artificiels. Ils nous ressemblent.
+
+#! ["](3)
+# QT : Oui, c’est vrai. Par contre,  ils sont si grands par rapport à nous !
+
+#? ["](3)
+# NAO : Et si rapides, imprévisibles, ce n’est pas simple de les suivre. Nous sommes justement en train de travailler 
+#       sur cette question maintenant…
+
 
 ######################################################## SCENE 11 ######################################################
 
@@ -18,21 +33,32 @@
 
 # SCÈNE 11 : la séquence de Claire Heggen sur les principes du mouvement : la rencontre du groupe avec NAO. Séquence métaphorique sur la représentation de la relation d'intérêt et méfiance de l’homme par rapport aux robots. [scène déjà existante, à répéter 2ème semaine]
 
+# NOTE Anis s'occupe de cette scene
+
 ######################################################## SCENE 12 ######################################################
+
+# Scène 12 : Les acteurs ces êtres compliqués (NAO + QT + ampoule)
+
+# Une replique de chaque robot :
+#! QT ['](4)
+# puis
+#? Nao ['](4)
 
 ######################################################### NOTE #########################################################
 
-# TODO : add scene 6 behavior and triggers, ask Anis if has PC with Ubuntu and ROS
-
 # Le dialogue entre les robots commence quand l'acteur quitte la scene
 
-# Apres la video de Saeed les robots parlent des acteurs
-# Eteindre QT pendant Ampoule S
+#! Apres la video de Saeed les robots parlent des acteurs
+#! Eteindre QT pendant Ampoule S
+
+head_to_public = [+20.0,0.0]
 
 qt_states = {
     'qt_1_reste': ( # 3s
         {
-            's': 'Où vas-tu ? Reste. J’ai envie que nous jouions ensemble. Mais je sens bien qu’il y a un problème de communication. Nao, Nao, viens !'
+            's': 'Où vas-tu ? Reste. J’ai envie que nous jouions ensemble. Mais je sens bien qu’il y a un problème de communication. Nao, Nao, viens !',
+            'e': 'QT/talkinglong',
+            'h': head_to_public
         },
         [
             ('time', 1, 'choice')
@@ -41,7 +67,9 @@ qt_states = {
 
     'qt_2_comediens': ( # 6s
         {
-            's': 'Est-ce que tu as réussi à t’entendre avec les comédiens ?'
+            's': 'Est-ce que tu as réussi à t’entendre avec les comédiens ?',
+            'e': 'QT/talking',
+            'h': head_to_public
         },
         [
             ('time', 1, 'choice')
@@ -50,7 +78,9 @@ qt_states = {
 
     'qt_3_grands': (
         {
-            's': 'Oui, c’est vrai. Par contre,  ils sont si grands par rapport à nous ! '
+            's': 'Oui, c’est vrai. Par contre,  ils sont si grands par rapport à nous ! ',
+            'e': 'QT/talking',
+            'h': head_to_public
         },
         [
             ('time', 1, 'choice')
@@ -59,7 +89,9 @@ qt_states = {
 
     'qt_acteurs': (
         {
-            's': 'Je vois, vous avez dû apprendre à coordonner vos mouvements, et rythmes. Dommage que je ne puisse pas bouger comme toi.'
+            's': 'Je vois, vous avez dû apprendre à coordonner vos mouvements, et rythmes. Dommage que je ne puisse pas bouger comme toi.',
+            'e': 'QT/talkinglong',
+            'h': head_to_public
         },
         [
             ('time', 1, 'choice')

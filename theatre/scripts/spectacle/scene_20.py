@@ -15,42 +15,54 @@ arm_up_right = [97, -54, -46]
 arm_table_left = [0,0,0]
 arm_table_right = [0,0,0]
 
+look_up = [0.0,-20.0]
+
 states = {
     # ! pacman [P] durée = 14sec
     'pacman': (
         {'s': '', 'e': 'QT/pacman'},[('time', 0.1, 'choice')]
     ),
 
+    # KONSTANTINOS : Arthur, arrête de jouer! On va bientôt manger, maman ne va pas tarder. 
+    # ! [&]
     'w_attends': (
         {'s': 'Attends deux minutes, j’ai presque fini le niveau!'},[('time', 0.1, 'choice')]
     ),
     
+    # KONSTANTINOS : Allez assez de jeux vidéo
     # ! Regarde son pere [q]
 
+    # ! [é]
     'w_mais_papa': (
         {'s': 'Mais papa je n’ai pas trop faim. Je me suis rechargé ce matin'},[('time', 0.1, 'choice')]
     ),
 
     # ! Regarde sa maman quand elle rentre [d]
     # ! Visage content [H]
-
+    # K:  C’est vrai, tu m’as rien dit. Raconte-nous alors ta journée 
+    # ! ["]
     'w_ca_allait': (
         {'s': 'ça allait'},[('time', 0.1, 'choice')]
     ),
 
+    # K : Juste ça? Tu as eu des (QT fait non avec la tête) ennuis ?
     # ! Non avec la tete pendant que son pere parle [Q] [D]
-
+    # ! [']
     'w_non_pas': (
         {'s': 'Non pas du tout'},[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA : Et tes copains ?
     # ! Regarde vers le bas [x]
-
+    # SIMONA:  Ça se passe bien avec les autres….? 
+    # ! [(]
     'w_les_autres': (
         {'s': 'Les autres quoi ?'},[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA: Les autres  enfants, ceux qui sont…
     # ! coupe sa mere
+    # ! [-]
     'w_oui_oui': (
         {'s': 'Oui, oui'},
         [('time', 2, 's_cest_juste')]
@@ -70,6 +82,8 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
     
+    # K : Si tu vas y apprendre beaucoup 
+    # ! [è]
     'w_je_suis': (
         {
             's': 'Je suis connecté à une bibliothèque universelle de données mise  à jour jusqu\'en 2021.',
@@ -77,6 +91,9 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA: On va à l’école pour apprendre à vivre avec les autres aussi, pour apprécier nos différences. Nous sommes 
+    #         tous uniques, toi tu es unique 
+    # ! [_]
     'w_qu_est_ce': (
         {
             's': '#MMM01# \\pau=500\\Qu’est-ce que tu entends, maman', # TODO test MMM
@@ -84,8 +101,9 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
+    # KONSTANTINOS: Par exemple, nous trois on est pas pareils
     # ! bouge la tete avec impatience [a] [e]
-
+    # ! [ç]
     'w_on_va_manger': (
         {
             's': 'On va manger ou pas?',
@@ -93,6 +111,8 @@ states = {
          },[('time', 0.1, 'choice')]
     ),
     
+    # SIMONA : Papa te parle
+    # ! [à]
     'w_quoi': (
         {
             's': 'Quoi!',
@@ -100,14 +120,21 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
     
+    # SIMONA : Est-ce que nous trois nous sommes tous pareils ?
+    # ! [)]
     'w_mais_non': (
         {'s': 'Mais non...'},[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA : Exactement
+    # ! [=]
     'w_vous_etes': (
         {'s': 'Vous êtes papa et maman moi je suis un enfant'},[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA : Non, oui d’accord mais papa veut dire… quand on se regarde dans le miroir on voit qu’on est différents 
+    #          tous les trois
+    # ! [1]
     'w_ah_bon': (
         {
             's': '\\pau=500\\Ah bon ?',
@@ -115,16 +142,24 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA: Oui
+    # ! [2]
     'w_chais_pas': (
         {'s': 'Chais pas'},[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA : Ta main, regarde, la mienne aussi, on se ressemble, mais pas autant. …
     # ! regarde ses mains [w] [c]
     # ! regarde en haut [z]
     # ! pacman [P]
+    # KONSTANTINOS: Arthur, écoute!
     # ! regarde en bas [x]
+    # SIMONA: Tu regardes où ? C’est là-bas! 
+    # ! leve la tete [s]
+
     # ! regarde en haut [z]
 
+    # ! [3]
     'w_ouais_alors': (
         {'s': 'Ouais alors?'},[('time', 2, 's_tiens')]
     ),
@@ -132,7 +167,7 @@ states = {
     's_tiens': (
         {
             's': 'Tiens!',
-            'ra': [97, -54, -46] # TODO test
+            'ra': arm_up_right
         },[('time', 2, 's_il_y_a')]
     ),
 
@@ -143,14 +178,20 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
     
+    # KONSTANTINOS: Arthur ! S’il te plaît !
+
     # ! regarder le public [s]
+    # ! [4]
     'w_cest_dingue': (
         {
             's': 'C’est dingue ces bêtes-là ! C’est fascinant de regarder les araignées, ils sont si intéressantes',
-            'e': 'QT/talkinglong'
+            'e': 'QT/talkinglong',
+            'ra': arm_table_right
         },[('time', 0.1, 'choice')]
     ),
 
+    # KONSTANTINOS: Tu fais ton rebel maintenant
+    # ! [5]
     'w_moi_le_rebel': (
         {
             's': 'Moi ? Le rebel ? Qu’est ce que tu racontes ?',
@@ -172,7 +213,9 @@ states = {
         },
         [('time', 0.1, 'choice')]
     ),
-    
+
+    # SIMONA : Arthur, c’est quoi ce langage ?! Papa se préoccupe de toi
+    # ! [6]
     'w_ouais_il': (
         {
             's': 'Ouais il fait semblant',
@@ -180,16 +223,14 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
-    # ! visage neutre
-    # TODO add trigger, behavior, key
-
     # ! regarde en haut [z]
-    # ! leve le bras [b]
-    
+    # ! [7]
     'w_ah_une_autre': (
         {
             's': 'Ah! Une autre araignée ! Il y en deux',
-            'e': 'QT/talking'
+            'e': 'QT/talking',
+            'ra': arm_up_right,
+            'h': look_up
         },[('time', 4, 's_araignee')]
     ),
 
@@ -200,51 +241,54 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
-    # TODO
-    # ! pendant que la maman parle
-    # ! baisse le bras
+    # SIMONA:  Tu joues à quoi, là?
+    # ! baisse le bras [B]
     # ! baisse la tete [x]
 
-    # ! quand les parents finissent de parler
-    # ! leve le bras [b]
-    # ! leve la tete [z]
-
+    # SIMONA: Mais, non, on l’avait décidé ensemble
+    # ! [8]
     'w_trois_araignees': (
         {
             's': 'Trois araignées ! Une famille comme nous',
-            'e': 'QT/talking'
+            'e': 'QT/talking',
+            'ra': arm_up_right,
+            'h': look_up
         },[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA : Non pas tout à fait..toi, .tu es un enfant ..un enfant robotique…
     # ! regarde les parents
-    # ! son pere parle
+    # KONSTANTINOS: Un enfant robot ! Robot-enfant
     # ! confused [O]
-    # ! les parents parlent
+    # KONSTANTINOS: Avant toi, il y a longtemps, on avait un autre Arthur…je veux dire un autre fils 
     # ! confused [O]
-
+    # ! [9]
     'w_comment_ca': (
         {
             's': 'Comment ça s\'est fait que je ne l\'ai pas en mémoire.. J\'ai toujours été votre seul enfant !',
             'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
-
+    # SIMONA: On  t’a configuré…hemm éduqué comme ça. 
+    # ! [0]
     'w_attends_jai': (
         {
             's': 'Attends j\'ai un frère alors?!',
             'e': 'QT/surprise'
         },[('time', 0.1, 'choice')]
     ),
-
+    # KONSTANTINOS: Non, il n’est plus ici.
+    # ! [°]
     'w_mais_il': (
         {
             's': 'Mais il est où',
             'e': 'QT/talking'
         },[('time', 0.1, 'choice')]
     ),
-
-    # ! regarde sa maman
-
+    # SIMONA:   Il n’est plus avec nous.
+    # ! regarde sa maman [d]
+    # SIMONA: Voilà, c’est comme ça. 
+    # ! [+]
     'w_et_vous': (
         {
             's': 'Et vous ne me l\'aviez jamais dit?',
@@ -252,8 +296,9 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
+    # KONSTANTINOS: Puis on t’a adopté, on a retrouvé du bonheur
     # ! angry [R]
-
+    # ! [r]
     'w_alors_je': (
         {
             's': 'Alors, je suis un remplaçant ?',
@@ -261,6 +306,8 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
     
+    # KONSTANTINOS: Bien sûr que non
+    # ! [t]
     'w_pourtant_jai': (
         {
             's': 'Pourtant j’ai le même prénom.',
@@ -268,6 +315,8 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
+    # KONSTANTINOS: Tu n’es pas lui, tu es toi-même, tu es tout pour nous
+    # ! [y]
     'w_maintenant_peut_etre': (
         {
             's': 'Maintenant peut-être, mais s’il était toujours là? Je serais à la table?',
@@ -275,6 +324,8 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
+    # SIMONA: (Elle lui donne un bisou)
+    # ! [u]
     'w_laisse_moi': (
         {
             's': 'Laisse-moi!',
@@ -282,8 +333,8 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
-    # ! silence incofortable
-
+    # ? silence incofortable
+    # ! [i]
     'w_peut_etre': (
         {
             's' : 'Peut-être\\pau=500\\je retourne jouer.',
@@ -358,7 +409,7 @@ states = {
             ('key', 't', 'w_pourtant_jai'),
             ('key', 'y', 'w_maintenant_peut_etre'),
             ('key', 'u', 'w_laisse_moi'),
-            ('key', 'i', 'w_laisse_moi'),
+            ('key', 'i', 'w_peut_etre'),
 
             # Emotions + Videos + Actions
             ('key', 'H', 'happy'),
@@ -373,7 +424,7 @@ states = {
             ('key', 'L', 'pluie'),
             
             ('key', 'b', 'arm_up_right'),
-            ('key', 'B', 'arm_down_right'),
+            ('key', 'B', 'arm_table_right'),
             ('key', 'N', 'arms_table'),
             ('key', 'n', 'neutral'),
 

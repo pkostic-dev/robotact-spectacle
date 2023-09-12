@@ -19,13 +19,12 @@ import qt_states.qt_drague as qt_drague
 import qt_states.qt_oz as qt_oz
 import qt_states.qt_imitation as qt_imitation
 import qt_states.qt_emotions as qt_emotions
-import spectacle.scene_5 as scene_5
+import spectacle.scene_5_21 as scene_5_21
 import spectacle.scene_6 as scene_6
-import spectacle.scene_10_11_12 as scene_10
+import spectacle.scene_10_11_12 as scene_10_12
 import spectacle.scene_14 as scene_14
 import spectacle.scene_18 as scene_18
 import spectacle.scene_20 as scene_20
-import spectacle.scene_21 as scene_21
 
 roslib.load_manifest('theatre')
 
@@ -77,11 +76,24 @@ class QTPlay:
         #   ]
         # )
         self.states = {}
-        # self.add_states(scene_1.qt_states)
-        # self.add_states(scene_2.states)
-        # self.add_states(scene_5_6.qt_states)
-        self.add_states(scene_10_11.qt_states)
-        # self.add_states(qt_emotions.states)
+
+        # Scene 5 Chat GPT
+        # Scene 21 Photos de famille
+        # self.add_states(scene_5_21.qt_states)
+
+        # Scene 6 Acteurs
+        # self.add_states(scene_6.states)
+
+        # Scene 10 Masque blanc
+        # Scene 12 Court dialogue
+        self.add_states(scene_10_12.qt_states)
+
+        # Scene 18 Autonomie
+        # self.add_states(scene_18.spectacle)
+
+        # Scene 20 Adoption
+        # self.add_states(scene_20.qt_states)
+
         self.state = 'begin'
 
         self.head_publisher = rospy.Publisher(
