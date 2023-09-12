@@ -1,11 +1,9 @@
-######################################################## SCENE 5 #######################################################
+######################################################## SCENE 10 ######################################################
 
 # QT -> DIALOGUE, HEAD, ?
 # NAO -> DIALOGUE, WALK
 
-# SCÈNE 5 : la rencontre d’un masque blanc et de QT : scène sans parole sur l’incapaticé du robot de bouger, reagir, et
-#           agir. La scène se termine avec Léandre qui sort. [1er partie de la scène déjà existante,
-#           à répéter et finaliser la 1er semaine]
+# SCÈNE 10 : “QT et son ami blanc”  (Léandre + QT)
 
 # QT : Où vas-tu ? Reste. J’ai envie que nous jouions ensemble. Mais je sens bien qu’il y a un problème de 
 #      communication. Nao, Nao, viens ! 
@@ -14,15 +12,22 @@
 # NAO : Mmmmhhh, je ne suis pas sûr, mais je sens que je suis sur la bonne voie. On y travaille…
 # NAO rejoint sa position en diagonale cour. Le chœur masqué entre à jardin. 
 
-######################################################## SCENE 6 #######################################################
+######################################################## SCENE 11 ######################################################
 
 # NAO -> HEAD, WALK, CUSTOM
 
-# SCÈNE 6 : la séquence de Claire Heggen sur les principes du mouvement : la rencontre du groupe avec NAO. Séquence métaphorique sur la représentation de la relation d'intérêt et méfiance de l’homme par rapport aux robots. [scène déjà existante, à répéter 2ème semaine]
+# SCÈNE 11 : la séquence de Claire Heggen sur les principes du mouvement : la rencontre du groupe avec NAO. Séquence métaphorique sur la représentation de la relation d'intérêt et méfiance de l’homme par rapport aux robots. [scène déjà existante, à répéter 2ème semaine]
 
-######################################################### NOTES ########################################################
+######################################################## SCENE 12 ######################################################
+
+######################################################### NOTE #########################################################
 
 # TODO : add scene 6 behavior and triggers, ask Anis if has PC with Ubuntu and ROS
+
+# Le dialogue entre les robots commence quand l'acteur quitte la scene
+
+# Apres la video de Saeed les robots parlent des acteurs
+# Eteindre QT pendant Ampoule S
 
 qt_states = {
     'qt_1_reste': ( # 3s
@@ -52,6 +57,15 @@ qt_states = {
         ]
     ),
 
+    'qt_acteurs': (
+        {
+            's': 'Je vois, vous avez dû apprendre à coordonner vos mouvements, et rythmes. Dommage que je ne puisse pas bouger comme toi.'
+        },
+        [
+            ('time', 1, 'choice')
+        ]
+    ),
+
     'begin': ({}, [('time', 1, 'choice')]),
     'end': ((), [('time', 0.1, 'end')]) ,
 
@@ -62,6 +76,7 @@ qt_states = {
             ('key', '&', 'qt_1_reste'),
             ('key', 'é', 'qt_2_comediens'),
             ('key', '"', 'qt_3_grands'),
+            ('key', '\'', 'qt_acteurs'),
 
             # Head
             ('key', 'z', 'look_up'),
@@ -147,6 +162,15 @@ nao_states = {
         ]
     ),
 
+    'nao_acteurs': (
+        {
+            's': 'Tu as vu, QT, tout le travail que nous avons fait avec Claire Heggen ? Apprendre  sa grammaire du mouvement a été très dur. C’est un véritable langage, complexe comme la programmation !'
+        },
+        [
+            ('time', 1, 'choice')
+        ]
+    ),
+
     'begin': ({}, [('time', 1, 'choice')]),
     'end': ((), [('time', 0.1, 'end')]) ,
 
@@ -157,6 +181,7 @@ nao_states = {
             ('key', '&', 'nao_1_oui'),
             ('key', 'é', 'nao_2_masques'),
             ('key', '"', 'nao_3_rapides'),
+            ('key', '\'', 'nao_acteurs'),
 
             # Robot control
             ('key', 'z', 'look_up'),

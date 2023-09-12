@@ -1,5 +1,8 @@
+######################################################## SCENE 14 ######################################################
+
+
 '''
-→ SCÈNE 8 : séquence de l’audition de Nao avec Andrea. A la sortie de Nao, moment plus choral et documentaire sur les difficultés des acteurs à  travailler avec les  robots. Andrea commencent puis les autres acteurs entrent [1er partie scène déjà existante, 2ème partie à travailler en impro. A répéter 1er semaine]
+→ SCÈNE 14 : séquence de l’audition de Nao avec Andrea. A la sortie de Nao, moment plus choral et documentaire sur les difficultés des acteurs à  travailler avec les  robots. Andrea commencent puis les autres acteurs entrent [1er partie scène déjà existante, 2ème partie à travailler en impro. A répéter 1er semaine]
 '''
 
 # Groupe NAO / magicien d’Oz
@@ -17,6 +20,9 @@
 # seulement des ressources pour l’improvisation, il ne faut pas l'atteindre
 # pour déclencher l’action suivante.
 
+# NOTE
+
+# TODO add new dialogue for actor
 
 states = {
     # Nao entre sur scène et marche quelques mètres depuis cour vers jardin.

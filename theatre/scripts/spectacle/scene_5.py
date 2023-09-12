@@ -1,7 +1,6 @@
-######################################################## SCENE 1 #######################################################
+######################################################## SCENE 5 #######################################################
 
-# SCÈNE 1 : Arrivée de NAO et QTRobot : Ils expliquent leurs habiletés et leurs caractéristiques
-# [scène écrite par chatGPT]
+# SCÈNE 5 : Scène de ChatGPT
 
 # QTrobot: Salut NAO, comment vas-tu ?
 # NAO: Salut QTrobot, je vais bien. Et toi ?
@@ -28,7 +27,21 @@
 
 # Used to be automatic but is now WOZ
 # QT -> DIALOGUE, HEAD, ARMS
-# NAO -> DIALOGUE, ?
+# NAO -> DIALOGUE, HEAD, MOVEMENT, ?
+# Aussi utilisé dans la Scene Photos de famille
+# Ordre des emotions :
+#   Photo 1 [k] Kiss
+#   Photo 2 [h] Happy
+#   Photo 3 [o] Yawn
+#   Photo 4 ?
+#   Photo 5
+#   Photo 6
+#   Photo 7
+#   Photo 8 [g] Disgusted
+#   Photo 9 # ! Sur scene
+#   Photo 10 
+#   Photo 11
+
 
 qt_states = {
     'qt_1_salut': ( # 3s
@@ -53,7 +66,7 @@ qt_states = {
 
     'qt_3_autisme': (
         {
-            's': 'Je suis souvent utilisé dans des études sur l\'autisme. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement programmable, mais comme je t\'ai dit, je peux être un peu instable. Et toi ?',
+            's': 'Je suis souvent utilisé dans des études sur les déficits du neuro-développement. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement programmable, mais comme je t\'ai dit, je peux être un peu instable. Et toi ?',
             'e': 'QT/talking'
         },
         [
@@ -91,6 +104,24 @@ qt_states = {
         ]
     ),
 
+    'qt_retry': (
+        {
+            's': 'Comme je le disais',
+        },
+        [
+            ('time', 0.1, 'choice')
+        ]
+    ),
+
+    'qt_retry_2': (
+        {
+            's': 'Hé, ne m\'interromps pas s\'il te plaît',
+        },
+        [
+            ('time', 0.1, 'choice')
+        ]
+    ),
+
     'begin': ({}, [('time', 1, 'choice')]),
     'end': ((), [('time', 0.1, 'end')]) ,
 
@@ -104,6 +135,9 @@ qt_states = {
             ('key', "'", 'qt_4_polyvalent'),
             ('key', '(', 'qt_5_impressionnant'),
             ('key', '-', 'qt_6_absolument'),
+
+            ('key', ')', 'qt_retry'),
+            ('key', '=', 'qt_retry_2'),
 
             # Head
             ('key', 'z', 'look_up'),
@@ -208,10 +242,28 @@ nao_states = {
 
     'nao_5_equipe': ( # 5s
         {
-            's': 'Cela semble très utile. J\'ai un processeur ARM à bord qui gère toutes mes fonctions. On a chacun nos forces et nos faiblesses. On fait une belle équipe, non ?'
+            's': 'Cela semble très utile. Moi, j\'ai seulement un processeur ARM à bord qui gère toutes mes fonctions. On a chacun nos forces et nos faiblesses. On fait une belle équipe, non ?'
         },
         [
             ('time', 1, 'choice')
+        ]
+    ),
+
+    'nao_retry': (
+        {
+            's': 'Comme je le disais',
+        },
+        [
+            ('time', 0.1, 'choice')
+        ]
+    ),
+
+    'nao_retry_2': (
+        {
+            's': 'Arrête de m\'interrompre',
+        },
+        [
+            ('time', 0.1, 'choice')
         ]
     ),
 
@@ -227,6 +279,9 @@ nao_states = {
             ('key', '"', 'nao_3_polyvalent'),
             ('key', "'", 'nao_4_capteurs'),
             ('key', '(', 'nao_5_equipe'),
+
+            ('key', ')', 'nao_retry'),
+            ('key', '=', 'nao_retry_2'),
 
             # Robot control
             ('key', 'z', 'look_up'),

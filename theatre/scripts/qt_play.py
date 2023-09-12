@@ -78,7 +78,7 @@ class QTPlay:
         # self.add_states(scene_1.qt_states)
         # self.add_states(scene_2.states)
         # self.add_states(scene_5_6.qt_states)
-        self.add_states(scene_1.qt_states)
+        self.add_states(scene_5_6.qt_states)
         # self.add_states(qt_emotions.states)
         self.state = 'begin'
 

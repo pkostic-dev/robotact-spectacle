@@ -1,9 +1,85 @@
-######################################################## SCENE 2 #######################################################
+######################################################## SCENE 6 #######################################################
 
 # QT -> DIALOGUE, HEAD, ?
 # NAO -> DEAD
 
-# SCÈNE 2 : entrent des acteurs, et, comme dans les premiers jours de workshops, ils découvrent les robots avec qui ils travailleront. Simples objets? Partenaires possibles ? Ils les interrogent sur leur capacités réelles, des points de vue divergents émergent, plus ou moins curieux, critiques ou sceptiques. Les acteurs s’intéressent d’abord à QT et ensuite portent leur attention sur NAO qui est éteint. Le discours glisse des possibilités réelles aux robots rêvés.
+# SCÈNE 6 : “La première rencontre” (acteurs + QT et NAO) 
+
+'''
+Andrea: Coucou! Tu m'écoutes ? Tu peux me voir ?
+Elle tourne autour de QT pour s’assurer qu’il la voit vraiment:  
+Tu sais qu’on va travailler ensemble ?
+#! Réponse de QT [b] Biensur
+#? Sarah entre côté J.
+Sarah: Après avoir observé un instant QT: Tu as vu qu’il a aussi des capteurs ? Il peut nous entendre. Tu peux nous entendre QT ?
+#! Réponse de QT [O] Mais Oui
+Andrea- Très bien, QT, je te présente Sarah
+#! Réponse de QT [m] Enchanté [h] Salut [H] Ca va
+#? Jérémy entre côté J.
+Jeremy - Il nous voit, il nous écoute… c’est génial! Et il peut parler plusieurs langues ?
+Andrea-  Peux-tu parler plusieurs langues, QT ?
+#! Réponse de QT [p] Peut-être
+Sarah - Et mettre de la musique
+Jérémy - Il peut mettre de la musique ?
+Sarah - Je crois
+Andrea - QT! Peux-tu mettre de la musique ?
+#! Réponse de QT [o] Oui!
+Jérémy -  Pourtant j’ai l’impression que tout à l’heure il… tu disais des phrases…
+Sarah - Mais là aussi il dit des phrases!
+Andrea acquiesce
+Jérémy: Oui, je veux dire des phrases longues, des phrases complexes… il parlait mieux! Grâce à ChatGpt il pourrait créer des dialogues avec nous !
+Andrea- Mais est-ce qu’il peut marcher ? Il a les pieds unis, comme… comme un tronc!
+Jérémy - QT! Est-ce que tu peux marcher ?
+#! Réponse de QT [U] Peux pas
+Sarah - Et tu as toujours besoin d’être branché pour fonctionner  ?
+#! Réponse de QT [t] Toujours
+Jérémy - J’ai entendu dire que tu joues avec les enfants autistes…
+#! Réponse de QT [P] Parfois
+Sarah - Il est vraiment mignon!
+Andrea - Et tu as déjà travaillé avec des comédiens ? Je n’ai jamais travaillé avec des robots
+#! Réponse de QT [K] Quoi
+Sarah - T’es content, QT ? Nous allons faire du théâtre ensemble!
+#! Réponse de QT [y] Super
+#? Filippo entre sur scène, l’air sceptique.
+Filippo - Théâtre, théâtre, mais quel théâtre!!! Il parle comme un bébé….
+Andrea, Jeremy et Sarah défendent QT en parlant tous ensemble: mais non… pas du tout… toujours gâche-fête
+Filippo-  À la limite je préfère l’autre
+Andréa- Qui, Nao ?
+Filippo - Oui, le petit
+Sarah - Tu as entendu, QT ? Filippo préfère Nao
+#! Réponse de QT [l] Quoi
+Jeremy - QT! Crois-tu que Nao est meilleur acteur que tu ne l’es ?
+#! Réponse de QT [N] Mais non
+#? Débat. Jalousie de QT……………………………………………………….
+Filippo - Quoiqu’il en pense notre bébé-là….
+Andrea -Il s’appelle QT!
+#! Réponse de QT [j] Je sais
+Filippo - Quoiqu’il en pense QT… je préfère l’autre, au moins il peut bouger.
+#? Les autres se serrent autour de Nao: c’est vrai qu’il n’est pas mal… il bouge… oui peut-être
+Sarah - Il pourrait danser. Je crois qu’il serait un excellent danseur.
+Filippo - Il ne manquerait plus que ça! Avec tous les excellents danseurs qui sont au chômage… on va embaucher un robot!
+Jérémy - Mais il pourrait les remplacer! Quand ils sont malades ou blessés…
+Filippo - Toujours sceptique. Bien sûr, bien sûr… ce serait le début de la fin
+Andrea - Moi je crois qu’il pourrait être aussi un excellent comédien. Tu sais qu’il peut jouer en plusieurs langues ?
+Sarah -Il pourrait jouer Molière en français, Shakespeare en anglais, Garcia Lorca en espagnol…
+#? Les autres acquiescent
+Jérémy - Super!
+Filippo - Le théâtre n’est pas un cours de langue. Il peut jouer dans toutes les langues de l’univers, mais est-ce qu’il saurait donner des couleurs à ses répliques ? Saurait-il jouer une réplique tragique avec une touche comique ? Ralentir, accélérer, jouer contre le sens du texte …
+Sarah - Qui sait
+Jérémy - Peut-être
+Andrea- Avec le temps…
+#? Un temps bref
+Andrea - Dans tous les cas, il a de très beaux haut-parleurs…
+Jérémy et Sarah en caressant les hauts-parleurs : C’est vrai… en effet… ils sont magnifiques
+Filippo - Vous êtes incroyables! Est-ce qu’il doit faire l’acteur ou servir d’enceinte ? Parce que si c’est pour écouter de la musique, aucun souci, je l’installe avec plaisir dans mon salon. J’ai une étagère libre.   
+Jérémy - Prenant Nao dans ses bras. Moi je l’aime bien!
+Andrea et Sarah se serrent autour de Nao et le caressent : Moi aussi… il est tellement beau… il sera un grand comédien
+Filippo continue de faire la gueule. Andrea, Jérémy et Sarah soulèvent Nao au bout de leurs bras ne cessant de l’exalter. 
+Filippo - Vous êtes fous! Il n’est qu’un morceau de plastique avec une voix enregistrée! Aparté Ils ont perdu la tête.   
+Andrea, Jérémy et Sarah tournent Nao vers Filippo et commencent à scander son nom: Nao! Nao! Nao!
+
+'''
+
 
 states = {
     'begin': ({}, [('time', 1, 'choice')]),
@@ -28,7 +104,7 @@ states = {
             ('key', 't', 'toujours'), ('key', 'T', 'tout'),
             ('key', 'y', 'super'),    ('key', 'Y', 'et_toi'),
             ('key', 'u', 'peux'),     ('key', 'U', 'peuxpas'),
-            ('key', 'u', 'de_rien'),  ('key', 'u', 'plaisir'),
+            ('key', 'i', 'de_rien'),  ('key', 'I', 'plaisir'),
             ('key', 'o', 'oui'),      ('key', 'O', 'mais_oui'),
             ('key', 'p', 'peutetre'), ('key', 'P', 'parfois'),
 
