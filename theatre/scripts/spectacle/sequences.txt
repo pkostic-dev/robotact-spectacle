@@ -29,7 +29,9 @@
   QT est éteint quand l'AMPOULE S parle
   Predrag prend contrôle de Nao
 - Scene 14 L'audition -> Nao
-  Fin de scene, Predrag parle
+  Fin de scene
+  Predrag parle
+  Predrag allume la lumiere
 - Scene 15 Ampoules
 - Scene 16 Amour, dance -> Nao
 - Scene 17 Ampoules
@@ -37,4 +39,15 @@
 - Scene 19 Ampoules
 - Scene 20 Adoption
 - Scene 21 Les photos de famille
+  Photo 1 QT
+  Photo 2 QT
+  Photo 3 QT
+  Photo 4 QT + Nao
+  Photo 5 QT + Nao
+  Photo 6 QT + Nao
+  Photo 7 QT + Nao
+  Photo 8 QT + Nao
+  Photo 9 QT + Nao + Predrag
+  Photo 10 QT + Nao + Anis
+  Photo 11 Tout le monde
   
