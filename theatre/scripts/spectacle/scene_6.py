@@ -23,8 +23,10 @@ Sarah - Et mettre de la musique
 Jérémy - Il peut mettre de la musique ?
 Sarah - Je crois
 Andrea - QT! Peux-tu mettre de la musique ?
-#! Réponse de QT [o] Oui!
-Jérémy -  Pourtant j’ai l’impression que tout à l’heure il… tu disais des phrases…
+#! Réponse de QT [n] Non
+Jérémy -  Pourquoi fais-tu des réponses si courtes? Tout à l’heure tu faisais des phrases longues, des phrases 
+          complexes… tu parlais mieux!
+#? PREDRAG : Oui, mais tout à l'heure il parlait grâce à ChatGPT.
 Sarah - Mais là aussi il dit des phrases!
 Andrea acquiesce
 Jérémy: Oui, je veux dire des phrases longues, des phrases complexes… il parlait mieux! Grâce à ChatGpt il pourrait créer des dialogues avec nous !
@@ -33,11 +35,9 @@ Jérémy - QT! Est-ce que tu peux marcher ?
 #! Réponse de QT [U] Peux pas
 Sarah - Et tu as toujours besoin d’être branché pour fonctionner  ?
 #! Réponse de QT [t] Toujours
-Jérémy - J’ai entendu dire que tu joues avec les enfants autistes…
-#! Réponse de QT [P] Parfois
 Sarah - Il est vraiment mignon!
 Andrea - Et tu as déjà travaillé avec des comédiens ? Je n’ai jamais travaillé avec des robots
-#! Réponse de QT [K] Quoi
+#! Réponse de QT [K] Pourquoi
 Sarah - T’es content, QT ? Nous allons faire du théâtre ensemble!
 #! Réponse de QT [y] Super
 #? Filippo entre sur scène, l’air sceptique.
@@ -49,7 +49,7 @@ Filippo - Oui, le petit
 Sarah - Tu as entendu, QT ? Filippo préfère Nao
 #! Réponse de QT [l] Quoi
 Jeremy - QT! Crois-tu que Nao est meilleur acteur que tu ne l’es ?
-#! Réponse de QT [N] Mais non
+#! Réponse de QT [B] Biensur que non
 #? Débat. Jalousie de QT……………………………………………………….
 Filippo - Quoiqu’il en pense notre bébé-là….
 Andrea -Il s’appelle QT!

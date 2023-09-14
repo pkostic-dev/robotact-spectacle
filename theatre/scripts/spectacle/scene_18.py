@@ -239,6 +239,17 @@ spectacle = {
         ]
     ),
 
+    'robot_code' : (
+        {
+            'e' : 'QT/robot_code',
+            'g' : '',
+            's' : ''
+        },
+        [
+            ('time', 0.1, 'choice')
+        ]
+    ),
+
         # Etats hors-scénario
 
     'begin' : (
@@ -258,6 +269,11 @@ spectacle = {
             ('key', 'é', 'r2_commencons'),
             ('key', '\"', 'r3_professionnel'),
             ('key', '\'', 'r4_partez'),
+
+            # Video
+            ('key', '(', 'robot_code'), #! Arreter avec terminal 
+            #? rosservice call qt_robot/emotion/stop
+            
 
             # Head
             ('key', 'z', 'look_up'),

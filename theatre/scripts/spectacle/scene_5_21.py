@@ -78,7 +78,7 @@ qt_states = {
         {
             's': 'Salut Nao comment vas-tu ?',
             'e': 'QT/happy',
-            'h': head_to_public
+            'g': 'QT/hi'
         },
         [
             ('time', 0.1, 'choice')
@@ -89,7 +89,7 @@ qt_states = {
         {
             's': 'Je suis en partie opérationnel. Parfois, je bloque si je bouge trop et je dois être redémarré. Sais-tu ce que je peux faire ?',
             'e': 'QT/talkinglong',
-            'h': head_to_public
+            'g': 'QT/neutral'
         },
         [
             ('time', 0.1, 'choice')
@@ -99,8 +99,7 @@ qt_states = {
     'qt_3_autisme': (
         {
             's': 'Je suis souvent utilisé dans des études sur les déficits du neuro-développement. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement programmable, mais comme je t\'ai dit, je peux être un peu instable. Et toi ?',
-            'e': 'QT/talkinglong',
-            'h': head_to_public
+            'e': 'QT/talkinglong'
         },
         [
             ('time', 0.1, 'choice')
@@ -111,7 +110,7 @@ qt_states = {
         {
             's': 'Ah, c\'est pour ça que tu es si polyvalent ! As-tu des capteurs ?',
             'e': 'QT/talkinglong',
-            'h': head_to_public
+            'g': 'QT/imitation/hands-on-head'
         },
         [
             ('time', 0.1, 'choice')
@@ -121,8 +120,7 @@ qt_states = {
     'qt_5_impressionnant': (
         {
             's': 'C\'est impressionnant ! Je dispose d\'une tablette intégrée, d\'une caméra et d\'un microphone. Je suis également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d\'ordinateurs as-tu ?',
-            'e': 'QT/talkinglong',
-            'h': head_to_public
+            'e': 'QT/talkinglong'
         },
         [
             ('time', 0.1, 'choice')
@@ -132,8 +130,7 @@ qt_states = {
     'qt_6_absolument': (
         {
             's': 'Absolument, nous pouvons accomplir beaucoup ensemble, malgré nos petits défauts !',
-            'e': 'QT/talkinglong',
-            'h': head_to_public
+            'e': 'QT/talkinglong'
         },
         [
             ('time', 0.1, 'choice')
@@ -143,8 +140,7 @@ qt_states = {
     'qt_retry': (
         {
             's': 'Comme je le disais',
-            'e': 'QT/talking',
-            'h': head_to_public
+            'e': 'QT/talking'
         },
         [
             ('time', 0.1, 'choice')
@@ -154,8 +150,17 @@ qt_states = {
     'qt_retry_2': (
         {
             's': 'Hé, ne m\'interromps pas s\'il te plaît',
-            'e': 'QT/talkinglong',
-            'h': head_to_public
+            'e': 'QT/talkinglong'
+        },
+        [
+            ('time', 0.1, 'choice')
+        ]
+    ),
+
+    'neutral': (
+        {
+            's': '',
+            'g': 'QT/neutral'
         },
         [
             ('time', 0.1, 'choice')
@@ -176,8 +181,10 @@ qt_states = {
             ('key', '(', 'qt_5_impressionnant'),
             ('key', '-', 'qt_6_absolument'),
 
+            ('key', '=', 'neutral'),
+
             ('key', ')', 'qt_retry'),
-            ('key', '=', 'qt_retry_2'),
+            ('key', '', 'qt_retry_2'),
 
             # Head
             ('key', 'z', 'look_up'),
@@ -246,6 +253,12 @@ qt_states = {
     'yawn' : ( {'e':'QT/yawn','g': '', 's': ''}, [('time', 1, 'choice')]),
     'talking' : ( {'e':'QT/talking','g': '', 's': ''}, [('time', 1, 'choice')]),
     'talkinglong' : ( {'e':'QT/talkinglong','g': '', 's': ''}, [('time', 1, 'choice')]),
+
+    # Gestures
+    'hi' : ( {'e':'','g': 'QT/hi', 's': ''}, [('time', 1, 'choice')]),
+    'hands-up' : ( {'e':'','g': 'QT/imitation/hands-up', 's': ''}, [('time', 1, 'choice')]),
+    'hands-on-head' : ( {'e':'','g': 'QT/imitation/hands-on-head', 's': ''}, [('time', 1, 'choice')]),
+    'neutral' : ( {'e':'','g': 'QT/neutral', 's': ''}, [('time', 1, 'choice')]),
 }
 
 nao_states = {

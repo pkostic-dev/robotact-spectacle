@@ -6,8 +6,10 @@
 # SCÈNE 10 : “QT et son ami blanc”  (Léandre + QT)
 
 #! [&](1)
-# QT : Où vas-tu ? Reste. J’ai envie que nous jouions ensemble. Mais je sens bien qu’il y a un problème de 
-#      communication. Nao, Nao, viens !
+# QT : Où vas-tu ? Reste. J’ai envie que nous jouions ensemble.
+
+#! [1]
+# QT : Mais je sens bien qu’il y a un problème de communication. Nao, Nao, viens !
 
 #? [&](1)
 # NAO : Oui QT, je suis là !
@@ -35,6 +37,9 @@
 
 # NOTE Anis s'occupe de cette scene
 
+#! QT lance une video 
+# TODO à quel moment lancer la vidéo ?
+
 ######################################################## SCENE 12 ######################################################
 
 # Scène 12 : Les acteurs ces êtres compliqués (NAO + QT + ampoule)
@@ -54,9 +59,20 @@
 head_to_public = [+20.0,0.0]
 
 qt_states = {
-    'qt_1_reste': ( # 3s
+    'qt_1_reste': (
         {
-            's': 'Où vas-tu ? Reste. J’ai envie que nous jouions ensemble. Mais je sens bien qu’il y a un problème de communication. Nao, Nao, viens !',
+            's': 'Où vas-tu ? Reste. J’ai envie que nous jouions ensemble.',
+            'e': 'QT/talkinglong',
+            'h': head_to_public
+        },
+        [
+            ('time', 1, 'choice')
+        ]
+    ),
+
+    'qt_1b_probleme': (
+        {
+            's': 'Mais je sens bien qu’il y a un problème de communication. \\pau=500\\ Nao, Nao, viens !',
             'e': 'QT/talkinglong',
             'h': head_to_public
         },
@@ -106,9 +122,13 @@ qt_states = {
         [
             # Dialogue fin de scene
             ('key', '&', 'qt_1_reste'),
+            ('key', '1', 'qt_1b_probleme'),
             ('key', 'é', 'qt_2_comediens'),
             ('key', '"', 'qt_3_grands'),
             ('key', '\'', 'qt_acteurs'),
+
+            # Video
+            ('key', '(', 'claire_heggen'),
 
             # Head
             ('key', 'z', 'look_up'),
@@ -125,7 +145,6 @@ qt_states = {
             ('key', '*', 'end'),
 
             # Emotions
-            # TODO Test
             ('key', 'r', 'cry'),
             ('key', 'f', 'afraid'),
             ('key', 'y', 'happy'),
@@ -133,7 +152,6 @@ qt_states = {
             ('key', 'g', 'disgusted'),
 
             # Arms
-            # TODO Test
             ('key', 'i', 'hi'),
             ('key', 'h', 'hands-up'),
             ('key', 'H', 'hands-on-head'),
@@ -151,6 +169,10 @@ qt_states = {
     'look_up_left': ( {'s': '', 'h': [+20.0,-20.0]}, [('time', 0.1, 'choice')]),
     'look_down_right': ( {'s': '', 'h': [-10.0,+10.0]}, [('time', 0.1, 'choice')]),
     'look_down_left': ( {'s': '', 'h': [+10.0,+10.0]}, [('time', 0.1, 'choice')]),
+
+    # Video
+    'claire_heggen' : ( {'e':'QT/claire_heggen','g': '', 's': ''}, [('time', 1, 'choice')]),
+    # pluie
 
     # Emotions
     'happy' : ( {'e':'QT/happy','g': '', 's': ''}, [('time', 1, 'choice')]),

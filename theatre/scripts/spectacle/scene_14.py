@@ -17,7 +17,9 @@
 
 # NOTE
 
-# TODO add new dialogue for actor
+#? PREDRAG : Excusez moi, je pense qu'il faut se calmer là.
+#? Allume la lumierre
+#? PREDRAG : C'est moi qui a programme les robots.
 
 states = {
     #? Nao entre sur scène et marche quelques mètres depuis cour vers jardin.
@@ -314,7 +316,7 @@ states = {
     'r_harcelement': (
         {
             'g': '',
-            's': 'Tu m\'harcèles!!!! Ça c’est de la violence robotique!'
+            's': 'Tu m\'harcèles!!!! Ça c’est de la violence robophobique!'
         },
         [
             ('time', 1, 'choice')
