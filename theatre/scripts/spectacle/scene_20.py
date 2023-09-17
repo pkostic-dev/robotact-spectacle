@@ -1,6 +1,6 @@
 ##################################################### SCENE 20 ######################################################
 
-# → SCÈNE 11 : séquence de l’adoption, avec QT Simona et Konstantinos. Le robot joue désormais un rôle, il est devenu un personnage de fiction.  [scène déjà existante, à répéter 1er semaine] + → SCÈNE 12 : séquence de l'araigné,  QT se rebelle et il nous montre son monde intérieur  [scène déjà existante, à répéter 1er semaine]
+# → SCÈNE 20 : séquence de l’adoption, avec QT Simona et Konstantinos. Le robot joue désormais un rôle, il est devenu un personnage de fiction.  [scène déjà existante, à répéter 1er semaine] + → SCÈNE 12 : séquence de l'araigné,  QT se rebelle et il nous montre son monde intérieur  [scène déjà existante, à répéter 1er semaine]
 
 # NOTE :
 #   w_* : Wizard of Oz
@@ -9,15 +9,19 @@
 # TODO Update
 # TODO Add spider, pacman
 
-arm_up_left = [-97, -54, -46]
+arm_up_left = [-78, -50, 0]
 arm_up_right = [97, -54, -46]
 
-arm_table_left = [0,0,0]
-arm_table_right = [0,0,0]
+arm_table_left = [28,-80,-35]
+arm_table_right = [-26,-82,-33]
 
-look_up = [0.0,-20.0]
+look_spiders = [20.0,-20.0]
 
 states = {
+    #! avant que le QT est sur la table
+    #! bras sur les tables [n]
+
+    #? Frigo
     # ! pacman [P] durée = 14sec
     'pacman': (
         {'s': '', 'e': 'QT/pacman'},[('time', 0.1, 'choice')]
@@ -86,13 +90,12 @@ states = {
     # ! [è]
     'w_je_suis': (
         {
-            's': 'Je suis connecté à une bibliothèque universelle de données mise  à jour jusqu\'en 2021.',
+            's': 'Je suis connecté à une bibliothèque universelle de données mise  à jour jusqu\'en 2041.',
             'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
 
-    # SIMONA: On va à l’école pour apprendre à vivre avec les autres aussi, pour apprécier nos différences. Nous sommes 
-    #         tous uniques, toi tu es unique 
+    # SIMONA: On va à l’école pour apprendre à vivre avec les autres aussi, pour apprécier nos différences.
     # ! [_]
     'w_qu_est_ce': (
         {
@@ -129,45 +132,16 @@ states = {
     # SIMONA : Exactement
     # ! [=]
     'w_vous_etes': (
-        {'s': 'Vous êtes papa et maman moi je suis un enfant'},[('time', 0.1, 'choice')]
+        {'s': 'Vous êtes papa et maman moi je suis votre fils'},[('time', 0.1, 'choice')]
     ),
 
-    # SIMONA : Non, oui d’accord mais papa veut dire… quand on se regarde dans le miroir on voit qu’on est différents 
-    #          tous les trois
-    # ! [1]
-    'w_ah_bon': (
-        {
-            's': '\\pau=500\\Ah bon ?',
-            'e': 'QT/confused'
-        },[('time', 0.1, 'choice')]
-    ),
-
-    # SIMONA: Oui
-    # ! [2]
-    'w_chais_pas': (
-        {'s': 'Chais pas'},[('time', 0.1, 'choice')]
-    ),
-
-    # SIMONA : Ta main, regarde, la mienne aussi, on se ressemble, mais pas autant. …
-    # ! regarde ses mains [w] [c]
-    # ! regarde en haut [z]
-    # ! pacman [P]
-    # KONSTANTINOS: Arthur, écoute!
-    # ! regarde en bas [x]
-    # SIMONA: Tu regardes où ? C’est là-bas! 
-    # ! leve la tete [s]
-
-    # ! regarde en haut [z]
+    # ! regarde en haut à gauche [a]
 
     # ! [3]
-    'w_ouais_alors': (
-        {'s': 'Ouais alors?'},[('time', 2, 's_tiens')]
-    ),
-
     's_tiens': (
         {
             's': 'Tiens!',
-            'ra': arm_up_right
+            'la': arm_up_left
         },[('time', 2, 's_il_y_a')]
     ),
 
@@ -186,7 +160,7 @@ states = {
         {
             's': 'C’est dingue ces bêtes-là ! C’est fascinant de regarder les araignées, ils sont si intéressantes',
             'e': 'QT/talkinglong',
-            'ra': arm_table_right
+            'la': arm_up_left
         },[('time', 0.1, 'choice')]
     ),
 
@@ -214,23 +188,16 @@ states = {
         [('time', 0.1, 'choice')]
     ),
 
-    # SIMONA : Arthur, c’est quoi ce langage ?! Papa se préoccupe de toi
-    # ! [6]
-    'w_ouais_il': (
-        {
-            's': 'Ouais il fait semblant',
-            'e': 'QT/talking'
-        },[('time', 0.1, 'choice')]
-    ),
+    # SIMONA : Arthur, c’est quoi ce langage ?!
 
-    # ! regarde en haut [z]
+    # ! regarde en haut à gauche [a]
     # ! [7]
     'w_ah_une_autre': (
         {
             's': 'Ah! Une autre araignée ! Il y en deux',
             'e': 'QT/talking',
-            'ra': arm_up_right,
-            'h': look_up
+            'la': arm_up_left,
+            'h': look_spiders
         },[('time', 4, 's_araignee')]
     ),
 
@@ -242,7 +209,7 @@ states = {
     ),
 
     # SIMONA:  Tu joues à quoi, là?
-    # ! baisse le bras [B]
+    # ! baisse le bras [n]
     # ! baisse la tete [x]
 
     # SIMONA: Mais, non, on l’avait décidé ensemble
@@ -250,9 +217,9 @@ states = {
     'w_trois_araignees': (
         {
             's': 'Trois araignées ! Une famille comme nous',
-            'e': 'QT/talking',
+            'e': 'QT/araignee',
             'ra': arm_up_right,
-            'h': look_up
+            'h': look_spiders
         },[('time', 0.1, 'choice')]
     ),
 
@@ -319,7 +286,7 @@ states = {
     # ! [y]
     'w_maintenant_peut_etre': (
         {
-            's': 'Maintenant peut-être, mais s’il était toujours là? Je serais à la table?',
+            's': 'Maintenant peut-être, mais s’il était toujours là? Je serais la \\pau=500\\ à cette table?',
             'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
@@ -333,6 +300,8 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
+    # Simona : Tu restes notre fils
+
     # ? silence incofortable
     # ! [i]
     'w_peut_etre': (
@@ -345,23 +314,33 @@ states = {
         ]
     ),
 
-    # TODO longue video de pluie
-    # ! pluie [L]
+    # ! diretement la pluie [L]
+    #! CHANGE SUR LE SCRIPT PHOTOS IMMEDIATEMENT
+    #! COUPE LE NOIR
     'pluie': (
         {
             's' : '',
             'e' : 'QT/pluie'
         },
         [
+            ('time', 17.7, 'black')
+        ]
+    ),
+
+    # ! black [B]
+    'black': (
+        {
+            's' : '',
+            'e' : 'QT/black'
+        },
+        [
             ('time', 0.1, 'choice')
         ]
     ),
 
-    # ! eteindre QT
 
     # TODO test
     'arm_up_right': ({'ra': arm_up_right,},[('time', 0.1, 'choice')]),
-    'arm_table_right': ({'ra': arm_table_right,},[('time', 0.1, 'choice')]),
     'arms_table' : ({'ra': arm_table_right,'la': arm_table_left},[('time', 0.1, 'choice')]),
 
     'surprise': ({'e': 'QT/surprise',},[('time', 0.1, 'choice')]),
@@ -393,7 +372,7 @@ states = {
             # WOZ Dialogue Page 2
             ('key', '1', 'w_ah_bon'),
             ('key', '2', 'w_chais_pas'),
-            ('key', '3', 'w_ouais_alors'),
+            ('key', '3', 's_tiens'),
             ('key', '4', 'w_cest_dingue'),
             ('key', '5', 'w_moi_le_rebel'),
             ('key', '6', 'w_ouais_il'),
@@ -422,11 +401,10 @@ states = {
 
             ('key', 'P', 'pacman'),
             ('key', 'L', 'pluie'),
+            ('key', 'B', 'black'),
             
             ('key', 'b', 'arm_up_right'),
-            ('key', 'B', 'arm_table_right'),
-            ('key', 'N', 'arms_table'),
-            ('key', 'n', 'neutral'),
+            ('key', 'n', 'arms_table'),
 
             # Head
             ('key', 'z', 'look_up'),

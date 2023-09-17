@@ -5,11 +5,42 @@
 
 # SCÈNE 10 : “QT et son ami blanc”  (Léandre + QT)
 
+#? Léandre entre tout seul
+#! Predrag : allumer l'UV
+
+#? bras
+#! N
+#? pied
+#! N
+#? ventre
+#! O
+#? bras en haut
+#! O ensemble
+#? coucou raté
+#! i
+#? coucou
+#! i ensemble
+#? bouge
+#! N
+#? bouge
+#! N
+#? sort
+#! P
+
+#? Léandre sort
+#! Predrag : éteindre l'UV
+
 #! [&](1)
 # QT : Où vas-tu ? Reste. J’ai envie que nous jouions ensemble.
 
+#! juste apres
 #! [1]
-# QT : Mais je sens bien qu’il y a un problème de communication. Nao, Nao, viens !
+# QT : Mais je sens bien qu’il y a un problème de communication. 
+
+#? Nao entre
+
+#! [2]
+# QT : Nao, Nao, viens !
 
 #? [&](1)
 # NAO : Oui QT, je suis là !
@@ -28,26 +59,28 @@
 # NAO : Et si rapides, imprévisibles, ce n’est pas simple de les suivre. Nous sommes justement en train de travailler 
 #       sur cette question maintenant…
 
-
 ######################################################## SCENE 11 ######################################################
 
 # NAO -> HEAD, WALK, CUSTOM
 
 # SCÈNE 11 : la séquence de Claire Heggen sur les principes du mouvement : la rencontre du groupe avec NAO. Séquence métaphorique sur la représentation de la relation d'intérêt et méfiance de l’homme par rapport aux robots. [scène déjà existante, à répéter 2ème semaine]
 
+#! QT je suis le corps
+
 # NOTE Anis s'occupe de cette scene
 
-#! QT lance une video 
-# TODO à quel moment lancer la vidéo ?
+#! QT lance la video Claire Heggen en même temps que la video [(](5)
+#! QT couper la video à la fin de la projection avec rosservice
 
 ######################################################## SCENE 12 ######################################################
 
 # Scène 12 : Les acteurs ces êtres compliqués (NAO + QT + ampoule)
 
 # Une replique de chaque robot :
-#! QT ['](4)
-# puis
+
 #? Nao ['](4)
+# puis
+#! QT ['](4)
 
 ######################################################### NOTE #########################################################
 
@@ -56,14 +89,15 @@
 #! Apres la video de Saeed les robots parlent des acteurs
 #! Eteindre QT pendant Ampoule S
 
-head_to_public = [+20.0,0.0]
+head_to_public = [0.0,0.0]
+jardin = [-20.0,0.0]
 
 qt_states = {
     'qt_1_reste': (
         {
             's': 'Où vas-tu ? Reste. J’ai envie que nous jouions ensemble.',
             'e': 'QT/talkinglong',
-            'h': head_to_public
+            'h': jardin
         },
         [
             ('time', 1, 'choice')
@@ -72,8 +106,19 @@ qt_states = {
 
     'qt_1b_probleme': (
         {
-            's': 'Mais je sens bien qu’il y a un problème de communication. \\pau=500\\ Nao, Nao, viens !',
+            's': 'Mais je sens bien qu’il y a un problème de communication.',
             'e': 'QT/talkinglong',
+            'h': head_to_public
+        },
+        [
+            ('time', 1, 'choice')
+        ]
+    ),
+
+    'qt_1c_nao': (
+        {
+            's': 'Nao, Nao, viens !',
+            'e': 'QT/talking',
             'h': head_to_public
         },
         [
@@ -123,9 +168,14 @@ qt_states = {
             # Dialogue fin de scene
             ('key', '&', 'qt_1_reste'),
             ('key', '1', 'qt_1b_probleme'),
+            ('key', '2', 'qt_1c_nao'),
             ('key', 'é', 'qt_2_comediens'),
             ('key', '"', 'qt_3_grands'),
             ('key', '\'', 'qt_acteurs'),
+
+            ('key', 'P', 'non_pleure'),
+            ('key', 'N', 'non'),
+            ('key', 'O', 'oui'),
 
             # Video
             ('key', '(', 'claire_heggen'),
@@ -186,6 +236,11 @@ qt_states = {
     'hands-up' : ( {'e':'','g': 'QT/imitation/hands-up', 's': ''}, [('time', 1, 'choice')]),
     'hands-on-head' : ( {'e':'','g': 'QT/imitation/hands-on-head', 's': ''}, [('time', 1, 'choice')]),
     'neutral' : ( {'e':'','g': 'QT/neutral', 's': ''}, [('time', 1, 'choice')]),
+
+    # Short
+    'non_pleure' : ( {'e':'QT/cry', 's': 'Non!'}, [('time', 1, 'choice')]),
+    'non' : ( {'e':'QT/sad','g': 'QT/sad', 's': 'Non'}, [('time', 1, 'choice')]),
+    'oui' : ( {'e':'QT/happy','g': 'QT/happy', 's': 'Oui!'}, [('time', 1, 'choice')]),
 }
 
 nao_states = {

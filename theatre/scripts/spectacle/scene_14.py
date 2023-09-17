@@ -17,8 +17,10 @@
 
 # NOTE
 
-#? PREDRAG : Excusez moi, je pense qu'il faut se calmer là.
 #? Allume la lumierre
+
+#? PREDRAG : Excusez moi, je pense qu'il faut se calmer là.
+
 #? PREDRAG : C'est moi qui a programme les robots.
 
 states = {
@@ -328,7 +330,7 @@ states = {
     'r_harcelement_2': (
         {
             'g': '',
-            's': 'Ça c’est de la violence robotique ! Tu n’es pas mon maître !!!'
+            's': 'Tu n’es pas mon maître !!!'
         },
         [
             ('time', 1, 'choice')

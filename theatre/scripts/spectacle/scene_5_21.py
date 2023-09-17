@@ -52,17 +52,18 @@
 
 # Aussi utilisé dans la Scene Photos de famille
 # Ordre des emotions :
+    #!!!!!!!!! QT Neutral [=]
 #   Photo 1 #! [k] Kiss
 #   Photo 2 #! [h] Happy
 #   Photo 3 #! [o] Yawn
-#   Photo 4 #!
-#   Photo 5 #!
-#   Photo 6 #!
-#   Photo 7 #!
-#   Photo 8 #! [g] Disgusted
-#   Photo 9 #! Sur scene
-#   Photo 10 #!
-#   Photo 11 #!
+#   Photo 4 #! [f]
+#   Photo 5 #! [p]
+#   Photo 6 #! [y]
+#   Photo 7 #! [r]
+#   Photo 8 #! [j]
+#   Photo 9 #! [g]
+#   Photo 10 #! Sur scene avec ordi
+#   Photo 11 #! Ferme ordi
 
 ########################################################## NOTE #######################################################
 
@@ -120,7 +121,8 @@ qt_states = {
     'qt_5_impressionnant': (
         {
             's': 'C\'est impressionnant ! Je dispose d\'une tablette intégrée, d\'une caméra et d\'un microphone. Je suis également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d\'ordinateurs as-tu ?',
-            'e': 'QT/talkinglong'
+            'e': 'QT/talkinglong',
+            'g': 'QT/neutral'
         },
         [
             ('time', 0.1, 'choice')
@@ -207,16 +209,17 @@ qt_states = {
             # QT emotions
             ('key', 'n', 'talking'),
             ('key', 'N', 'talkinglong'),
-            ('key', 'r', 'cry'),
+            ('key', 'k', 'kiss'), # 1
+            ('key', 'h', 'happy'), # 2
+            ('key', 'o', 'yawn'), # 3
+            ('key', 'f', 'afraid'), # 4
+            ('key', 'p', 'surprise'), # 5
+            ('key', 'y', 'angry'), # 6
+            ('key', 'r', 'cry'), # 7
             ('key', 't', 'talking'),
-            ('key', 'y', 'angry'),
-            ('key', 'o', 'yawn'),
-            ('key', 'p', 'surprise'),
-            ('key', 'f', 'afraid'),
-            ('key', 'g', 'disgusted'),
-            ('key', 'h', 'happy'),
-            ('key', 'j', 'shy'),
-            ('key', 'k', 'kiss'),
+            ('key', 'g', 'disgusted'), # philipo
+            ('key', 'j', 'shy'), # 8
+            
             ('key', 'b', 'blowing_raspberry'),
 
         ]

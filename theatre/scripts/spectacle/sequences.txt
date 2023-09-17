@@ -1,31 +1,55 @@
+Préparation
+- Naoqi
+- QT ssh
+- qt_behave
+- qt_play
+- nao_behave
+- nao_play
+- Choreographe
+
+QT
+- QT ssh
+- QT behave
+- QT play
+
 - Scene 1 Ampoules
 - Scene 2 Ampoules
 - Scene 3 Scene sans robots
 - Scene 4 Ampoules
+    Charger scene 5 QT
     Konstantinos pose QT sur le cube moyen.
     Nao marche sur scene et s'arrete à moitié
-- Scene 5 ChatGPT -> QT (Predrag) + Nao (Anis)
+
+- SCENE 5 ChatGPT -> QT (Predrag) + Nao (Anis)
+    Premiere replique de QT
     Nao continue de marcher
     Dialogue entre les deux robots commence
-- Scene 6 La premiere rencontre -> QT (Predrag) + Nao (Anis)
+- SCENE 6 La premiere rencontre -> QT (Predrag) + Nao (Anis)
+    Charger SCENE 6 QT
     Andrea entre en scene et tourne autour de QT
     Predrag parle pendant cette scene
-- Scene 7 Ampoules
+    Philippo parle
+    Preparer la SCENE 10
+- SCENE 7 Ampoules
     QT posé par terre
+     
     Nao posé sur le pupitre
-- Scene 8 Nao un simple telephone -> Nao (éteint)
-- Scene 9 Ampoules
-- Scene 10 QT et son ami blanc -> QT (Predrag) + Nao (Anis)
+- SCENE 8 Nao un simple telephone -> Nao (éteint)
+- SCENE 9 Ampoules
+    Léandre entre en scene
+    Predrag allume l'UV
+- SCENE 10 QT et son ami blanc -> QT (Predrag) + Nao (Anis)
     QT + Léandre
     Léandre quitte la scene
+    Predrag éteint UV
     QT parle
     Nao entre en scene
     QT parle
     QT voit Nao
-- Scene 10bis QT et NAO sur les acteurs -> QT (Predrag) + Nao (Anis)
+- SCENE 10bis QT et NAO sur les acteurs -> QT (Predrag) + Nao (Anis)
     Dialogue QT + Nao
     Nao rejoins sa position en diagonale cour
-- Scene 11 Claire Heggen
+- SCENE 11 Claire Heggen
     En fin de scene, Nao tourne la tete et le corps en direction des écrans
     QT lance la vidéo
 - Video de Saeed
@@ -35,10 +59,14 @@
     Nao illustre les mouvements pendant que AMPOULE G parle
     QT est éteint quand l'AMPOULE S parle
     Predrag prend contrôle de Nao
-        Choreographe
-        Naoqi
-        nao_behave
-        nao_play
+        1. Connexion routeur
+        2. .bashrc
+        3. Choreographe
+        4. Naoqi : rosrun naoqi_driver naoqi_driver_node --qi-url=tcp://192.168.1.111:9559 --roscore_ip=192.168.1.107 --network_interface wlp2s0
+        5. nao_behave
+        6. nao_play
+    Changer sur QT
+    Charger scene 18 
 - Scene 14 L'audition -> Nao
     Fin de scene
     Scene acteurs
@@ -46,12 +74,14 @@
     Predrag allume la lumiere
     Predrag répond
     Anis reprend contrôle de Nao
+    Eteindre la lumiere
 - Scene 15 Ampoules
 - Scene 16 Amour, dance -> Nao (Anis)
 - Scene 17 Ampoules
-- Scene 18 QT metteur en scene -> QT (Predrag, autonome)
+* Scene 18 QT metteur en scene -> QT (Predrag, autonome)
 - Scene 19 Ampoules
-- Scene 20 Adoption -> QT (Predrag)
+* Scene 20 Adoption -> QT (Predrag)
+    Changer de script pendant la pluie
 - Scene 21 Les photos de famille -> Tout le monde
   Photo 1 QT
   Photo 2 QT
@@ -63,5 +93,4 @@
   Photo 8 QT + Nao
   Photo 9 QT + Nao + Predrag
   Photo 10 Anis entre, Tout le monde
-  Photo 11 Tout le monde
   

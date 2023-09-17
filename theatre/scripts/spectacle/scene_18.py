@@ -1,7 +1,9 @@
 ######################################################## SCENE 18 ######################################################
 
 
-TEMPS_ACTEUR = 2
+#! Predrag installe la caméra
+
+TEMPS_ACTEUR = 3
 
 spectacle = {
     # QT : Où est le comédien ? Toujours en retard celui-là.
@@ -9,7 +11,7 @@ spectacle = {
     # s’ils n’ont pas de café, ils ne peuvent pas travailler !
     'r1_retard' : (
         {
-            'e' : '',
+            'e' : 'QT/talkinglong',
             'g' : '',
             's' : 'Où est le comédien ? Toujours pareil. Toujours en retard! \\pau=500\\ On les connaît ces humains, s’ils n’ont pas de café, ils ne peuvent pas travailler !'
         }, # ! Regard : cherche le comedien, regarde le publique
@@ -29,7 +31,7 @@ spectacle = {
     # Bon, ne perdons pas plus de temps, commençons.
     'r2_commencons' : (
         {
-            'e' : '',
+            'e' : 'QT/talkinglong',
             'g' : '',
             's' : 'De toute façon vous les humains, la ponctualité, ça vous \
                 connaît n\'est-ce pas ? Je vous demanderai de suivre mon \
@@ -49,7 +51,7 @@ spectacle = {
     # QT : Êtes-vous professionnel ? Placez vous.
     'r3_professionnel' : (
         {
-            'e' : '',
+            'e' : 'QT/talking',
             'g' : '',
             'h' : [0, 0],
             's' : 'Êtes-vous professionnel ?'
@@ -230,7 +232,7 @@ spectacle = {
 
     'r4_partez' : (
         {
-            'e' : '',
+            'e' : 'QT/talking',
             'g' : '',
             's' : 'ça ne va pas le faire! partez et faites entrer le prochain!'
         },
