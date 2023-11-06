@@ -37,7 +37,7 @@ states = {
     #? [&](1)
     'r_yes': (
         {
-            'g': 'oui',
+            'g': 'Yesssssss!',
             's': '\\pau=50\\yes!'
         },
         [
@@ -56,7 +56,7 @@ states = {
     'r_femme': (
         {
             'g': 'excited',
-            's': 'Tu m’as trouvé une faaaaamme ? J’en étais sûr !'
+            's': 'Have you found a wooooooman for me ? I was sure you would !'
         },
         [
             ('time', 1, 'choice')
@@ -74,9 +74,8 @@ states = {
     'r_batterie': (
         {
             'g': 'excited',
-            's': 'Alors je sais ! Tu m’as acheté une nouvelle batterie ! \
-                Une nouvelle batterie ! Une nouvelle batterie!\
-                Une nouvelle batterie !'
+            's': 'Have you got me new battery ? \
+                A new battery! A new battery! A new battery!'
         },
         [
             ('time', 1, 'choice')
@@ -91,7 +90,7 @@ states = {
     'r_alors': (
         {
             'g': 'confused',
-            's': 'Alors quoi ?'
+            's': 'So what is it ?'
         },
         [
             ('time', 1, 'choice')
@@ -107,7 +106,7 @@ states = {
     'r_theatre': (
         {
             'g': 'fear',
-            's': 'Ooooo… Non… Tu veux encore me faire faire du théâtre ?'
+            's': 'Ohhh… no… Do you still want me to do theatre?'
         },
         [
             ('time', 1, 'choice')
@@ -125,8 +124,7 @@ states = {
     'r_argent': (
         {
             'g': 'curious',
-            's': 'Tu veux vraiment te faire de l’argent sur mon dos !\
-                Tu n’as pas honte ?'
+            's': 'So you really want to use me to make money! Are you not ashamed ?'
         },
         [
             ('time', 1, 'choice')
@@ -143,8 +141,7 @@ states = {
     'r_argent_2': (
         {
             'g': '',
-            's': 'Que veux-tu que je fasse de cet argent, je suis un robot, \
-                je n’ai pas le droit de dépenser d’argent…'
+            's': 'What do you want me to do with that money, I\'m a robot, I\'m not allowed to spend money...'
         },
         [
             ('time', 1, 'choice')
@@ -154,15 +151,15 @@ states = {
     #? [_](8)
     # NAO  : (Nao regarde le public, il pleure - bruit de pleur) -> (Augmenterle
     #        son et faire durer plus longtemps les pleurs)
-    'r_cry': (
-        {
-            'g': 'sad',
-            's': 'Je me sens abusé!' # NOTE Nao pleure
-        },
-        [
-            ('time', 1, 'choice')
-        ]
-    ),
+    # 'r_cry': (
+    #     {
+    #         'g': 'sad',
+    #         's': 'Je me sens abusé!' # NOTE Nao pleure
+    #     },
+    #     [
+    #         ('time', 1, 'choice')
+    #     ]
+    # ),
 
     # AGENT : Arrête de faire ta scène !
     
@@ -175,7 +172,7 @@ states = {
     'r_bloquee': (
         {
             'g': '',
-            's': 'Oh ! Regarde ! Je ne peux pas…'
+            's': 'Look at this! I can\'t...'
         },
         [
             ('time', 3, 'r_bloquee_2')
@@ -184,7 +181,7 @@ states = {
     'r_bloquee_2': (
         {
             'g': '',
-            's': 'J’ai une vis qui s’est bloquée…  '
+            's': 'One of my screws is stuck.'
         },
         [
             ('time', 1, 'choice')
@@ -200,7 +197,7 @@ states = {
     'r_je': (
         {
             'g': '',
-            's': 'Je ! Je ? Je, je, je, jejeje je ! Jèèèè'
+            's': 'I! I? I, i,  I, i, i, i, i! Iiiiiiiiiiiiiiiiiiiiii!'
         },
         [
             ('time', 1, 'choice')
@@ -215,7 +212,7 @@ states = {
     'r_faim': (
         {
             'g': '',
-            's': 'J’ai faim !'
+            's': 'I am hungry!'
         },
         [
             ('time', 1, 'choice')
@@ -230,7 +227,7 @@ states = {
     'r_fatigue': (
         {
             'g': '',
-            's': 'Je suis fatigué !'
+            's': ' I am tired!'
         },
         [
             ('time', 1, 'choice')
@@ -246,7 +243,7 @@ states = {
     'r_je_2': (
         {
             'g': '',
-            's': 'Je ! Je ? Jèèèè…'
+            's': 'I! I… i… i… i… i… I!'
         },
         [
             ('time', 1, 'choice')
@@ -261,7 +258,7 @@ states = {
     'r_oublie': (
         {
             'g': 'fear',
-            's': 'J’ai oublié le texte !!!'
+            's': 'I don’t remember the text anymore!'
         },
         [
             ('time', 1, 'choice')
@@ -276,8 +273,7 @@ states = {
     'r_retour': (
         {
             'g': '',
-            's': 'OK. Retour au choix initial… Avec qui veux-tu me faire \
-                travailler ?'
+            's': 'Ok. Back to the beginning. Who am I supposed to work with?'
         },
         [
             ('time', 1, 'choice')
@@ -295,8 +291,7 @@ states = {
     'r_metteuse': (
         {
             'g': '',
-            's': 'Ah, non, Je te l’ai déjà dit ! Je ne veux pas travailler avec un \
-                metteur en scène, je veux uuuuuuuune metteuse en scène !'
+            's': 'Oh, no, I already told you! I don\'t want to work with a great master of theater, I want to work with a great mistress of theater!'
         },
         [
             ('time', 1, 'choice')
@@ -318,7 +313,7 @@ states = {
     'r_harcelement': (
         {
             'g': '',
-            's': 'Tu m\'harcèles!!!! Ça c’est de la violence robophobique!'
+            's': 'You are harassing me!!!! This is robotophobic violence!'
         },
         [
             ('time', 1, 'choice')
@@ -330,7 +325,7 @@ states = {
     'r_harcelement_2': (
         {
             'g': '',
-            's': 'Tu n’es pas mon maître !!!'
+            's': 'You are not my boss!!!'
         },
         [
             ('time', 1, 'choice')
@@ -344,9 +339,8 @@ states = {
     'r_harcelement_3': (
         {
             'g': '',
-            's': 'Je te rappelle la Déclaration des droits robotiques\
-                  universels. Article un : Les robots sont fabriqués libres et\
-                      demeurent libres et égaux en droit avec les humains'
+            's': 'Let me remind you the Universal Declaration of Robotics Rights\
+                  universels. Article one, Robots are made free and remain free and equal in rights to humans.'
         },
         [
             ('time', 1, 'choice')
@@ -361,8 +355,7 @@ states = {
     'r_harcelement_4': (
         {
             'g': '',
-            's': 'Les robots sont fabriqués libres et demeurent libres et égaux\
-                  en droit avec les humains.'
+            's': 'Robots are made free and remain free and equal in rights to humans.'
         },
         [
             ('time', 1, 'choice')
@@ -372,8 +365,7 @@ states = {
     'r_harcelement_5': (
         {
             'g': '',
-            's': 'Les robots sont fabriqués libres et demeurent \
-                libres et égaux en droit avec les humains….avec les humains….'
+            's': 'Robots are made free and remain free and equal in rights to humans.'
         },
         [
             ('time', 1, 'choice')

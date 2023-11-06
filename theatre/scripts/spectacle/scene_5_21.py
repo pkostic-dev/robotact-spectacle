@@ -75,9 +75,9 @@
 head_to_public = [+20.0,0.0]
 
 qt_states = {
-    'qt_1_salut': ( # 3s
+    'qt_1_salut': (
         {
-            's': 'Salut Nao comment vas-tu ?',
+            's': 'Hi NAO, how are you ?',
             'e': 'QT/happy',
             'g': 'QT/hi'
         },
@@ -88,7 +88,7 @@ qt_states = {
 
     'qt_2_operationnel': (
         {
-            's': 'Je suis en partie opérationnel. Parfois, je bloque si je bouge trop et je dois être redémarré. Sais-tu ce que je peux faire ?',
+            's': 'I\'m partially operational. Sometimes I get stuck if I move too much, and I need to be restarted.. But I am fine! Do you know what I can do ?',
             'e': 'QT/talkinglong',
             'g': 'QT/neutral'
         },
@@ -99,7 +99,7 @@ qt_states = {
 
     'qt_3_autisme': (
         {
-            's': 'Je suis souvent utilisé dans des études sur les déficits du neuro-développement. Je peux interagir de manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement programmable, mais comme je t\'ai dit, je peux être un peu instable. Et toi ?',
+            's': 'I\'m often used in studies on neurodevelopmental deficits. I can interact socially and help teach emotional skills. I\'m designed to be easily programmable, but as I told you, I can be a bit unstable. How about you ?',
             'e': 'QT/talkinglong'
         },
         [
@@ -109,7 +109,7 @@ qt_states = {
 
     'qt_4_polyvalent': (
         {
-            's': 'Ah, c\'est pour ça que tu es si polyvalent ! As-tu des capteurs ?',
+            's': 'Ah, that\'s why you\'re so agile! Do you have sensors ?',
             'e': 'QT/talkinglong',
             'g': 'QT/imitation/hands-on-head'
         },
@@ -120,7 +120,7 @@ qt_states = {
 
     'qt_5_impressionnant': (
         {
-            's': 'C\'est impressionnant ! Je dispose d\'une tablette intégrée, d\'une caméra et d\'un microphone. Je suis également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d\'ordinateurs as-tu ?',
+            's': 'That\'s impressive! I have an integrated tablet, a camera, and a microphone. I\'m also equipped with two onboard computers to handle my functions. How many computers do you have ?',
             'e': 'QT/talkinglong',
             'g': 'QT/neutral'
         },
@@ -131,7 +131,7 @@ qt_states = {
 
     'qt_6_absolument': (
         {
-            's': 'Absolument, nous pouvons accomplir beaucoup ensemble, malgré nos petits défauts !',
+            's': 'Absolutely, we can accomplish a lot together, after all !',
             'e': 'QT/talkinglong'
         },
         [
@@ -141,7 +141,7 @@ qt_states = {
 
     'qt_retry': (
         {
-            's': 'Comme je le disais',
+            's': 'As I was saying',
             'e': 'QT/talking'
         },
         [
@@ -151,7 +151,7 @@ qt_states = {
 
     'qt_retry_2': (
         {
-            's': 'Hé, ne m\'interromps pas s\'il te plaît',
+            's': 'Hey, don\'t interrupt me please !',
             'e': 'QT/talkinglong'
         },
         [
@@ -267,7 +267,7 @@ qt_states = {
 nao_states = {
     'nao_1_salut': ( # 4s
         {
-            's': 'Salut QT, je vais bien. Et toi ?'
+            's': 'Hi QTrobot, I\'m doing well. And you ?'
         },
         [
             ('time', 1, 'choice')
@@ -276,7 +276,7 @@ nao_states = {
 
     'nao_2_non': ( # 3s
         {
-            's': 'Non, dis-moi.'
+            's': 'No, tell me.'
         },
         [
             ('time', 1, 'choice')
@@ -285,7 +285,7 @@ nao_states = {
     
     'nao_3_polyvalent': (
         {
-            's': 'C\'est intéressant ! Moi, je suis plutôt polyvalent. Je peux marcher, parler et même danser. Je suis souvent utilisé dans l\'éducation et la recherche. J\'ai été à l\'origine conçu pour jouer au football.'
+            's': 'That\'s interesting! I\'m quite versatile. I can walk, talk, and even dance. I\'m often used in education and research. I was originally designed to play football.'
         },
         [
             ('time', 1, 'choice')
@@ -294,7 +294,7 @@ nao_states = {
 
     'nao_4_capteurs': (
         {
-            's': 'Oui, j\'ai un contrôle inertiel avec accéléromètre et gyromètre, deux sonars, un capteur infrarouge, des capteurs de force sous les pieds, des interrupteurs, des touches capacitives, des capteurs embarqués dans la batterie, deux caméras et quatre microphones. Et toi ?'
+            's': 'Yes, I have an inertial controller with an accelerometer and gyroscope, two sonars, an infrared sensor, force sensors under my feet, switches, capacitive touch sensors, battery-embedded sensors, two cameras, and four microphones. And you ?'
         },
         [
             ('time', 1, 'choice')
@@ -303,7 +303,7 @@ nao_states = {
 
     'nao_5_equipe': ( # 5s
         {
-            's': 'Cela semble très utile. Moi, j\'ai seulement un processeur ARM à bord qui gère toutes mes fonctions. On a chacun nos forces et nos faiblesses. On fait une belle équipe, non ?'
+            's': 'That sounds very useful. I only have one ARM processor that manages all my functions. We each have our strengths and weaknesses. We make a great team, don\'t we ?'
         },
         [
             ('time', 1, 'choice')
@@ -312,7 +312,7 @@ nao_states = {
 
     'nao_retry': (
         {
-            's': 'Comme je le disais',
+            's': 'As I was saying.',
         },
         [
             ('time', 0.1, 'choice')
@@ -321,7 +321,7 @@ nao_states = {
 
     'nao_retry_2': (
         {
-            's': 'Arrête de m\'interrompre',
+            's': 'Stop interrupting me please.',
         },
         [
             ('time', 0.1, 'choice')

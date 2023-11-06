@@ -30,7 +30,7 @@ states = {
     # KONSTANTINOS : Arthur, arrête de jouer! On va bientôt manger, maman ne va pas tarder. 
     # ! [&]
     'w_attends': (
-        {'s': 'Attends deux minutes, j’ai presque fini le niveau!'},[('time', 0.1, 'choice')]
+        {'s': 'Ancora due minuti, ho quasi finito il livello!'},[('time', 0.1, 'choice')]
     ),
     
     # KONSTANTINOS : Allez assez de jeux vidéo
@@ -38,7 +38,7 @@ states = {
 
     # ! [é]
     'w_mais_papa': (
-        {'s': 'Mais papa je n’ai pas trop faim. Je me suis rechargé ce matin'},[('time', 0.1, 'choice')]
+        {'s': 'Ma, papà, non ho molta fame, mi sono ricaricato stamattina.'},[('time', 0.1, 'choice')]
     ),
 
     # ! Regarde sa maman quand elle rentre [d]
@@ -46,14 +46,14 @@ states = {
     # K:  C’est vrai, tu m’as rien dit. Raconte-nous alors ta journée 
     # ! ["]
     'w_ca_allait': (
-        {'s': 'ça allait'},[('time', 0.1, 'choice')]
+        {'s': 'È andata'},[('time', 0.1, 'choice')]
     ),
 
     # K : Juste ça? Tu as eu des (QT fait non avec la tête) ennuis ?
     # ! Non avec la tete pendant que son pere parle [Q] [D]
     # ! [']
     'w_non_pas': (
-        {'s': 'Non pas du tout'},[('time', 0.1, 'choice')]
+        {'s': 'No nessuno'},[('time', 0.1, 'choice')]
     ),
 
     # SIMONA : Et tes copains ?
@@ -61,27 +61,27 @@ states = {
     # SIMONA:  Ça se passe bien avec les autres….? 
     # ! [(]
     'w_les_autres': (
-        {'s': 'Les autres quoi ?'},[('time', 0.1, 'choice')]
+        {'s': 'Cosa gli altri?'},[('time', 0.1, 'choice')]
     ),
 
     # SIMONA: Les autres  enfants, ceux qui sont…
     # ! coupe sa mere
     # ! [-]
     'w_oui_oui': (
-        {'s': 'Oui, oui'},
+        {'s': 'Sì, sì...'},
         [('time', 2, 's_cest_juste')]
     ),
 
     's_cest_juste': (
         {
-            's': 'C\'est juste que',
+            's': 'Solo che...',
             'e': 'QT/talking'
         },[('time', 4, 's_je_ne_vois')]
     ),
 
     's_je_ne_vois': (
         {
-            's': 'Je ne  vois aucune raison pour aller à l’école',
+            's': 'non vedo alcuna ragione per andare a scuola',
             'e': 'QT/disgusted'
         },[('time', 0.1, 'choice')]
     ),
@@ -90,7 +90,7 @@ states = {
     # ! [è]
     'w_je_suis': (
         {
-            's': 'Je suis connecté à une bibliothèque universelle de données mise  à jour jusqu\'en 2041.',
+            's': 'Sono connesso a una biblioteca universale aggiornata al 2041.',
             'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
@@ -99,7 +99,7 @@ states = {
     # ! [_]
     'w_qu_est_ce': (
         {
-            's': '#MMM01# \\pau=500\\Qu’est-ce que tu entends, maman', # TODO test MMM
+            's': '#MMM01# \\pau=500\\Cosa vuoi dire, mamma ?', # TODO test MMM
             'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
@@ -109,7 +109,7 @@ states = {
     # ! [ç]
     'w_on_va_manger': (
         {
-            's': 'On va manger ou pas?',
+            's': 'Si mangia o no ?',
             'e': 'QT/talking'
          },[('time', 0.1, 'choice')]
     ),
@@ -118,7 +118,7 @@ states = {
     # ! [à]
     'w_quoi': (
         {
-            's': 'Quoi!',
+            's': 'Cosa ?',
             'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
@@ -126,13 +126,13 @@ states = {
     # SIMONA : Est-ce que nous trois nous sommes tous pareils ?
     # ! [)]
     'w_mais_non': (
-        {'s': 'Mais non...'},[('time', 0.1, 'choice')]
+        {'s': 'No'},[('time', 0.1, 'choice')]
     ),
 
     # SIMONA : Exactement
     # ! [=]
     'w_vous_etes': (
-        {'s': 'Vous êtes papa et maman moi je suis votre fils'},[('time', 0.1, 'choice')]
+        {'s': 'Voi siete mamma e papà, e io sono vostro figlio.'},[('time', 0.1, 'choice')]
     ),
 
     # ! regarde en haut à gauche [a]
@@ -140,14 +140,14 @@ states = {
     # ! [3]
     's_tiens': (
         {
-            's': 'Tiens!',
+            's': 'Guarda!',
             'la': arm_up_left
         },[('time', 2, 's_il_y_a')]
     ),
 
     's_il_y_a': (
         {
-            's': 'Il y a une araignée au plafond.',
+            's': 'C’è un ragno sul soffitto',
             'e': 'QT/surprise'
         },[('time', 0.1, 'choice')]
     ),
@@ -158,7 +158,7 @@ states = {
     # ! [4]
     'w_cest_dingue': (
         {
-            's': 'C’est dingue ces bêtes-là ! C’est fascinant de regarder les araignées, ils sont si intéressantes',
+            's': 'Che bestiole incredibili! È davvero affascinante guardare i ragni, sono così interessanti.',
             'e': 'QT/talkinglong',
             'la': arm_up_left
         },[('time', 0.1, 'choice')]
@@ -168,21 +168,21 @@ states = {
     # ! [5]
     'w_moi_le_rebel': (
         {
-            's': 'Moi ? Le rebel ? Qu’est ce que tu racontes ?',
+            's': 'Io ? Il ribelle ? Ma cosa stai dicendo ?',
             'e': 'QT/talking'
         },[('time', 4, 's_pas_du_tout')]
     ),
 
     's_pas_du_tout': (
         {
-            's': 'Pas du tout !',
+            's': 'Per niente !',
             'e': 'QT/angry'
         },[('time', 3, 's_cest_juste_que')]
     ),
 
     's_cest_juste_que': (
         {
-            's': 'C’est juste que j’ai marre de  parler de l’école, les araignées sont beaucoup plus kiffants ',
+            's': 'Solo che ne ho abbastanza di parlare della scuola, i ragni sono molto più ganzi.',
             'e': 'QT/talkinglong'
         },
         [('time', 0.1, 'choice')]
@@ -194,7 +194,7 @@ states = {
     # ! [7]
     'w_ah_une_autre': (
         {
-            's': 'Ah! Une autre araignée ! Il y en deux',
+            's': 'Ah! Un altro ragno, ce ne sono due!',
             'e': 'QT/talking',
             'la': arm_up_left,
             'h': look_spiders
@@ -216,7 +216,7 @@ states = {
     # ! [8]
     'w_trois_araignees': (
         {
-            's': 'Trois araignées ! Une famille comme nous',
+            's': 'Tre ragni! Una famiglia come la nostra!',
             'e': 'QT/araignee',
             'ra': arm_up_right,
             'h': look_spiders
@@ -232,7 +232,7 @@ states = {
     # ! [9]
     'w_comment_ca': (
         {
-            's': 'Comment ça s\'est fait que je ne l\'ai pas en mémoire.. J\'ai toujours été votre seul enfant !',
+            's': 'Com\'è possibile che non ce l’abbia in memoria \\pau=500\\ sono sempre stato il vostro unico figlio.',
             'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
@@ -240,7 +240,7 @@ states = {
     # ! [0]
     'w_attends_jai': (
         {
-            's': 'Attends j\'ai un frère alors?!',
+            's': 'Aspettate, quindi ho un fratello ?',
             'e': 'QT/surprise'
         },[('time', 0.1, 'choice')]
     ),
@@ -248,7 +248,7 @@ states = {
     # ! [°]
     'w_mais_il': (
         {
-            's': 'Mais il est où',
+            's': 'E dov\'è?',
             'e': 'QT/talking'
         },[('time', 0.1, 'choice')]
     ),
@@ -258,7 +258,7 @@ states = {
     # ! [+]
     'w_et_vous': (
         {
-            's': 'Et vous ne me l\'aviez jamais dit?',
+            's': 'E voi non mi avete mai detto niente ?',
             'e': 'QT/talking'
         },[('time', 0.1, 'choice')]
     ),
@@ -268,7 +268,7 @@ states = {
     # ! [r]
     'w_alors_je': (
         {
-            's': 'Alors, je suis un remplaçant ?',
+            's': 'Allora sono un sostituto ?',
             'e': 'QT/talking'
         },[('time', 0.1, 'choice')]
     ),
@@ -277,7 +277,7 @@ states = {
     # ! [t]
     'w_pourtant_jai': (
         {
-            's': 'Pourtant j’ai le même prénom.',
+            's': 'Eppure ho lo stesso nome',
             'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
@@ -286,7 +286,7 @@ states = {
     # ! [y]
     'w_maintenant_peut_etre': (
         {
-            's': 'Maintenant peut-être, mais s’il était toujours là? Je serais la \\pau=500\\ à cette table?',
+            's': 'Forse adesso \\pau=500\\ ma se lui fosse ancora qui ? Io, sarei seduto con voi, \\pau=500\\ a questa tavola ?',
             'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
@@ -295,7 +295,7 @@ states = {
     # ! [u]
     'w_laisse_moi': (
         {
-            's': 'Laisse-moi!',
+            's': 'Lasciami!!!',
             'e': 'QT/disgusted'
         },[('time', 0.1, 'choice')]
     ),
@@ -306,7 +306,7 @@ states = {
     # ! [i]
     'w_peut_etre': (
         {
-            's' : 'Peut-être\\pau=500\\je retourne jouer.',
+            's' : 'Forse \\pau=500\\ ora torno a giocare!',
             'e' : 'QT/talking'
         },
         [

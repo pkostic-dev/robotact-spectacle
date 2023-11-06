@@ -95,7 +95,7 @@ jardin = [-20.0,0.0]
 qt_states = {
     'qt_1_reste': (
         {
-            's': 'Où vas-tu ? Reste. J’ai envie que nous jouions ensemble.',
+            's': 'Where are you going? Stay, please! I want us to play together.',
             'e': 'QT/talkinglong',
             'h': jardin
         },
@@ -106,7 +106,7 @@ qt_states = {
 
     'qt_1b_probleme': (
         {
-            's': 'Mais je sens bien qu’il y a un problème de communication.',
+            's': 'I\'m experiencing some communication issues with the actors.',
             'e': 'QT/talkinglong',
             'h': head_to_public
         },
@@ -117,7 +117,7 @@ qt_states = {
 
     'qt_1c_nao': (
         {
-            's': 'Nao, Nao, viens !',
+            's': 'Nao, Nao, come here!',
             'e': 'QT/talking',
             'h': head_to_public
         },
@@ -128,7 +128,7 @@ qt_states = {
 
     'qt_2_comediens': ( # 6s
         {
-            's': 'Est-ce que tu as réussi à t’entendre avec les comédiens ?',
+            's': 'Have you managed to get along with the actors?',
             'e': 'QT/talking',
             'h': head_to_public
         },
@@ -139,7 +139,7 @@ qt_states = {
 
     'qt_3_grands': (
         {
-            's': 'Oui, c’est vrai. Par contre,  ils sont si grands par rapport à nous ! ',
+            's': 'Yes, that\'s true. But they are so tall compared to us!',
             'e': 'QT/talking',
             'h': head_to_public
         },
@@ -150,7 +150,7 @@ qt_states = {
 
     'qt_acteurs': (
         {
-            's': 'Je vois, vous avez dû apprendre à coordonner vos mouvements, et rythmes. Dommage que je ne puisse pas bouger comme toi.',
+            's': 'I see, you had to learn to coordinate your movements and rhythms. Too bad I can\'t move like you.',
             'e': 'QT/talkinglong',
             'h': head_to_public
         },
@@ -246,7 +246,7 @@ qt_states = {
 nao_states = {
     'nao_1_oui': ( # 4s
         {
-            's': ' Oui QT, je suis là !'
+            's': 'Yes, QT, I\'m here!'
         },
         [
             ('time', 1, 'choice')
@@ -255,7 +255,7 @@ nao_states = {
 
     'nao_2_masques': (
         {
-            's': 'Mmmmhhh, je ne suis pas sûr, mais je sens que nous sommes sur la bonne voie. Quand les acteurs portent des masques, ils deviennent aussi un peu artificiels. Ils nous ressemblent.'
+            's': 'Mmmmhhh, I\'m not sure, but I feel like we\'re on the right track. When the actors wear masks, they become artificial in some ways. They look like us.'
         },
         [
             ('time', 1, 'choice')
@@ -264,7 +264,7 @@ nao_states = {
 
     'nao_3_rapides': (
         {
-            's': 'Et si rapides, imprévisibles, ce n’est pas simple de les suivre. Nous sommes justement en train de travailler sur cette question maintenant…'
+            's': 'And so fast, unpredictable… it\'s not easy to keep up with them. We\'re actually working on these issues right now...'
         },
         [
             ('time', 1, 'choice')
@@ -273,7 +273,7 @@ nao_states = {
 
     'nao_acteurs': (
         {
-            's': 'Tu as vu, QT, tout le travail que nous avons fait avec Claire Heggen ? Apprendre  sa grammaire du mouvement a été très dur. C’est un véritable langage, complexe comme la programmation !'
+            's': 'Did you see, QT, all the work we did with Claire Heggen? Learning her grammar was very tough. It\'s a true language, as complex as programming!'
         },
         [
             ('time', 1, 'choice')

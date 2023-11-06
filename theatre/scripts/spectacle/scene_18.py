@@ -13,7 +13,7 @@ spectacle = {
         {
             'e' : 'QT/talkinglong',
             'g' : '',
-            's' : 'Où est le comédien ? Toujours pareil. Toujours en retard! \\pau=500\\ On les connaît ces humains, s’ils n’ont pas de café, ils ne peuvent pas travailler !'
+            's' : 'Ma dov’è il prossimo attore che deve passare il provino ? Sempre così. Sempre in ritardo ! (Gira la testa verso il pubblico) Si sa come sono questi umani, senza caffé non ce la fanno a lavorare !'
         }, # ! Regard : cherche le comedien, regarde le publique
         [
             ('time', 0.1, 'choice')
@@ -33,10 +33,7 @@ spectacle = {
         {
             'e' : 'QT/talkinglong',
             'g' : '',
-            's' : 'De toute façon vous les humains, la ponctualité, ça vous \
-                connaît n\'est-ce pas ? Je vous demanderai de suivre mon \
-                protocole de A à Z, et ça commence par être à l’heure. \
-                Bon, ne perdons pas plus de temps, commençons.'
+            's' : 'Tant’è, voi umani la puntualità non sapete proprio cosa sia. Vi chiedo di seguire il mio protocollo dalla A alla Z e per prima cosa è richiesto di essere puntuali. Suvvia, non perdiamo altro tempo, cominciamo.'
         }, # ! Regard : regarde par terre, regard neutre
         [
             ('time', 0.1, 'choice')
@@ -54,7 +51,7 @@ spectacle = {
             'e' : 'QT/talking',
             'g' : '',
             'h' : [0, 0],
-            's' : 'Êtes-vous professionnel ?'
+            's' : 'Lei è un professionista, vero?'
         },
         [
             ('time', 2, 'r3_professionnel_2')
@@ -66,7 +63,7 @@ spectacle = {
             'e' : '',
             'g' : '',
             'la' : [40, -58, -35],
-            's' : 'Placez vous.'
+            's' : 'Allora prenda subito posto.'
         },
         [
             ('time', 2, 'r3_professionnel_3')
@@ -95,7 +92,7 @@ spectacle = {
             'g' : '',
             'h' : [-20.0,0.0],
             
-            's' : 'Reculez.. on verra moins que vous jouez mal.'
+            's' : 'Indietreggi, si vedrà meno che recita male.'
         },
         [
             ('time', 6 + TEMPS_ACTEUR, 'detect_gestures_1')
@@ -108,7 +105,7 @@ spectacle = {
             'e' : 'QT/yawn',
             'g' : '',
             'h' : [+20.0,0.0],
-            's' : '#YAWN01#\\pau=1000\\ Je vous arrête\\pau=1000\\ Vous sentez que vous n\'y êtes pas ? \\pau=3000\\ Bon, refaites.'
+            's' : '#YAWN01#\\pau=1000\\Si fermi, si fermi la prego. \\pau=1000\\ Ma non sente che proprio non funziona? \\pau=3000\\ Via, ripeta.'
             #'s' : 'Vous n’êtes pas dans la lumière.'
         },
         [
@@ -123,7 +120,7 @@ spectacle = {
             'e' : '',
             'g' : '',
             'h' : [-10.0,+10.0],
-            's' : 'Mais que faites-vous en fond de scène ? Approchez-vous du publique, vous êtes très limité niveau volume sonore.'
+            's' : 'Ma cosa fa a fondo scena? Si avvicini, le sue capacità vocali sono limitate.'
              #'s' : 'ça fait longtemps que vous ne jouez plus en avant-scène, vous vous prenez pour qui ?'
         },
         [
@@ -140,7 +137,7 @@ spectacle = {
             'e' : '',
             'g' : '',
             'h' : [10.0,+10.0],
-            's' : 'Écoutez ce que je vous dis et arrêtez avec votre susceptibilité d’humain. \\pau=1000\\ Concentrez-vous!'
+            's' : 'Ascolti quello che dico e la smetta con questa suscettibilità da umano. \\pau=1000\\ Si concentri.'
         },
         [
             ('time', 10 + TEMPS_ACTEUR, 'detect_gestures_2')
@@ -167,7 +164,7 @@ spectacle = {
             'e' : '',
             'g' : '',
             'h' : [-20.0,0.0],
-            's' : 'Eh oh, ça ne va pas du tout! Vous devez intégrer qu’un humain doit rester dans l’axe visuelle du robot et pas l’inverse.\\pau=500\\Reprenez!'
+            's' : ' Eh oh, non ci siamo proprio! Lei deve capire che è l’umano che deve restare nell’asse visivo del robot, non il contrario...'
         },
         [
             ('time', 12 + TEMPS_ACTEUR, 'detect_gestures_2')
@@ -181,7 +178,7 @@ spectacle = {
             'e' : '',
             'g' : '',
             'h' : [-20.0,0.0],
-            's' : 'C\'est pas ça.'
+            's' : 'Non così.'
             #'s' : 'Vous ne savez rien faire comme on vous le demande, vous êtes vraiment binaire comme humain.'
         },
         [
@@ -198,7 +195,7 @@ spectacle = {
             'e' : '',
             'g' : '',
             'h' : [-10.0,+10.0],
-            's' : 'Vous ne savez rien faire comme on vous le demande, vous êtes vraiment binaire comme humain.'
+            's' : ' Ma non è possibile. Non riesce proprio a fare quello che le viene chiesto. Lei è veramente binario, come tutti umani del resto.'
             #'s' : 'On n’avait pas dit que vous deviez un peu retravailler votre carrosserie ? Mettez-vous un peu de l’autre côté.'
         },
         [
@@ -214,7 +211,7 @@ spectacle = {
             'e' : 'QT/angry',
             'g' : '',
             'h' : [10.0,+10.0],
-            's' : 'Vous n’êtes pas dans la lumière'
+            's' : 'No No No, è in ombra. Ma non lo sente ?'
             #'Mais que faites-vous en fond de scène ? Approchez-vous du publique, vous êtes très limité niveau volume sonore.'
         },
         [
@@ -234,7 +231,7 @@ spectacle = {
         {
             'e' : 'QT/talking',
             'g' : '',
-            's' : 'ça ne va pas le faire! partez et faites entrer le prochain!'
+            's' : 'Niente, non funziona, è disperante! Se ne vada e faccai entrare il prossimo!'
         },
         [
             ('time', 0.1, 'choice')
