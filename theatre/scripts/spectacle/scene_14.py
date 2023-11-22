@@ -17,6 +17,13 @@
 
 # NOTE
 
+#! TAGS
+#! pitch: vct 50-200 (100)
+#! rate: rspd 50-200 (100)
+#! pause: pau *
+#! volume: vol 0-100 (80)
+
+
 #? Allume la lumierre
 
 #? PREDRAG : Excusez moi, je pense qu'il faut se calmer là.
@@ -37,8 +44,8 @@ states = {
     #? [&](1)
     'r_yes': (
         {
-            'g': 'Yesssssss!',
-            's': '\\pau=50\\yes!'
+            'g': 'oui',
+            's': '\\rspd=50\\yes!'
         },
         [
             ('time', 1, 'choice')
@@ -56,7 +63,7 @@ states = {
     'r_femme': (
         {
             'g': 'excited',
-            's': 'Have you found a wooooooman for me ? I was sure you would !'
+            's': 'Have you found a \\rspd=50\\woman\\rspd=100\\ for me ? I was sure you would !'
         },
         [
             ('time', 1, 'choice')
@@ -106,7 +113,7 @@ states = {
     'r_theatre': (
         {
             'g': 'fear',
-            's': 'Ohhh… no… Do you still want me to do theatre?'
+            's': 'Ohhh… no… Do you still want me \\rspd=50\\to do theatre?'
         },
         [
             ('time', 1, 'choice')
@@ -171,7 +178,7 @@ states = {
     #        J’ai une vis qui s’est bloquée…  
     'r_bloquee': (
         {
-            'g': '',
+            'g': 'fear',
             's': 'Look at this! I can\'t...'
         },
         [
@@ -226,7 +233,7 @@ states = {
     # NAO : Je suis fatigué !
     'r_fatigue': (
         {
-            'g': '',
+            'g': 'netural',
             's': ' I am tired!'
         },
         [

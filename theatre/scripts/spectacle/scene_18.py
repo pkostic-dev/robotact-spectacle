@@ -12,14 +12,23 @@ spectacle = {
     'r1_retard' : (
         {
             'e' : 'QT/talkinglong',
-            'g' : '',
-            's' : 'Ma dov’è il prossimo attore che deve passare il provino ? Sempre così. Sempre in ritardo ! (Gira la testa verso il pubblico) Si sa come sono questi umani, senza caffé non ce la fanno a lavorare !'
+            'g' : 'QT/so',
+            's' : 'Ma dov’è il prossimo attore che deve passare il provino ? Sempre così. Sempre in ritardo ! '
+        }, # ! Regard : cherche le comedien, regarde le publique
+        [
+            ('time', 8, 'r1_retard_2')
+        ]
+    ),
+    'r1_retard_2' : (
+        {
+            'e' : 'QT/talkinglong',
+            'g' : 'QT/sneezing',
+            's' : 'Si sa come sono questi umani, senza caffé non ce la fanno a lavorare !'
         }, # ! Regard : cherche le comedien, regarde le publique
         [
             ('time', 0.1, 'choice')
         ]
     ),
-
 
     # Comédien : ça va je n’ai que 2 minutes de retard,
     # je ne marche pas par procédure comme toi QT.
@@ -32,14 +41,33 @@ spectacle = {
     'r2_commencons' : (
         {
             'e' : 'QT/talkinglong',
-            'g' : '',
-            's' : 'Tant’è, voi umani la puntualità non sapete proprio cosa sia. Vi chiedo di seguire il mio protocollo dalla A alla Z e per prima cosa è richiesto di essere puntuali. Suvvia, non perdiamo altro tempo, cominciamo.'
+            'g' : 'QT/bored',
+            's' : 'Tant’è, voi umani la puntualità non sapete proprio cosa sia.'
+        }, # ! Regard : regarde par terre, regard neutre
+        [
+            ('time', 6, 'r2_commencons_2')
+        ]
+    ),
+    'r2_commencons_2' : (
+        {
+            'e' : 'QT/talkinglong',
+            'g' : 'QT/surprise',
+            's' : 'Vi chiedo di seguire il mio protocollo dalla A alla Z e per prima cosa è richiesto di essere puntuali.'
+        }, # ! Regard : regarde par terre, regard neutre
+        [
+            ('time', 11, 'r2_commencons_3')
+        ]
+    ),
+    'r2_commencons_3' : (
+        {
+            'e' : 'QT/talkinglong',
+            'g' : 'QT/handclap',
+            's' : 'Suvvia, non perdiamo altro tempo, cominciamo.'
         }, # ! Regard : regarde par terre, regard neutre
         [
             ('time', 0.1, 'choice')
         ]
     ),
-
 
     # Comédien : D'accord, je me place où ? 
 
@@ -78,7 +106,7 @@ spectacle = {
             's' : ''
         },
         [
-            ('time', 0.1, 'choice')
+            ('time', 0.1, 'detect_gestures_1')
         ]
     ),
 
@@ -195,7 +223,7 @@ spectacle = {
             'e' : '',
             'g' : '',
             'h' : [-10.0,+10.0],
-            's' : ' Ma non è possibile. Non riesce proprio a fare quello che le viene chiesto. Lei è veramente binario, come tutti umani del resto.'
+            's' : 'Ma non è possibile!! Non riesce proprio a fare quello che le viene chiesto. Lei è veramente binario, come tutti gli umani...'
             #'s' : 'On n’avait pas dit que vous deviez un peu retravailler votre carrosserie ? Mettez-vous un peu de l’autre côté.'
         },
         [
@@ -302,7 +330,7 @@ spectacle = {
         [
             ('gesture', 'cour_1m', '1mc'),
             ('gesture', 'jardin_1m', '1mj'),
-            ('gesture', 'cour_2m', '2mc'),
+            ('gesture', 'cour_2m', '2mc'), # CHANGE
             ('gesture', 'jardin_2m', '2mj'),
 
             ('key', 'p', '1mc'),

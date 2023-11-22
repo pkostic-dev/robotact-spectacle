@@ -6,8 +6,7 @@
 #   w_* : Wizard of Oz
 #   s_* : automatic sequence
 
-# TODO Update
-# TODO Add spider, pacman
+# TODO add hands down after spiders
 
 arm_up_left = [-78, -50, 0]
 arm_up_right = [97, -54, -46]
@@ -99,7 +98,7 @@ states = {
     # ! [_]
     'w_qu_est_ce': (
         {
-            's': '#MMM01# \\pau=500\\Cosa vuoi dire, mamma ?', # TODO test MMM
+            's': '#MMM01# \\pau=500\\Cosa vuoi dire, mamma ?',
             'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
@@ -136,6 +135,8 @@ states = {
     ),
 
     # ! regarde en haut à gauche [a]
+
+    # ? maman interpelle QT
 
     # ! [3]
     's_tiens': (
@@ -286,7 +287,7 @@ states = {
     # ! [y]
     'w_maintenant_peut_etre': (
         {
-            's': 'Forse adesso \\pau=500\\ ma se lui fosse ancora qui ? Io, sarei seduto con voi, \\pau=500\\ a questa tavola ?',
+            's': 'Forse adesso \\pau=500\\ ma se lui fosse ancora qui ? Io non sarei seduto con voi, \\pau=500\\ a questa tavola.',
             'e': 'QT/talkinglong'
         },[('time', 0.1, 'choice')]
     ),
@@ -339,7 +340,6 @@ states = {
     ),
 
 
-    # TODO test
     'arm_up_right': ({'ra': arm_up_right,},[('time', 0.1, 'choice')]),
     'arms_table' : ({'ra': arm_table_right,'la': arm_table_left},[('time', 0.1, 'choice')]),
 
@@ -397,7 +397,6 @@ states = {
             ('key', 'R', 'angry'),
             ('key', 'T', 'talking'),
             ('key', 'O', 'confused'),
-            # TODO add other emotions for final scene
 
             ('key', 'P', 'pacman'),
             ('key', 'L', 'pluie'),
