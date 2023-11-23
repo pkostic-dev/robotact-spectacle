@@ -45,14 +45,14 @@ states = {
     # K:  C’est vrai, tu m’as rien dit. Raconte-nous alors ta journée 
     # ! ["]
     'w_ca_allait': (
-        {'s': 'È andata'},[('time', 0.1, 'choice')]
+        {'s': '\\rspd=60\\È andata'},[('time', 0.1, 'choice')]
     ),
 
     # K : Juste ça? Tu as eu des (QT fait non avec la tête) ennuis ?
     # ! Non avec la tete pendant que son pere parle [Q] [D]
     # ! [']
     'w_non_pas': (
-        {'s': 'No nessuno'},[('time', 0.1, 'choice')]
+        {'s': '\\rspd=70\\No nessuno'},[('time', 0.1, 'choice')]
     ),
 
     # SIMONA : Et tes copains ?
@@ -60,20 +60,20 @@ states = {
     # SIMONA:  Ça se passe bien avec les autres….? 
     # ! [(]
     'w_les_autres': (
-        {'s': 'Cosa gli altri?'},[('time', 0.1, 'choice')]
+        {'s': '\\rspd=120\\Cosa gli altri?'},[('time', 0.1, 'choice')]
     ),
 
     # SIMONA: Les autres  enfants, ceux qui sont…
     # ! coupe sa mere
     # ! [-]
     'w_oui_oui': (
-        {'s': 'Sì, sì...'},
+        {'s': '\\rspd=120\\Sì, sì...'},
         [('time', 2, 's_cest_juste')]
     ),
 
     's_cest_juste': (
         {
-            's': 'Solo che...',
+            's': '\\rspd=70\\Solo che...',
             'e': 'QT/talking'
         },[('time', 4, 's_je_ne_vois')]
     ),
@@ -98,7 +98,7 @@ states = {
     # ! [_]
     'w_qu_est_ce': (
         {
-            's': '#MMM01# \\pau=500\\Cosa vuoi dire, mamma ?',
+            's': '#MMM01# \\pau=500\\\\rspd=70\\Cosa vuoi dire, mamma ?',
             'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
@@ -131,7 +131,7 @@ states = {
     # SIMONA : Exactement
     # ! [=]
     'w_vous_etes': (
-        {'s': 'Voi siete mamma e papà, e io sono vostro figlio.'},[('time', 0.1, 'choice')]
+        {'s': 'Voi siete mamma e papà, e io sono \\pau=200\\\\rspd=80\\vostro figlio.'},[('time', 0.1, 'choice')]
     ),
 
     # ! regarde en haut à gauche [a]
@@ -169,7 +169,7 @@ states = {
     # ! [5]
     'w_moi_le_rebel': (
         {
-            's': 'Io ? Il ribelle ? Ma cosa stai dicendo ?',
+            's': 'Io ? \\pau=200\\ \\rspd=80\\Il ribelle ? \\pau=200\\ Ma cosa stai dicendo ?',
             'e': 'QT/talking'
         },[('time', 4, 's_pas_du_tout')]
     ),
@@ -249,7 +249,7 @@ states = {
     # ! [°]
     'w_mais_il': (
         {
-            's': 'E dov\'è?',
+            's': '\\rspd=80\\E dov\'è?',
             'e': 'QT/talking'
         },[('time', 0.1, 'choice')]
     ),
