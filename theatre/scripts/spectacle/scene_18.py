@@ -88,7 +88,7 @@ spectacle = {
 
     'r3_professionnel_2' : (
         {
-            'e' : '',
+            'e' : 'QT/talking',
             'g' : '',
             'la' : [40, -58, -35],
             's' : 'Allora prenda subito posto.'
@@ -116,7 +116,7 @@ spectacle = {
     # (un temps)
     '1mj' : (
         {
-            'e' : '',
+            'e' : 'QT/talking',
             'g' : '',
             'h' : [-20.0,0.0],
             
@@ -133,11 +133,46 @@ spectacle = {
             'e' : 'QT/yawn',
             'g' : '',
             'h' : [+20.0,0.0],
-            's' : '#YAWN01#\\pau=1000\\Si fermi, si fermi la prego. \\pau=1000\\ Ma non sente che proprio non funziona? \\pau=3000\\ Via, ripeta.'
-            #'s' : 'Vous n’êtes pas dans la lumière.'
+            's' : '#YAWN01#'
         },
         [
-            ('time', 12 + TEMPS_ACTEUR, 'detect_gestures_1')
+            ('time', 2, '1mc_b')
+        ]
+    ),
+
+    '1mc_b' : (
+        {
+            'e' : 'QT/talking',
+            'g' : '',
+            'h' : [+20.0,0.0],
+            's' : 'Si fermi, si fermi la prego.'
+        },
+        [
+            ('time', 5, '1mc_c')
+        ]
+    ),
+
+    '1mc_c' : (
+        {
+            'e' : 'QT/talking',
+            'g' : '',
+            'h' : [+20.0,0.0],
+            's' : 'Ma non sente che proprio non funziona?'
+        },
+        [
+            ('time', 6, '1mc_d')
+        ]
+    ),
+
+    '1mc_d' : (
+        {
+            'e' : 'QT/yawn',
+            'g' : '',
+            'h' : [+20.0,0.0],
+            's' : 'Via, ripeta.'
+        },
+        [
+            ('time', 2 + TEMPS_ACTEUR, 'detect_gestures_1')
         ]
     ),
 
@@ -145,7 +180,7 @@ spectacle = {
     # prenez pour qui ?
     '2mj' : (
         {
-            'e' : '',
+            'e' : 'QT/talkinglong',
             'g' : '',
             'h' : [-10.0,+10.0],
             's' : 'Ma cosa fa a fondo scena? Si avvicini, le sue capacità vocali sono limitate.'
@@ -162,7 +197,7 @@ spectacle = {
     # Concentrez-vous
     '2mc' : (
         {
-            'e' : '',
+            'e' : 'QT/talkinglong',
             'g' : '',
             'h' : [10.0,+10.0],
             's' : 'Ascolti quello che dico e la smetta con questa suscettibilità da umano. \\pau=1000\\ Si concentri.'
@@ -189,7 +224,7 @@ spectacle = {
     # (un temps)
     '1mj_2' : (
         {
-            'e' : '',
+            'e' : 'QT/talkinglong',
             'g' : '',
             'h' : [-20.0,0.0],
             's' : ' Eh oh, non ci siamo proprio! Lei deve capire che è l’umano che deve restare nell’asse visivo del robot, non il contrario...'
@@ -203,7 +238,7 @@ spectacle = {
     # binaire comme humain.
     '1mc_2' : (
         {
-            'e' : '',
+            'e' : 'QT/yawn',
             'g' : '',
             'h' : [-20.0,0.0],
             's' : 'Non così.'
@@ -220,7 +255,7 @@ spectacle = {
     # (QT perd patience)
     '2mj_2' : (
         {
-            'e' : '',
+            'e' : 'QT/talkinglong',
             'g' : '',
             'h' : [-10.0,+10.0],
             's' : 'Ma non è possibile!! Non riesce proprio a fare quello che le viene chiesto. Lei è veramente binario, come tutti gli umani...'
@@ -257,7 +292,7 @@ spectacle = {
 
     'r4_partez' : (
         {
-            'e' : 'QT/talking',
+            'e' : 'QT/talkinglong',
             'g' : '',
             's' : 'Niente, non funziona, è disperante! Se ne vada e faccai entrare il prossimo!'
         },
@@ -298,7 +333,9 @@ spectacle = {
             ('key', '\'', 'r4_partez'),
 
             # Video
-            ('key', '(', 'robot_code'), #! Arreter avec terminal 
+            ('key', '(', 'robot_code'), 
+            # Lance une video de code qui defile
+            #! Arreter avec terminal :
             #? rosservice call qt_robot/emotion/stop
             
 
