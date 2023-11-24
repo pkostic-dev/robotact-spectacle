@@ -17,6 +17,13 @@ arm_table_right = [-26,-82,-33]
 look_spiders = [20.0,-20.0]
 
 states = {
+
+    # ! switch to ITALIAN
+    # ! rosservice call /qt_robot/speech/config "language: 'it-IT'
+    # ! > pitch: 0
+    # ! > speed: 0
+    # ! > "
+
     #! avant que le QT est sur la table
     #! bras sur les tables [n]
 
@@ -164,7 +171,7 @@ states = {
             'la': arm_up_left
         },[('time', 0.1, 'choice')]
     ),
-
+    # ! [n]
     # KONSTANTINOS: Tu fais ton rebel maintenant
     # ! [5]
     'w_moi_le_rebel': (
@@ -292,7 +299,7 @@ states = {
         },[('time', 0.1, 'choice')]
     ),
 
-    # SIMONA: (Elle lui donne un bisou)
+    # SIMONA: bisou ou toucher
     # ! [u]
     'w_laisse_moi': (
         {

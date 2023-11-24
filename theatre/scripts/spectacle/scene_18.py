@@ -1,7 +1,22 @@
 ######################################################## SCENE 18 ######################################################
 
-
 #! Predrag installe la caméra
+
+# ! switch to ITALIAN
+# ! rosservice call /qt_robot/speech/config "language: 'it-IT'
+# ! > pitch: 0
+# ! > speed: 0
+# ! > "
+
+look_up = [0.0,-20.0]
+look_center = [0.0,0.0]
+look_down = [0.0,+10.0]
+look_right = [-20.0,0.0]
+look_left = [+20.0,0.0]
+look_up_right = [-20.0,-20.0]
+look_up_left = [+20.0,-20.0]
+look_down_right = [-10.0,+10.0]
+look_down_left = [+10.0,+10.0]
 
 TEMPS_ACTEUR = 3
 
@@ -118,7 +133,7 @@ spectacle = {
         {
             'e' : 'QT/talking',
             'g' : '',
-            'h' : [-20.0,0.0],
+            'h' : look_center,
             
             's' : 'Indietreggi, si vedrà meno che recita male.'
         },
@@ -132,7 +147,7 @@ spectacle = {
         {
             'e' : 'QT/yawn',
             'g' : '',
-            'h' : [+20.0,0.0],
+            'h' : look_down_left,
             's' : '#YAWN01#'
         },
         [
@@ -144,7 +159,7 @@ spectacle = {
         {
             'e' : 'QT/talking',
             'g' : '',
-            'h' : [+20.0,0.0],
+            'h' : look_down_right,
             's' : 'Si fermi, si fermi la prego.'
         },
         [
@@ -156,7 +171,7 @@ spectacle = {
         {
             'e' : 'QT/talking',
             'g' : '',
-            'h' : [+20.0,0.0],
+            'h' : look_down_left,
             's' : 'Ma non sente che proprio non funziona?'
         },
         [
@@ -168,7 +183,7 @@ spectacle = {
         {
             'e' : 'QT/yawn',
             'g' : '',
-            'h' : [+20.0,0.0],
+            'h' : look_down_right,
             's' : 'Via, ripeta.'
         },
         [
@@ -182,7 +197,7 @@ spectacle = {
         {
             'e' : 'QT/talkinglong',
             'g' : '',
-            'h' : [-10.0,+10.0],
+            'h' : look_right,
             's' : 'Ma cosa fa a fondo scena? Si avvicini, le sue capacità vocali sono limitate.'
              #'s' : 'ça fait longtemps que vous ne jouez plus en avant-scène, vous vous prenez pour qui ?'
         },
@@ -199,7 +214,7 @@ spectacle = {
         {
             'e' : 'QT/talkinglong',
             'g' : '',
-            'h' : [10.0,+10.0],
+            'h' : look_right,
             's' : 'Ascolti quello che dico e la smetta con questa suscettibilità da umano. \\pau=1000\\ Si concentri.'
         },
         [
@@ -226,7 +241,7 @@ spectacle = {
         {
             'e' : 'QT/talkinglong',
             'g' : '',
-            'h' : [-20.0,0.0],
+            'h' : look_center,
             's' : ' Eh oh, non ci siamo proprio! Lei deve capire che è l’umano che deve restare nell’asse visivo del robot, non il contrario...'
         },
         [
@@ -240,7 +255,7 @@ spectacle = {
         {
             'e' : 'QT/yawn',
             'g' : '',
-            'h' : [-20.0,0.0],
+            'h' : look_left,
             's' : 'Non così.'
             #'s' : 'Vous ne savez rien faire comme on vous le demande, vous êtes vraiment binaire comme humain.'
         },
@@ -257,7 +272,7 @@ spectacle = {
         {
             'e' : 'QT/talkinglong',
             'g' : '',
-            'h' : [-10.0,+10.0],
+            'h' : look_right,
             's' : 'Ma non è possibile!! Non riesce proprio a fare quello che le viene chiesto. Lei è veramente binario, come tutti gli umani...'
             #'s' : 'On n’avait pas dit que vous deviez un peu retravailler votre carrosserie ? Mettez-vous un peu de l’autre côté.'
         },
@@ -273,7 +288,7 @@ spectacle = {
         {
             'e' : 'QT/angry',
             'g' : '',
-            'h' : [10.0,+10.0],
+            'h' : look_down_right,
             's' : 'No No No, è in ombra. Ma non lo sente ?'
             #'Mais que faites-vous en fond de scène ? Approchez-vous du publique, vous êtes très limité niveau volume sonore.'
         },

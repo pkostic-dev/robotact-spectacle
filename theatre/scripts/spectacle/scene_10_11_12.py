@@ -93,9 +93,10 @@ head_to_public = [0.0,0.0]
 jardin = [-20.0,0.0]
 
 qt_states = {
+    # ! [&]
     'qt_1_reste': (
         {
-            's': 'Where are you going? Stay, please! I want us to play together.',
+            's': '\\rspd=120\\ Where are you going? \\rspd=100\\ Stay, please! \\rspd=80\\ I still want to play together.',
             'e': 'QT/talkinglong',
             'h': jardin
         },
@@ -104,9 +105,12 @@ qt_states = {
         ]
     ),
 
+    # ! CRY [r]
+
+    # ! [1]
     'qt_1b_probleme': (
         {
-            's': 'I\'m experiencing some communication issues with the actors.',
+            's': 'I am having some communication problems with the actors.',
             'e': 'QT/talkinglong',
             'h': head_to_public
         },
@@ -115,31 +119,35 @@ qt_states = {
         ]
     ),
 
+    # ! [2]
     'qt_1c_nao': (
         {
             's': 'Nao, Nao, come here!',
             'e': 'QT/talking',
-            'h': head_to_public
+            'h': jardin
         },
         [
             ('time', 1, 'choice')
         ]
     ),
 
+    # ? wait for Nao stop
+    # ! [é]
     'qt_2_comediens': ( # 6s
         {
-            's': 'Have you managed to get along with the actors?',
+            's': 'Were you able to play with the actors?',
             'e': 'QT/talking',
-            'h': head_to_public
+            'h': jardin
         },
         [
             ('time', 1, 'choice')
         ]
     ),
 
+    # ! ["]
     'qt_3_grands': (
         {
-            's': 'Yes, that\'s true. But they are so tall compared to us!',
+            's': 'Yes, that\'s true. But they are \\rspd=50\\ so big \\rspd=100\\ \\pau=300\\ compared to us!',
             'e': 'QT/talking',
             'h': head_to_public
         },
@@ -148,9 +156,10 @@ qt_states = {
         ]
     ),
 
+    # ! [']
     'qt_acteurs': (
         {
-            's': 'I see, you had to learn to coordinate your movements and rhythms. Too bad I can\'t move like you.',
+            's': 'I see, you had to \\rspd=80\\ learn \\pau=200\\ to \\rspd=70\\ cordinate \\pau=200\\ \\rspd=100\\ your movements \\rspd=75\\ and your rythm \\rspd=100\\ . Unfortunately I can\'t move like you.',
             'e': 'QT/talkinglong',
             'h': head_to_public
         },
@@ -238,7 +247,7 @@ qt_states = {
     'neutral' : ( {'e':'','g': 'QT/neutral', 's': ''}, [('time', 1, 'choice')]),
 
     # Short
-    'non_pleure' : ( {'e':'QT/cry', 's': 'Non!'}, [('time', 1, 'choice')]),
+    'non_pleure' : ( {'e':'QT/cry', 'g': 'QT/sad', 's': 'Non!'}, [('time', 1, 'choice')]),
     'non' : ( {'e':'QT/sad','g': 'QT/sad', 's': 'Non'}, [('time', 1, 'choice')]),
     'oui' : ( {'e':'QT/happy','g': 'QT/happy', 's': 'Oui!'}, [('time', 1, 'choice')]),
 }

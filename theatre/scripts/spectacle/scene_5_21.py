@@ -2,6 +2,8 @@
 
 # SCÈNE 5 : Scène de ChatGPT
 
+# !!! rosservice call /qt_robot/speech/config "language: 'en_US'"
+
 #! [&](1)
 # QTrobot: Salut NAO, comment vas-tu ?
 
@@ -86,30 +88,39 @@ qt_states = {
         ]
     ),
 
+    # ! HEAD_TO_NAO [c]
+    # ! PUBLIC [q]
+
     'qt_2_operationnel': (
         {
-            's': 'I\'m partially operational. Sometimes I get stuck if I move too much, and I need to be restarted.. But I am fine! Do you know what I can do ?',
+            's': 'I am partially \\pau=300\\ operational. Sometimes \\pau=300\\ I get stuck \\pau=200\\ if I move too much, and \\pau=200\\ I need to \\rspd=80\\ be restarted. \\rspd=100\\ But I am fine! Do you know what I can do ?',
+            'g': 'QT/neutral',
             'e': 'QT/talkinglong',
-            'g': 'QT/neutral'
         },
         [
             ('time', 0.1, 'choice')
         ]
     ),
+
+    # ! HEAD_TO_NAO [c]
+    # ! PUBLIC [q]
 
     'qt_3_autisme': (
         {
-            's': 'I\'m often used in studies on neurodevelopmental deficits. I can interact socially and help teach emotional skills. I\'m designed to be easily programmable, but as I told you, I can be a bit unstable. How about you ?',
-            'e': 'QT/talkinglong'
+            's': 'I am often used \\pau=300\\ in studies on \\pau=200\\ \\rspd=70\\ autism \\rspd=100\\ . I can \\pau=300\\ interact socially \\pau=200\\ and help teach \\pau=200\\ emotional skills. I\'m designed \\pau=200\\ to be \\rspd=70\\ easily programmable \\rspd=100\\ , but \\pau=300\\ as I told you, I can be \\pau=200\\ a bit unstable. How about you ?',
+            'e': 'QT/talkinglong',
         },
         [
             ('time', 0.1, 'choice')
         ]
     ),
 
+    # ! HEAD_TO_NAO [c]
+    # ! PUBLIC [q]
+
     'qt_4_polyvalent': (
         {
-            's': 'Ah, that\'s why you\'re so agile! Do you have sensors ?',
+            's': 'Ah, that is why you are so \\rspd=80\\ agile! \\rspd=100\\ Do you have \\rspd=80\\ sensors ?',
             'e': 'QT/talkinglong',
             'g': 'QT/imitation/hands-on-head'
         },
@@ -118,20 +129,26 @@ qt_states = {
         ]
     ),
 
+    # ! HEAD_TO_NAO [c]
+    # ! NEUTRAL [=] pour baisser les bras
+    # ! PUBLIC [q]
+
     'qt_5_impressionnant': (
         {
-            's': 'That\'s impressive! I have an integrated tablet, a camera, and a microphone. I\'m also equipped with two onboard computers to handle my functions. How many computers do you have ?',
+            's': 'That is impressive! I have an integrated tablet, a camera, and a microphone. I am also equipped \\pau=200\\ with two onboard computers to control \\pau=300\\ my functions. How many computers do you have ?',
             'e': 'QT/talkinglong',
-            'g': 'QT/neutral'
         },
         [
             ('time', 0.1, 'choice')
         ]
     ),
 
+    # ! HEAD_TO_NAO [c]
+    # ! PUBLIC [q]
+
     'qt_6_absolument': (
         {
-            's': 'Absolutely, we can accomplish a lot together, after all !',
+            's': 'Absolutely, we can make a lot together ! let\'s go !',
             'e': 'QT/talkinglong'
         },
         [
@@ -151,7 +168,7 @@ qt_states = {
 
     'qt_retry_2': (
         {
-            's': 'Hey, don\'t interrupt me please !',
+            's': 'Hey, do not interrupt me please !',
             'e': 'QT/talkinglong'
         },
         [
