@@ -25,6 +25,7 @@ import spectacle.scene_10_11_12 as scene_10_12
 import spectacle.scene_14 as scene_14
 import spectacle.scene_18 as scene_18
 import spectacle.scene_20 as scene_20
+import spectacle.master as master
 
 roslib.load_manifest('theatre')
 
@@ -77,22 +78,30 @@ class QTPlay:
         # )
         self.states = {}
 
-        # Scene 5 Chat GPT
+        # Master
+        # self.add_states(master.states)
+
+        # Scene 5 Chat GPT (ENGLISH)
+        self.add_states(scene_5_21.qt_states)
+
+        # Scene 6 Acteurs (ENGLISH)
+        # self.add_states(scene_6.states)
+
+        # Scene 10 Masque blanc (ENGLISH)
+        # Scene 10bis Conversation QT Nao (ENGLISH)
+        # Scene 11 Claire Heggen
+        # Scene 12 Court dialogue (ENGLISH)
+        # self.add_states(scene_10_12.qt_states)
+
+        # Scene 18 Autonomie (ITALIAN)
+        # self.add_states(scene_18.spectacle)
+
+        # Scene 20 Adoption (ITALIAN)
+        # self.add_states(scene_20.states)
+
         # Scene 21 Photos de famille
         # self.add_states(scene_5_21.qt_states)
 
-        # Scene 6 Acteurs
-        # self.add_states(scene_6.states)
-
-        # Scene 10 Masque blanc
-        # Scene 12 Court dialogue
-        # self.add_states(scene_10_12.qt_states)
-
-        # Scene 18 Autonomie
-        self.add_states(scene_18.spectacle)
-
-        # Scene 20 Adoption
-        # self.add_states(scene_20.states)
 
         self.state = 'begin'
 
@@ -193,7 +202,7 @@ class QTPlay:
                     goal = QTBehaviorGoal(
                         emotion=behavior['e'] if 'e' in behavior else '',
                         gesture=behavior['g'] if 'g' in behavior else '',
-                        speech=behavior['s'] if 's' in behavior else ''
+                        speech=behavior['s'] if 's' in behavior else '',
                         )
                     client.send_goal(goal)
                     # ...
