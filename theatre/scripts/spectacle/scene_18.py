@@ -382,7 +382,7 @@ spectacle = {
         [
             ('gesture', 'cour_1m', '1mc'),
             ('gesture', 'jardin_1m', '1mj'),
-            ('gesture', 'cour_2m', '2mc'), # CHANGE
+            ('gesture', 'cour_2m', '2mc'), # ! CHANGE
             ('gesture', 'jardin_2m', '2mj'),
 
             ('key', 'p', '1mc'),
