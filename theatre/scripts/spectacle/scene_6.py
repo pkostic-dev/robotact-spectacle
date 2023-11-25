@@ -200,7 +200,7 @@ states = {
     'maybe': ( {'e':'QT/talking', 'g': '', 's': 'Maybe'}, [('time', 0.1, 'choice')]),
     'no': ( {'e':'QT/talking', 'g': '', 's': 'No'}, [('time', 0.1, 'choice')]),
     'great': ( {'e':'QT/talking', 'g': '', 's': 'Great!'}, [('time', 0.1, 'choice')]),
-    'no_no_no': ( {'e':'QT/talking', 'g': '', 's': 'No, no, no.'}, [('time', 0.1, 'choice')]),
+    'no_no_no': ( {'e':'QT/talking', 'g': '', 's': 'No no no.'}, [('time', 0.1, 'choice')]),
 
     # QT emotions
     'happy' : ( {'e':'QT/happy','g': '', 's': ''}, [('time', 1, 'choice')]),
