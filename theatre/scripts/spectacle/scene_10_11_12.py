@@ -119,6 +119,7 @@ qt_states = {
         ]
     ),
 
+    # ? wait for Nao stop
     # ! ["]
     'qt_1c_nao': (
         {
@@ -130,8 +131,7 @@ qt_states = {
             ('time', 1, 'choice')
         ]
     ),
-
-    # ? wait for Nao stop
+# ? wait for Nao stop
     # ! [']
     'qt_2_comediens': ( # 6s
         {
