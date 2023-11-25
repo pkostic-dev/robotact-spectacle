@@ -182,6 +182,14 @@ states = {
         ]
     ),
 
+    'of_course': ( {'e':'QT/talking', 'g': '', 's': 'Of course!'}, [('time', 0.1, 's6_choice')]),
+    'nice_to': ( {'e':'QT/talking', 'g': '', 's': 'Nice to meet you.'}, [('time', 0.1, 's6_choice')]),
+    'yes': ( {'e':'QT/talking', 'g': '', 's': 'Yes!'}, [('time', 0.1, 's6_choice')]),
+    'maybe': ( {'e':'QT/talking', 'g': '', 's': 'Maybe'}, [('time', 0.1, 's6_choice')]),
+    'no': ( {'e':'QT/talking', 'g': '', 's': 'No'}, [('time', 0.1, 's6_choice')]),
+    'great': ( {'e':'QT/talking', 'g': '', 's': 'Great!'}, [('time', 0.1, 's6_choice')]),
+    'no_no_no': ( {'e':'QT/talking', 'g': '', 's': 'No no no.'}, [('time', 0.1, 's6_choice')]),
+
     # ? QT HEAD
     'look_up': ( {'s': '', 'h': [0.0,-20.0]}, [('time', 0.1, 'choice')]),
     'look_center': ( {'s': '', 'h': [0.0,0.0]}, [('time', 0.1, 'choice')]),
