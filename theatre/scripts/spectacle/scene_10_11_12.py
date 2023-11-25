@@ -107,7 +107,7 @@ qt_states = {
 
     # ! CRY [r]
 
-    # ! [1]
+    # ! [é]
     'qt_1b_probleme': (
         {
             's': 'I am having some communication problems with the actors.',
@@ -119,7 +119,7 @@ qt_states = {
         ]
     ),
 
-    # ! [2]
+    # ! ["]
     'qt_1c_nao': (
         {
             's': 'Nao, Nao, come here!',
@@ -132,7 +132,7 @@ qt_states = {
     ),
 
     # ? wait for Nao stop
-    # ! [é]
+    # ! [']
     'qt_2_comediens': ( # 6s
         {
             's': 'Were you able to play with the actors?',
@@ -144,7 +144,7 @@ qt_states = {
         ]
     ),
 
-    # ! ["]
+    # ! [(]
     'qt_3_grands': (
         {
             's': 'Yes, that\'s true. But they are \\rspd=50\\ so big \\rspd=100\\ \\pau=300\\ compared to us!',
@@ -156,7 +156,7 @@ qt_states = {
         ]
     ),
 
-    # ! [']
+    # ! [-]
     'qt_acteurs': (
         {
             's': 'I see, you had to \\rspd=80\\ learn \\pau=200\\ to \\rspd=70\\ cordinate \\pau=200\\ \\rspd=100\\ your movements \\rspd=75\\ and your rythm \\rspd=100\\ . Unfortunately I can\'t move like you.',
@@ -176,11 +176,11 @@ qt_states = {
         [
             # Dialogue fin de scene
             ('key', '&', 'qt_1_reste'),
-            ('key', '1', 'qt_1b_probleme'),
-            ('key', '2', 'qt_1c_nao'),
-            ('key', 'é', 'qt_2_comediens'),
-            ('key', '"', 'qt_3_grands'),
-            ('key', '\'', 'qt_acteurs'),
+            ('key', 'é', 'qt_1b_probleme'),
+            ('key', '"', 'qt_1c_nao'),
+            ('key', '\'', 'qt_2_comediens'),
+            ('key', '(', 'qt_3_grands'),
+            ('key', '-', 'qt_acteurs'),
 
             ('key', 'P', 'non_pleure'),
             ('key', 'N', 'non'),
