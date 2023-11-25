@@ -72,7 +72,7 @@ head_to_public = [+20.0,0.0]
 qt_states = {
     'qt_1_salut': (
         {
-            's': 'Hi NAO, how are you ?',
+            's': '\\rspd=80\\ Hi NAO, how are you ?',
             'e': 'QT/happy',
             'g': 'QT/hi'
         },
