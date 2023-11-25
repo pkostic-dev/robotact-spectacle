@@ -69,136 +69,84 @@
 
 head_to_public = [+20.0,0.0]
 
-qt_states = {
-    'qt_1_salut': (
-        {
-            's': '\\rspd=80\\ Hi NAO, how are you ?',
-            'e': 'QT/happy',
-            'g': 'QT/hi'
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
-    # ! HEAD_TO_NAO [c]
-    # ! PUBLIC [q]
-
-    'qt_2_operationnel': (
-        {
-            's': 'I am partially \\pau=300\\ operational. Sometimes \\pau=300\\ I get stuck \\pau=200\\ if I move too much, and \\pau=200\\ I need to \\rspd=80\\ be restarted. \\rspd=100\\ But I am fine! Do you know what I can do ?',
-            'g': 'QT/neutral',
-            'e': 'QT/talkinglong',
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
-    # ! HEAD_TO_NAO [c]
-    # ! PUBLIC [q]
-
-    'qt_3_autisme': (
-        {
-            's': 'I am often used \\pau=300\\ in studies on \\pau=200\\ \\rspd=70\\ autism \\rspd=100\\ . I can \\pau=300\\ interact socially \\pau=200\\ and help teach \\pau=200\\ emotional skills. I\'m designed \\pau=200\\ to be \\rspd=70\\ easily programmable \\rspd=100\\ , but \\pau=300\\ as I told you, I can be \\pau=200\\ a bit unstable. How about you ?',
-            'e': 'QT/talkinglong',
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
-    # ! HEAD_TO_NAO [c]
-    # ! PUBLIC [q]
-
-    'qt_4_polyvalent': (
-        {
-            's': 'Ah, that is why you are so \\rspd=80\\ agile! \\rspd=100\\ Do you have \\rspd=80\\ sensors ?',
-            'e': 'QT/talkinglong',
-            'g': 'QT/imitation/hands-on-head'
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
-    # ! HEAD_TO_NAO [c]
-    # ! NEUTRAL [=] pour baisser les bras
-    # ! PUBLIC [q]
-
-    'qt_5_impressionnant': (
-        {
-            's': 'That is impressive! I have an integrated tablet, a camera, and a microphone. I am also equipped \\pau=200\\ with two onboard computers to control \\pau=300\\ my functions. How many computers do you have ?',
-            'e': 'QT/talkinglong',
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
-    # ! HEAD_TO_NAO [c]
-    # ! PUBLIC [q]
-
-    'qt_6_absolument': (
-        {
-            's': 'Absolutely, we can make a lot together ! let\'s go !',
-            'e': 'QT/talkinglong'
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
-    'qt_retry': (
-        {
-            's': 'As I was saying',
-            'e': 'QT/talking'
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
-    'qt_retry_2': (
-        {
-            's': 'Hey, do not interrupt me please !',
-            'e': 'QT/talkinglong'
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
-    'neutral': (
-        {
-            's': '',
-            'g': 'QT/neutral'
-        },
-        [
-            ('time', 0.1, 'choice')
-        ]
-    ),
-
+states = {
     'begin': ({}, [('time', 1, 'choice')]),
     'end': ((), [('time', 0.1, 'end')]) ,
 
     'choice': (
         {'g': '', 's': '' },
         [
-            # Dialogue
+            # ? SCENE 5
+            # TODO head
+            # !   HEAD_TO_NAO  [c]
+            # ! HEAD_TO_PUBLIC [q]
+
+            # ? Attendre Nao
             ('key', '&', 'qt_1_salut'),
             ('key', 'é', 'qt_2_operationnel'),
+            # ? Attendre Nao
             ('key', '"', 'qt_3_autisme'),
+            # ? During Nao :
+            # !     SURPRISE [p]
+            # !       YAWN   [o]
             ('key', "'", 'qt_4_polyvalent'),
+            # ! NEUTRAL [=]
+            # ? During Nao :
+            # !     YAWN [o]
             ('key', '(', 'qt_5_impressionnant'),
+            # ? During Nao :
+            # !     RASPBERRY [b]
             ('key', '-', 'qt_6_absolument'),
 
             ('key', '=', 'neutral'),
 
-            ('key', ')', 'qt_retry'),
-            ('key', '', 'qt_retry_2'),
+            # ? SCENE 6
+            ('key', '1', 'of_course'),
+            ('key', '2', 'nice_to'), 
+            ('key', '3', 'yes'),
+            ('key', '4', 'maybe'),
+            ('key', '5', 'no'),
+            ('key', '6', 'great'),
+            ('key', '7', 'no_no_no'),
 
-            # Head
+            # ? ANDREA : Sai che lavvoreremo assieme ?
+            # ! of course [1]
+            # ? ANDREA : Mi chiamo Andrea.
+            # ! nice to [2]
+            # ? SARAH : Si puoi sentire, QT ?
+            # ! yes [3]
+            # ? SARAH : Sono Sarah.
+            # ! nice to [2]
+            # ? JEREMY : E puoi parlare piu lingue ?
+            # ! maybe [4]
+            # ? SARAH : E mettere della musica ?
+            # ! no [5]
+            # ? JEREMY : Prima parlavi... meglio!
+            # ! PREDRAG : Prima parlava grazie a Chat GPT.
+            # TODO finish
+
+            # ? SCENE 21
+            ('key', 'k', 'kiss'),      # !1 Parents | up
+            ('key', 'h', 'happy'),     # !2 Sur table, Parents | center
+            ('key', 'o', 'yawn'),      # !3 Masques blancs | right
+            ('key', 'p', 'surprise'),  # !4 Masques blancs | left
+            # TODO
+            # ! POINTER GAUCHE
+            ('key', 'f', 'afraid'),    # !5 Masques neutres | center
+            ('key', 'r', 'cry'),       # !6 Image christique x 2 | up | down left
+            # ! surprise then cry
+            ('key', 'g', 'disgusted'), # !7 Tous masque neutres, attendre T-pose | center
+            # ? nao bouge puis tai chi
+            # ! hands-up [v]
+            ('key', 'y', 'angry'),     # !8 Nao et QT en meme temps, tenir 5 secondes | hands up
+            # ! neutral [=]
+            ('key', 'j', 'shy'),       # !9 | leftb
+            ('key', 'b', 'blowing_raspberry'), # !10 | center
+
+            ('key', 'v', 'hands-up'),
+            ('key', 'V', 'hands-on-head'),
+
+            # ? HEAD
             ('key', 'z', 'look_up'),
             ('key', 's', 'look_center'),
             ('key', 'x', 'look_down'),
@@ -214,28 +162,8 @@ qt_states = {
             ('key', 'Q', 'look_left_short'),
             ('key', 'D', 'look_right_short'),
 
+            # ? CONTROL
             ('key', '*', 'end'),
-
-            # QT emotions
-            ('key', 'n', 'talking'),
-            ('key', 'N', 'talkinglong'),
-            ('key', 'k', 'kiss'),      # !1 Parents
-            ('key', 'h', 'happy'),     # !2 Sur table, Parents 
-            ('key', 'o', 'yawn'),      # !3 Masques blancs
-            ('key', 'p', 'surprise'),  # !4 Masques blancs, Regard gauche
-            ('key', 'f', 'afraid'),    # !5 Masques neutres
-            ('key', 'r', 'cry'),       # !6 Image christique x 2
-            ('key', 'g', 'disgusted'), # !7 Tous masque neutres, attendre T-pose
-            # ! hands-up [v]
-            ('key', 'y', 'angry'),     # !8 Nao et QT en meme temps, tenir 5 secondes
-            # ! neutral [=]
-            ('key', 'j', 'shy'),       # !9
-            ('key', 'b', 'blowing_raspberry'), # !10
-
-            ('key', 'v', 'hands-up'),
-            ('key', 'V', 'hands-on-head'),
-
-
         ]
     ),
 
@@ -255,7 +183,7 @@ qt_states = {
     'look_right_short': ( {'s': '', 'h': [-10.0,0.0]}, [('time', 0.1, 'choice')]),
     'look_left_short': ( {'s': '', 'h': [+10.0,0.0]}, [('time', 0.1, 'choice')]),
 
-    # QT emotions
+    # ? EMOTIONS
     'happy' : ( {'e':'QT/happy','g': '', 's': ''}, [('time', 1, 'choice')]),
     'kiss' : ( {'e':'QT/kiss','g': '', 's': ''}, [('time', 1, 'choice')]),
     'cry' : ( {'e':'QT/cry','g': '', 's': ''}, [('time', 1, 'choice')]),
@@ -271,11 +199,63 @@ qt_states = {
     'talking' : ( {'e':'QT/talking','g': '', 's': ''}, [('time', 1, 'choice')]),
     'talkinglong' : ( {'e':'QT/talkinglong','g': '', 's': ''}, [('time', 1, 'choice')]),
 
-    # Gestures
+    # ? GESTURES
     'hi' : ( {'e':'','g': 'QT/hi', 's': ''}, [('time', 1, 'choice')]),
     'hands-up' : ( {'e':'','g': 'QT/imitation/hands-up', 's': ''}, [('time', 1, 'choice')]),
     'hands-on-head' : ( {'e':'','g': 'QT/imitation/hands-on-head', 's': ''}, [('time', 1, 'choice')]),
     'neutral' : ( {'e':'','g': 'QT/neutral', 's': ''}, [('time', 1, 'choice')]),
+
+    # ? SCENE 5
+    'qt_1_salut': (
+        {
+            's': '\\rspd=80\\ Hi NAO, how are you ?',
+            'e': 'QT/happy', 'g': 'QT/hi'
+        }, [('time', 0.1, 'choice')]
+    ),
+
+    'qt_2_operationnel': (
+        {
+            's': 'I am partially \\pau=300\\ operational. Sometimes \\pau=300\\ I get stuck \\pau=200\\ if I move too much, and \\pau=200\\ I need to \\rspd=80\\ be restarted. \\rspd=100\\ But I am fine! Do you know what I can do ?',
+            'g': 'QT/neutral', 'e': 'QT/talkinglong',
+        }, [('time', 0.1, 'choice')]
+    ),
+
+    'qt_3_autisme': (
+        {
+            's': 'I am often used \\pau=300\\ in studies on \\pau=200\\ \\rspd=70\\ autism \\rspd=100\\ . I can \\pau=300\\ interact socially \\pau=200\\ and help teach \\pau=200\\ emotional skills. I\'m designed \\pau=200\\ to be \\rspd=70\\ easily programmable \\rspd=100\\ , but \\pau=300\\ as I told you, I can be \\pau=200\\ a bit unstable. How about you ?',
+            'e': 'QT/talkinglong',
+        }, [('time', 0.1, 'choice')]
+    ),
+
+    'qt_4_polyvalent': (
+        {
+            's': 'Ah, that is why you are so \\rspd=80\\ agile! \\rspd=100\\ Do you have \\rspd=80\\ sensors ?',
+            'e': 'QT/talkinglong', 'g': 'QT/imitation/hands-on-head'
+        }, [('time', 0.1, 'choice')]
+    ),
+
+    'qt_5_impressionnant': (
+        {
+            's': 'That is impressive! I have an integrated tablet, a camera, and a microphone. I am also equipped \\pau=200\\ with two onboard computers to control \\pau=300\\ my functions. How many computers do you have ?',
+            'e': 'QT/talkinglong',
+        }, [('time', 0.1, 'choice')]
+    ),
+
+    'qt_6_absolument': (
+        {
+            's': 'Absolutely, we can make a lot together ! let\'s go !',
+            'e': 'QT/talkinglong'
+        }, [('time', 0.1, 'choice')]
+    ),
+
+    # ? SCENE 6
+    'of_course': ( {'e':'QT/talking', 'g': '', 's': 'Of course!'}, [('time', 0.1, 'choice')]),
+    'nice_to': ( {'e':'QT/talking', 'g': '', 's': 'Nice to meet you.'}, [('time', 0.1, 'choice')]),
+    'yes': ( {'e':'QT/talking', 'g': '', 's': 'Yes!'}, [('time', 0.1, 'choice')]),
+    'maybe': ( {'e':'QT/talking', 'g': '', 's': 'Maybe'}, [('time', 0.1, 'choice')]),
+    'no': ( {'e':'QT/talking', 'g': '', 's': 'No'}, [('time', 0.1, 'choice')]),
+    'great': ( {'e':'QT/talking', 'g': '', 's': 'Great!'}, [('time', 0.1, 'choice')]),
+    'no_no_no': ( {'e':'QT/talking', 'g': '', 's': 'No no no.'}, [('time', 0.1, 'choice')]),
 }
 
 nao_states = {
