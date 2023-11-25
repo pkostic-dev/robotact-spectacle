@@ -12,39 +12,32 @@
 
 #! [é](2)
 # QTrobot: Je suis en partie opérationnel. Parfois, je bloque si je bouge trop et je dois être redémarré. Sais-tu ce 
-#          que je peux faire ?
 
 #? [é](2)
 # NAO: Non, dis-moi. 
 
 #! ["](3)
 # QTrobot: Je suis souvent utilisé dans des études sur les déficits du neuro-développement. Je peux interagir de 
-#          manière sociale et aider à enseigner des compétences émotionnelles. Je suis conçu pour être facilement 
-#          programmable, mais comme je t'ai dit, je peux être un peu instable. Et toi ?
 
 #? ["](3)
 #! QT [o] yawn
 # NAO: C'est intéressant ! Moi, je suis plutôt polyvalent. Je peux marcher, parler et même danser. Je suis souvent 
-#      utilisé dans l'éducation et la recherche. J'ai été à l'origine conçu pour jouer au football.
 
 #! ['](4)
 # QTrobot: Ah, c'est pour ça que tu es si polyvalent ! As-tu des capteurs ?
 
+#! [=] hands down
+
 #? ['](4)
 #! QT [o] yawn
 # NAO: Oui, j'ai un contrôle inertiel avec accéléromètre et gyromètre, deux sonars, un capteur infrarouge, des capteurs 
-#      de force sous les pieds, des interrupteurs, des touches capacitives, des capteurs embarqués dans la batterie, 
-#      deux caméras et quatre microphones. Et toi ? (les premieres têtes d’acteurs sort des rideaux noir, une file de 
-#      trois têtes va venir se creer puis Andrea aura sa tête toute seule)
 
 #! [(](5)
 # QTrobot: C'est impressionnant ! Je dispose d'une tablette intégrée, d'une caméra et d'un microphone. Je suis 
-#          également équipé de deux ordinateurs embarqués pour gérer mes fonctions. Combien d'ordinateurs as-tu ?
 
 #? [(](5)
 #! QT [p] surprised
 # NAO: Cela semble très utile. Moi, j'ai seulement un processeur ARM qui gère toutes mes fonctions.. On a chacun nos 
-#      forces et nos faiblesses. On fait une belle équipe, non ?
 
 #! [-](6)
 # QTrobot: Absolument, nous pouvons accomplir beaucoup ensemble, malgré nos petits défauts !
@@ -58,8 +51,8 @@
 #   Photo 1 #! [k] Kiss
 #   Photo 2 #! [h] Happy
 #   Photo 3 #! [o] Yawn
-#   Photo 4 #! [f]
-#   Photo 5 #! [p]
+#   Photo 4 #! [f] Fear
+#   Photo 5 #! [p] 
 #   Photo 6 #! [y]
 #   Photo 7 #! [r]
 #   Photo 8 #! [j]
@@ -226,18 +219,22 @@ qt_states = {
             # QT emotions
             ('key', 'n', 'talking'),
             ('key', 'N', 'talkinglong'),
-            ('key', 'k', 'kiss'), # 1
-            ('key', 'h', 'happy'), # 2
-            ('key', 'o', 'yawn'), # 3
-            ('key', 'f', 'afraid'), # 4
-            ('key', 'p', 'surprise'), # 5
-            ('key', 'y', 'angry'), # 6
-            ('key', 'r', 'cry'), # 7
-            ('key', 't', 'talking'),
-            ('key', 'g', 'disgusted'), # philipo
-            ('key', 'j', 'shy'), # 8
-            
-            ('key', 'b', 'blowing_raspberry'),
+            ('key', 'k', 'kiss'),      # !1 Parents
+            ('key', 'h', 'happy'),     # !2 Sur table, Parents 
+            ('key', 'o', 'yawn'),      # !3 Masques blancs
+            ('key', 'p', 'surprise'),  # !4 Masques blancs, Regard gauche
+            ('key', 'f', 'afraid'),    # !5 Masques neutres
+            ('key', 'r', 'cry'),       # !6 Image christique x 2
+            ('key', 'g', 'disgusted'), # !7 Tous masque neutres, attendre T-pose
+            # ! hands-up [v]
+            ('key', 'y', 'angry'),     # !8 Nao et QT en meme temps, tenir 5 secondes
+            # ! neutral [=]
+            ('key', 'j', 'shy'),       # !9
+            ('key', 'b', 'blowing_raspberry'), # !10
+
+            ('key', 'v', 'hands-up'),
+            ('key', 'V', 'hands-on-head'),
+
 
         ]
     ),
