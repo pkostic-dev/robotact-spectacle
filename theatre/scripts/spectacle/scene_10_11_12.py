@@ -187,7 +187,7 @@ qt_states = {
             ('key', 'O', 'oui'),
 
             # Video
-            ('key', '(', 'claire_heggen'),
+            ('key', 'è', 'claire_heggen'),
 
             # Head
             ('key', 'z', 'look_up'),
