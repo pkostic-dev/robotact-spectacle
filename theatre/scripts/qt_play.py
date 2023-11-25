@@ -19,8 +19,7 @@ import qt_states.qt_drague as qt_drague
 import qt_states.qt_oz as qt_oz
 import qt_states.qt_imitation as qt_imitation
 import qt_states.qt_emotions as qt_emotions
-import spectacle.scene_5_21 as scene_5_21
-import spectacle.scene_6 as scene_6
+import spectacle.scene_5_6_21 as scene_5_6_21
 import spectacle.scene_10_11_12 as scene_10_12
 import spectacle.scene_14 as scene_14
 import spectacle.scene_18 as scene_18
@@ -82,10 +81,8 @@ class QTPlay:
         # self.add_states(master.states)
 
         # Scene 5 Chat GPT (ENGLISH)
-        self.add_states(scene_5_21.qt_states)
-
         # Scene 6 Acteurs (ENGLISH)
-        # self.add_states(scene_6.states)
+        # self.add_states(scene_5_6_21.states)
 
         # Scene 10 Masque blanc (ENGLISH)
         # Scene 10bis Conversation QT Nao (ENGLISH)
@@ -100,7 +97,7 @@ class QTPlay:
         # self.add_states(scene_20.states)
 
         # Scene 21 Photos de famille
-        # self.add_states(scene_5_21.qt_states)
+        self.add_states(scene_5_6_21.states)
 
 
         self.state = 'begin'
