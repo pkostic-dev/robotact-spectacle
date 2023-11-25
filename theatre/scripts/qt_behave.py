@@ -20,6 +20,9 @@ class QTBehaveServer:
         self.pub_speech = rospy.Publisher('/qt_robot/speech/say', String, queue_size=1)
         self.pub_bhw_speech = rospy.Publisher('/qt_robot/behavior/talkText', String, queue_size=1)
 
+        self.pub_speech_config = rospy.Publisher('qt_robot/speech/config', String, queue_size=1)
+        self.pub_speech_stop = rospy.Publisher('qt_robot/speech/stop', String, queue_size=1)
+
         print("Starting actionlib server...")
         self.server.start()
         print("Server started!")
@@ -30,13 +33,22 @@ class QTBehaveServer:
         print(goal)
         print("\n")
 
-        self.pub_emotion.publish(goal.emotion)
-        self.pub_gesture.publish(goal.gesture)
+        if goal.emotion != '':
+            self.pub_emotion.publish(goal.emotion)
 
-        if goal.speech.startswith('~'):
-            self.pub_bhw_speech.publish(goal.speech[1:])
-        else:
-            self.pub_speech.publish(goal.speech)
+        if goal.gesture != '':
+            self.pub_gesture.publish(goal.gesture)
+
+        if goal.speech != '':
+            if goal.speech.startswith('~'):
+                self.pub_bhw_speech.publish(goal.speech[1:])
+            else:
+                self.pub_speech.publish(goal.speech)
+
+        
+        # if goal.speech_config:
+        #     self.pub_speech_config.publish(goal.speech_config)
+        
 
         self.server.set_succeeded()
 
