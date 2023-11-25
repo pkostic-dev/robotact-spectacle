@@ -113,7 +113,7 @@ states = {
     'r_theatre': (
         {
             'g': 'fear',
-            's': 'Ohhh… no… Do you still want me \\rspd=50\\to do theatre?'
+            's': 'Ohhh… no… Do you still want me \\rspd=80\\to do comedy? I do not like theater!'
         },
         [
             ('time', 1, 'choice')
@@ -131,7 +131,7 @@ states = {
     'r_argent': (
         {
             'g': 'curious',
-            's': 'So you really want to use me to make money! Are you not ashamed ?'
+            's': '\\rspd=80\\So you really want to use me to make money! Are you not ashamed ?'
         },
         [
             ('time', 1, 'choice')
@@ -148,7 +148,7 @@ states = {
     'r_argent_2': (
         {
             'g': '',
-            's': 'What do you want me to do with that money, I\'m a robot, I\'m not allowed to spend money...'
+            's': '\\rspd=80\\What do you want me to do with that money, I\'m a robot, I\'m not allowed to spend money...'
         },
         [
             ('time', 1, 'choice')
@@ -188,7 +188,7 @@ states = {
     'r_bloquee_2': (
         {
             'g': '',
-            's': 'One of my screws is stuck.'
+            's': '\\rspd=80\\One of my screws is stuck.'
         },
         [
             ('time', 1, 'choice')
@@ -219,7 +219,7 @@ states = {
     'r_faim': (
         {
             'g': '',
-            's': 'I am hungry!'
+            's': '\\rspd=80\\I am hungry!'
         },
         [
             ('time', 1, 'choice')
@@ -265,7 +265,7 @@ states = {
     'r_oublie': (
         {
             'g': 'fear',
-            's': 'I don’t remember the text anymore!'
+            's': '\\rspd=80\\I don’t remember the text anymore!'
         },
         [
             ('time', 1, 'choice')
@@ -280,7 +280,7 @@ states = {
     'r_retour': (
         {
             'g': '',
-            's': 'Ok. Back to the beginning. Who am I supposed to work with?'
+            's': 'Ok. \\rspd=80\\Back to the beginning. Who \\pau=200\\ am I \\pau=200\\ supposed to work with?'
         },
         [
             ('time', 1, 'choice')
@@ -298,7 +298,7 @@ states = {
     'r_metteuse': (
         {
             'g': '',
-            's': 'Oh, no, I already told you! I don\'t want to work with a great master of theater, I want to work with a great mistress of theater!'
+            's': 'Oh, no, \\rspd=80\\I already told you! I don\'t want to work with your great master of theater, I want to work with a \\rspd=60\\ great woman director!'
         },
         [
             ('time', 1, 'choice')
@@ -320,7 +320,7 @@ states = {
     'r_harcelement': (
         {
             'g': '',
-            's': 'You are harassing me!!!! This is robotophobic violence!'
+            's': '\\rspd=80\\You are tormenting me! This is robot oh phobic violence!'
         },
         [
             ('time', 1, 'choice')
@@ -346,7 +346,7 @@ states = {
     'r_harcelement_3': (
         {
             'g': '',
-            's': 'Let me remind you the Universal Declaration of Robotics Rights\
+            's': '\\rspd=80\\Let me remind you the Universal Declaration of Robotics Rights\
                   universels. Article one, Robots are made free and remain free and equal in rights to humans.'
         },
         [
@@ -362,7 +362,7 @@ states = {
     'r_harcelement_4': (
         {
             'g': '',
-            's': 'Robots are made free and remain free and equal in rights to humans.'
+            's': '\\rspd=90\\Robots are made free and remain free and equal in rights to humans.'
         },
         [
             ('time', 1, 'choice')
