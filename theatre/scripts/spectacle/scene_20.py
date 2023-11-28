@@ -36,7 +36,8 @@ states = {
     # KONSTANTINOS : Arthur, arrête de jouer! On va bientôt manger, maman ne va pas tarder. 
     # ! [&]
     'w_attends': (
-        {'s': 'Ancora due minuti, ho quasi finito il livello!'},[('time', 0.1, 'choice')]
+        {'s': 'Ancora due minuti, ho quasi finito il livello!',
+            'e': 'QT/talking'},[('time', 0.1, 'choice')]
     ),
     
     # KONSTANTINOS : Allez assez de jeux vidéo
@@ -44,7 +45,8 @@ states = {
 
     # ! [é]
     'w_mais_papa': (
-        {'s': 'Ma, papà, non ho molta fame, mi sono ricaricato stamattina.'},[('time', 0.1, 'choice')]
+        {'s': 'Ma, papà, non ho molta fame, mi sono ricaricato stamattina.',
+            'e': 'QT/talkinglong'},[('time', 0.1, 'choice')]
     ),
 
     # ! Regarde sa maman quand elle rentre [d]
@@ -52,14 +54,16 @@ states = {
     # K:  C’est vrai, tu m’as rien dit. Raconte-nous alors ta journée 
     # ! ["]
     'w_ca_allait': (
-        {'s': '\\rspd=60\\È andata'},[('time', 0.1, 'choice')]
+        {'s': '\\rspd=60\\È andata',
+            'e': 'QT/talking'},[('time', 0.1, 'choice')]
     ),
 
     # K : Juste ça? Tu as eu des (QT fait non avec la tête) ennuis ?
     # ! Non avec la tete pendant que son pere parle [Q] [D]
     # ! [']
     'w_non_pas': (
-        {'s': '\\rspd=70\\No nessuno'},[('time', 0.1, 'choice')]
+        {'s': '\\rspd=70\\No nessuno',
+            'e': 'QT/talking'},[('time', 0.1, 'choice')]
     ),
 
     # SIMONA : Et tes copains ?
@@ -67,14 +71,16 @@ states = {
     # SIMONA:  Ça se passe bien avec les autres….? 
     # ! [(]
     'w_les_autres': (
-        {'s': '\\rspd=120\\Cosa gli altri?'},[('time', 0.1, 'choice')]
+        {'s': '\\rspd=120\\Cosa gli altri?',
+            'e': 'QT/talking'},[('time', 0.1, 'choice')]
     ),
 
     # SIMONA: Les autres  enfants, ceux qui sont…
     # ! coupe sa mere
     # ! [-]
     'w_oui_oui': (
-        {'s': '\\rspd=120\\Sì, sì...'},
+        {'s': '\\rspd=120\\Sì, sì...',
+            'e': 'QT/talking'},
         [('time', 2, 's_cest_juste')]
     ),
 
@@ -85,6 +91,7 @@ states = {
         },[('time', 4, 's_je_ne_vois')]
     ),
 
+    # TODO add talking
     's_je_ne_vois': (
         {
             's': 'non vedo alcuna ragione per andare a scuola',
@@ -105,7 +112,7 @@ states = {
     # ! [_]
     'w_qu_est_ce': (
         {
-            's': '#MMM01# \\pau=500\\\\rspd=70\\Cosa vuoi dire, mamma ?',
+            's': '#MMM01# \\pau=500\\\\rspd=70\\Cosa vuoi dire, mamma ?', #TODO add talking
             'e': 'QT/confused'
         },[('time', 0.1, 'choice')]
     ),
@@ -132,13 +139,15 @@ states = {
     # SIMONA : Est-ce que nous trois nous sommes tous pareils ?
     # ! [)]
     'w_mais_non': (
-        {'s': 'No'},[('time', 0.1, 'choice')]
+        {'s': 'No',
+        'e': 'QT/talking'},[('time', 0.1, 'choice')]
     ),
 
     # SIMONA : Exactement
     # ! [=]
     'w_vous_etes': (
-        {'s': 'Voi siete mamma e papà, e io sono \\pau=200\\\\rspd=80\\vostro figlio.'},[('time', 0.1, 'choice')]
+        {'s': 'Voi siete mamma e papà, e io sono \\pau=200\\\\rspd=80\\vostro figlio.',
+            'e': 'QT/talkinglong'},[('time', 0.1, 'choice')]
     ),
 
     # ! regarde en haut à gauche [a]
@@ -149,14 +158,15 @@ states = {
     's_tiens': (
         {
             's': 'Guarda!',
-            'la': arm_up_left
+            'la': arm_up_left,
+            'e': 'QT/surprise'
         },[('time', 2, 's_il_y_a')]
     ),
 
     's_il_y_a': (
         {
             's': 'C’è un ragno sul soffitto',
-            'e': 'QT/surprise'
+            'e': 'QT/talking'
         },[('time', 0.1, 'choice')]
     ),
     
@@ -168,7 +178,6 @@ states = {
         {
             's': 'Che bestiole incredibili! È davvero affascinante guardare i ragni, sono così interessanti.',
             'e': 'QT/talkinglong',
-            'la': arm_up_left
         },[('time', 0.1, 'choice')]
     ),
     # ! [n]
@@ -177,7 +186,7 @@ states = {
     'w_moi_le_rebel': (
         {
             's': 'Io ? \\pau=200\\ \\rspd=80\\Il ribelle ? \\pau=200\\ Ma cosa stai dicendo ?',
-            'e': 'QT/talking'
+            'e': 'QT/talkinglong'
         },[('time', 4, 's_pas_du_tout')]
     ),
 
@@ -350,11 +359,19 @@ states = {
     'arm_up_right': ({'ra': arm_up_right,},[('time', 0.1, 'choice')]),
     'arms_table' : ({'ra': arm_table_right,'la': arm_table_left},[('time', 0.1, 'choice')]),
 
-    'surprise': ({'e': 'QT/surprise',},[('time', 0.1, 'choice')]),
-    'disgust': ({'e': 'QT/disgust',},[('time', 0.1, 'choice')]),
-    'angry': ({'e': 'QT/angry',},[('time', 0.1, 'choice')]),
-    'talking' : ( {'e':'QT/talking','g': '', 's': ''}, [('time', 1, 'choice')]),
+    # ? EMOTIONS
     'happy' : ( {'e':'QT/happy','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'kiss' : ( {'e':'QT/kiss','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'cry' : ( {'e':'QT/cry','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'afraid' : ( {'e':'QT/afraid','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'talking' : ( {'e':'QT/talking','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'angry' : ( {'e':'QT/angry','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'blowing_raspberry' : ( {'e':'QT/blowing_raspberry','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'one_eye_wink' : ( {'e':'QT/one_eye_wink','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'shy' : ( {'e':'QT/shy','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'surprise' : ( {'e':'QT/surprise','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'disgust' : ( {'e':'QT/disgusted','g': '', 's': ''}, [('time', 1, 'choice')]),
+    'yawn' : ( {'e':'QT/yawn','g': '', 's': ''}, [('time', 1, 'choice')]),
     'confused' : ( {'e':'QT/confused','g': '', 's': ''}, [('time', 1, 'choice')]),
     
     'neutral': ({'g' : 'QT/neutral',},[('time', 0.1, 'choice')]),
@@ -398,10 +415,17 @@ states = {
             ('key', 'i', 'w_peut_etre'),
 
             # Emotions + Videos + Actions
-            ('key', 'H', 'happy'),
-            ('key', 'I', 'surprise'),
-            ('key', 'G', 'disgust'),
-            ('key', 'R', 'angry'),
+            ('key', 'f', 'kiss'),
+            ('key', 'g', 'happy'),
+            ('key', 'h', 'yawn'),
+            ('key', 'j', 'surprise'),
+            ('key', 'k', 'afraid'),
+            ('key', 'l', 'cry'),
+            ('key', 'm', 'disgust'),
+            ('key', 'ù', 'angry'),
+            ('key', 'F', 'shy'),
+            ('key', 'G', 'blowing_raspberry'),
+
             ('key', 'T', 'talking'),
             ('key', 'O', 'confused'),
 
@@ -428,8 +452,6 @@ states = {
             ('key', 'Q', 'look_left_short'),
             ('key', 'D', 'look_right_short'),
 
-            # TODO arms
-            # TODO disable motors during first part then enable right arm for pointing
             # IDLE
             # rosservice call /qt_robot/motors/setControlMode ['right_arm', 'left_arm'] 0
 

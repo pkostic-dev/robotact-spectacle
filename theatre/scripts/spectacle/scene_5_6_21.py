@@ -216,7 +216,7 @@ states = {
     'qt_2_operationnel': (
         {
             's': 'I am partially \\pau=300\\ operational. Sometimes \\pau=300\\ I get stuck \\pau=200\\ if I move too much, and \\pau=200\\ I need to \\rspd=80\\ be restarted. \\rspd=100\\ But I am fine! Do you know what I can do ?',
-            'g': 'QT/neutral', 'e': 'QT/talkinglong',
+            'e': 'QT/talkinglong',
         }, [('time', 0.1, 'choice')]
     ),
 

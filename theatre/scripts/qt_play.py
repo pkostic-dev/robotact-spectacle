@@ -82,7 +82,7 @@ class QTPlay:
 
         # Scene 5 Chat GPT (ENGLISH)
         # Scene 6 Acteurs (ENGLISH)
-        # self.add_states(scene_5_6_21.states)
+        self.add_states(scene_5_6_21.states)
 
         # Scene 10 Masque blanc (ENGLISH)
         # Scene 10bis Conversation QT Nao (ENGLISH)
@@ -94,10 +94,8 @@ class QTPlay:
         # self.add_states(scene_18.spectacle)
 
         # Scene 20 Adoption (ITALIAN)
+         # Scene 21 Photos de famille
         # self.add_states(scene_20.states)
-
-        # Scene 21 Photos de famille
-        self.add_states(scene_5_6_21.states)
 
 
         self.state = 'begin'

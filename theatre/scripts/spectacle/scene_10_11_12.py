@@ -34,25 +34,25 @@
 # QT : Où vas-tu ? Reste. J’ai envie que nous jouions ensemble.
 
 #! juste apres
-#! [1]
+#! [é]
 # QT : Mais je sens bien qu’il y a un problème de communication. 
 
 #? Nao entre
 
-#! [2]
+#! [""]
 # QT : Nao, Nao, viens !
 
 #? [&](1)
 # NAO : Oui QT, je suis là !
 
-#! [é](2)
+#! ['](4)
 # QT : Est-ce que tu as réussi à t’entendre avec les comédiens ?
 
 #? [é](2)
 # NAO : Mmmmhhh, je ne suis pas sûr, mais je sens que nous sommes sur la bonne voie. Quand les acteurs portent des 
 #       masques, ils deviennent aussi un peu artificiels. Ils nous ressemblent.
 
-#! ["](3)
+#! [(](5)
 # QT : Oui, c’est vrai. Par contre,  ils sont si grands par rapport à nous !
 
 #? ["](3)
@@ -147,14 +147,28 @@ qt_states = {
     # ! [(]
     'qt_3_grands': (
         {
-            's': 'Yes, that\'s true. But they are \\rspd=50\\ so big \\rspd=100\\ \\pau=300\\ compared to us!',
+            's': 'Yes, that\'s true. But they are ',
             'e': 'QT/talking',
             'h': head_to_public
+        },
+        [
+            ('time', 3, 'qt_3b')
+        ]
+    ),
+
+    'qt_3b': (
+        {
+            's': '\\rspd=50\\ so big \\rspd=100\\ \\pau=300\\ compared to us!',
+            'e': 'QT/talking',
+            'g': 'QT/imitation/hands-up'
         },
         [
             ('time', 1, 'choice')
         ]
     ),
+
+
+    
 
     # ! [-]
     'qt_acteurs': (
