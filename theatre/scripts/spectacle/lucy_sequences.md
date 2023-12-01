@@ -1,3 +1,4 @@
+# Festival Lucy
 
 ## Scene 5
 
@@ -13,72 +14,78 @@ rosservice call /qt_robot/speech/config "language: 'en_US'"
 
 ### Séquence
 
-```
-Je commence.
+*Je commence.*
 
-Attendre que Nao s'arrête
+`[c]` **Look at Nao**
+`[q]` **Look at the audience**
 
-[&][1] Hi NAO, how are you ?
+*Attendre que Nao s'arrête*
 
-[c] Look at Nao
-[q] Look at the audience
+`[&]``[1]` **Hi NAO, how are you ?**
 
-[é][2] Do you know what I can do ?
+`[c]` **Look at Nao**
+`[q]` **Look at the audience**
 
-[c] Look at Nao
+`[é]``[2]` **Do you know what I can do ?**
 
-Attendre que Nao s'arrête
+`[c]` **Look at Nao**
 
-[q] Look at the audience
+*Attendre que Nao s'arrête*
 
-["][3] How about you ?
+`[q]` **Look at the audience**
 
-[c] Look at Nao
+`["]``[3]` **How about you ?**
 
-While Nao speaks :
+`[c]` **Look at Nao**
 
-- [p] SURPRISE 
-- [o] YAWN 
+*While Nao speaks :*
 
-[q] Look at the audience
+- `[p]` **SURPRISE**
+- `[o]` **YAWN**
 
-['][4] Do you have sensors ?
+`[q]` **Look at the audience**
 
-[=] NEUTRAL to get hands down
+`[']``[4]` **Do you have sensors ?**
 
-[c] Look at Nao
+`[=]` **NEUTRAL to get hands down**
 
-While Nao speaks :
+`[c]` **Look at Nao**
 
-- [o] YAWN
+*While Nao speaks :*
 
-[q] Look at the audience
+- `[o]` **YAWN**
 
-[(][5] How many computers do you have ?
+`[q]`**Look at the audience**
 
-[c] Look at Nao
+`[(]``[5]` **How many computers do you have ?**
 
-While Nao speaks :
+`[c]` **Look at Nao**
 
-[b] RASPBERRY
+*While Nao speaks :*
 
-[q] Look at the audience
+`[b]` **RASPBERRY**
 
-[-][6] Let's go !
-```
+`[q]` **Look at the audience**
+
+`[-]``[6]` **Let's go !**
+
+---
 
 ## Scene 6
 
 ### Préparation
 
-```
-[h] happy
-[p] surprise
-[f] afraid
-[j] shy
-[y] angry
-[b] raspberry
-```
+`[h]` happy
+
+`[p]` surprise
+
+`[f]` afraid
+
+`[j]` shy
+
+`[y]` angry
+
+`[b]` raspberry
 
 ### Sequence
 
@@ -111,6 +118,8 @@ ANDREA : Si chiama QT!
 [3] yes
 ```
 
+---
+
 ## Scene 10 Masque blanc
 
 ### Préparation
@@ -119,83 +128,153 @@ Changer les états dans `qt_play.py`.
 
 ### Sequence
 
-```
-bras
-N
+Andrea touche le bras. `[N]`
 
-pied
-N
+Andrea touche le pied. `[N]`
 
-ventre
-O
+Andrea touche le ventre. `[O]`
 
-bras en haut
-O ensemble
+On fait le mouvement ensemble. `[O]`
 
-coucou raté
-i
+Andrea fait un coucou.
 
-coucou
-i ensemble
+Je fais un coucou. `[i]`
 
-bouge
-N
+On fait coucou ensemble. `[i]`
 
-bouge
-N
+Andrea fait un mouvement compliqué. `[N]`
 
-sort
-P
-```
+Andrea fait un autre mouvement. `[N]`
 
-Quand le masque sort dialogue immediatement [&].
+Andrea sort de scene. `[P]`
+
+Quand Andrea sort dialogue **lancer le dialogue suivant immediatement.**
 
 ```
-[&] where are you going
+[&][1] where are you going TODO cahnger le côté
 [r]
-[é] i'm having some communication problems
+[é][2] i'm having some communication problems
 
 Nao entre
 
 QT regarde Nao
 
-["] Nao, Nao, come here!
+Pendant que Nao marche.
+["][3] Nao, Nao, are you here
+Repeter si possible
 
+['][4] Were you able to ..
 
+[(][5] Yes that's true .. big
 
+[n] neutral
 ```
+
+---
 
 ## Scene 11 Claire Heggen
 
+Nao joue avec les masques.
+
+`[è][7] Lancer la video`
+
+Couper la video.
+`rosservice call qt_robot/emotion/stop`
+
+---
+
 ## Scene 12 Short dialogue
 
-apres so big compared to us [n] neutral
+Nao parle.
+
+`[-][6] I see ...` 
+
+Regarder Nao et préparer la scene 14.
+
+---
 
 ## Scene 14 Audition
 
 ### Préparation
 
+```
 Commenter ROS IP
+
 Verifier l'IP de Nao.
+
 Verifier mon IP.
-`ifconfig`
-`rosrun naoqi_driver naoqi_driver_node --qi-url=tcp://192.168.1.100:9559 --roscore_ip=192.168.1.103 --network_interface wlp2s0`
+ifconfig
+
+Lancer le roscore.
+
+rosrun naoqi_driver naoqi_driver_node --qi-url=tcp://192.168.1.100:9559 --roscore_ip=192.168.1.103 --network_interface wlp2s0
+
+Lancer nao_behave et nao_play
+
+Lancer Choregraphe
+choregraphe
+```
+
+### Sequence
+
+ECRIRE LA SEQUENCE.......................
+
+---
 
 ## Scene 18 Autonomie
 
 ## Préparation
 
-ROS IP
-close other terminals
-WIFI
-camera
-qt_play
+Decommenter `ROS_IP`.
+
+`nano .bashrc`
+
+Fermer les terminaux de Nao.
+
+Se connecter à QT WiFi.
+
+Changer la langue en Italien :
+
+```bash
+ssh qtrobot@192.168.100.1
+qtrobot
+rosservice call /qt_robot/speech/config "language: 'it-IT'"
+```
+
+Brancher la caméra.
+
+Configurer un terminal pour `skeleton_converter`.
+
+Changer la scene dans `qt_play` et lancer `qt_behave` et `qt_play`.
+
+---
 
 ## Scene 20 L'adoption
 
+### Préparation
+
+Changer la scene dans `qt_play` et relancer `qt_play`.
+
+### Sequence
+
+Sur feuille.
+
+---
+
 ## Scene 21 Photos famille
 
-TODO : fusionner avec scene 20
+### Sequence
+
+1. : `:` puis `f` kiss **Famille**
+2. : `g` happy **Famille 2**
+3. : `h` yawn **Masques blancs**
+4. : `j` surprise **Masques blancs 2**
+5. : `k` afraid **Masques neutres**
+6. : `l` cry **Christique**
+7. : `m` disgust **Six masques neutres**
+8. : `i`, `b`, `;` puis `ù` angry puis `:` **Ninja**
+9. : `F` shy **Trois acteurs**
+10. : `G` raspberry **Tout le monde** puis j'entre.
 
 ---
 

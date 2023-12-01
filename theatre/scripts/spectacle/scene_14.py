@@ -346,8 +346,7 @@ states = {
     'r_harcelement_3': (
         {
             'g': '',
-            's': '\\rspd=80\\Let me remind you the Universal Declaration of Robotics Rights\
-                  universels. Article one, Robots are made free and remain free and equal in rights to humans.'
+            's': '\\rspd=80\\Let me remind you the Universal Declaration of Robotics Rights. Article one, Robots are made free and remain free and equal in rights to humans.'
         },
         [
             ('time', 1, 'choice')
@@ -425,7 +424,7 @@ states = {
             ('key', '(', 'r_theatre'),
             ('key', '-', 'r_argent'),
             ('key', 'è', 'r_argent_2'),
-            ('key', '_', 'r_cry'),
+            #('key', '_', 'r_cry'),
             ('key', 'ç', 'r_bloquee'),
             ('key', 'à', 'r_je'),
             ('key', ')', 'r_faim'),

@@ -18,7 +18,7 @@ look_up_left = [+20.0,-20.0]
 look_down_right = [-10.0,+10.0]
 look_down_left = [+10.0,+10.0]
 
-TEMPS_ACTEUR = 3
+TEMPS_ACTEUR = 4
 
 spectacle = {
     # QT : Où est le comédien ? Toujours en retard celui-là.
@@ -57,7 +57,7 @@ spectacle = {
         {
             'e' : 'QT/talkinglong',
             'g' : 'QT/bored',
-            's' : 'Tant’è, voi umani la puntualità non sapete proprio cosa sia.'
+            's' : 'Voi umani la puntualità non sapete proprio cosa sia.'
         }, # ! Regard : regarde par terre, regard neutre
         [
             ('time', 6, 'r2_commencons_2')
@@ -218,7 +218,7 @@ spectacle = {
             's' : 'Ascolti quello che dico e la smetta con questa suscettibilità da umano. \\pau=1000\\ Si concentri.'
         },
         [
-            ('time', 10 + TEMPS_ACTEUR, 'detect_gestures_2')
+            ('time', 11 + TEMPS_ACTEUR, 'detect_gestures_2')
         ]
     ),
 
@@ -245,7 +245,7 @@ spectacle = {
             's' : ' Eh oh, non ci siamo proprio! Lei deve capire che è l’umano che deve restare nell’asse visivo del robot, non il contrario...'
         },
         [
-            ('time', 12 + TEMPS_ACTEUR, 'detect_gestures_2')
+            ('time', 14 + TEMPS_ACTEUR, 'detect_gestures_2')
         ]
     ),
 
@@ -260,7 +260,7 @@ spectacle = {
             #'s' : 'Vous ne savez rien faire comme on vous le demande, vous êtes vraiment binaire comme humain.'
         },
         [
-            ('time', 3 + TEMPS_ACTEUR, 'detect_gestures_2')
+            ('time', 4 + TEMPS_ACTEUR, 'detect_gestures_2')
         ]
     ),
 
@@ -277,7 +277,7 @@ spectacle = {
             #'s' : 'On n’avait pas dit que vous deviez un peu retravailler votre carrosserie ? Mettez-vous un peu de l’autre côté.'
         },
         [
-            ('time', 8 + TEMPS_ACTEUR, 'detect_gestures_2')
+            ('time', 15 + TEMPS_ACTEUR, 'detect_gestures_2')
         ]
     ),
 
@@ -293,7 +293,7 @@ spectacle = {
             #'Mais que faites-vous en fond de scène ? Approchez-vous du publique, vous êtes très limité niveau volume sonore.'
         },
         [
-            ('time', 5 + TEMPS_ACTEUR, 'detect_gestures_2')
+            ('time', 6 + TEMPS_ACTEUR, 'detect_gestures_2')
         ]
     ),
 

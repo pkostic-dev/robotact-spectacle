@@ -123,7 +123,7 @@ qt_states = {
     # ! ["]
     'qt_1c_nao': (
         {
-            's': 'Nao, Nao, come here!',
+            's': 'Nao, Nao, are you here!',
             'e': 'QT/talking',
             'h': jardin
         },

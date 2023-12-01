@@ -173,6 +173,7 @@ states = {
     # KONSTANTINOS: Arthur ! S’il te plaît !
 
     # ! regarder le public [s]
+    # ! baise le bras [n]
     # ! [4]
     'w_cest_dingue': (
         {
@@ -180,7 +181,7 @@ states = {
             'e': 'QT/talkinglong',
         },[('time', 0.1, 'choice')]
     ),
-    # ! [n]
+    
     # KONSTANTINOS: Tu fais ton rebel maintenant
     # ! [5]
     'w_moi_le_rebel': (
@@ -358,6 +359,8 @@ states = {
 
     'arm_up_right': ({'ra': arm_up_right,},[('time', 0.1, 'choice')]),
     'arms_table' : ({'ra': arm_table_right,'la': arm_table_left},[('time', 0.1, 'choice')]),
+    'hi' : ( {'e':'','g': 'QT/hi', 's': ''}, [('time', 1, 'choice')]),
+    'hands-up' : ( {'e':'','g': 'QT/imitation/hands-up', 's': ''}, [('time', 1, 'choice')]),
 
     # ? EMOTIONS
     'happy' : ( {'e':'QT/happy','g': '', 's': ''}, [('time', 1, 'choice')]),
@@ -394,12 +397,9 @@ states = {
             ('key', '=', 'w_vous_etes'),
 
             # WOZ Dialogue Page 2
-            ('key', '1', 'w_ah_bon'),
-            ('key', '2', 'w_chais_pas'),
             ('key', '3', 's_tiens'),
             ('key', '4', 'w_cest_dingue'),
             ('key', '5', 'w_moi_le_rebel'),
-            ('key', '6', 'w_ouais_il'),
             ('key', '7', 'w_ah_une_autre'),
             ('key', '8', 'w_trois_araignees'),
             ('key', '9', 'w_comment_ca'),
@@ -435,6 +435,9 @@ states = {
             
             ('key', 'b', 'arm_up_right'),
             ('key', 'n', 'arms_table'),
+            ('key', ',', 'hi'),
+            ('key', ';', 'hands-up'),
+            ('key', ':', 'neutral'),
 
             # Head
             ('key', 'z', 'look_up'),
